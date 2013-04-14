@@ -1,0 +1,36 @@
+!!!
+%html
+  %head
+    %title Chrisbim
+    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag    "style", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #wrapper
+      #page
+        #logo
+          = link_to image_tag('logo.gif'), root_url
+          
+        #navbar
+
+          
+        #content
+          = yield
+          %hr{:style=>'clear:both'}
+          %p This is only a sample to test if Hostmonster works with Rails 3
+          %hr
+        #footer
+          &copy; Chris Beard Photography 2011
+    #dump
+      %p
+        current user:
+        = current_user.inspect      
+      %p
+        current session:
+        = current_user_session.inspect
+      - if current_user
+        = link_to 'Logout', logout_path
+      - else
+        = link_to 'Login', login_path
+      %p= params.inspect

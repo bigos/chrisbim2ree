@@ -1,10 +1,14 @@
 Chrisbim2ree::Application.routes.draw do
 
+
+  resources :password_resets, :only => [ :new, :create, :edit, :update ]
+  
   match 'login' => 'user_sessions#create'
   match 'logout' => 'user_sessions#destroy'
   resource :user_session
   resource :account, :controller => "users"
   
+  root :to => 'user_sessions#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
