@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Chrisbim2ree::Application.config.secret_token = '6f12dbc68280a76126c0d1dfa45042f3f273cf2304233767bbb787a01118c7c13f1ed38448267131043370b2ad050ee47bbd426613a88acee4db794a4032430a'
+Chrisbim2ree::Application.config.secret_token = '6f12dbc68280a76126c0d1dfa45042f3f273cf2304233767bbb787netjneyr5634wfd3844826713104hhshwrhd050ee47bbd426613a88acee4db794a4032430a'
