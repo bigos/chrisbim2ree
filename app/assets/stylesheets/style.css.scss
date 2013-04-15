@@ -1,0 +1,137 @@
+p, ol, ul, td {
+font-family: verdana, arial, helvetica, sans-serif;
+line-height: 18px;
+}
+div#todo{background:red;
+color:white;
+padding:1em;}
+
+body {
+    background: none repeat scroll 0 0 #333333;
+    font-family: arial,verdana,sans-serif;
+    color:lighten(black,40%);
+}
+h1, h2, h3, h4, h5, h6 {color:black;
+}
+
+h3{font-size:18px;
+}
+
+h1.entry-header{
+  font-family: "Oswald", sans-serif;
+  text-shadow: 4px 4px 4px #eee;
+  font-size:32px;
+  font-weight:300;
+  letter-spacing:1px;
+  line-height:52px;
+  vertical-align: baseline;
+  }
+
+p{font-size:12px;}
+
+div#wrapper {
+    margin: 0 auto;
+}
+div#page {
+    background: none repeat scroll 0 0 white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1000px;
+}
+div#logo {
+    padding: 25px;
+}
+div#logo a img {
+    border: medium none;
+}
+div#login {
+    float: right;
+    text-align: right;
+    width: auto;
+}
+div#login a {
+    color: black;
+    text-decoration: none;
+}
+
+#menu-wrapper{height:40px;} 
+#menu-wrapper *{margin: 0; padding: 0;}
+#menu{width:100%; margin: 0 auto; background-color: #000; height:40px;}
+#menu ul{list-style-type:none;}
+#menu ul li{float: left; position: relative; }
+#menu ul li:hover{background-color: #999;}
+#menu ul li a{color: #fff; padding: 0px 30px; line-height:40px; font-size:12px; font-family:arial; display: block; text-decoration:none;}
+#menu ul li a:hover{background-color: #999;}
+#menu ul li ul li{float: none; position: relative; }
+#menu ul li ul{position: absolute; top:25px; left:0; display: none; background-color: #000; width:150px; z-index:99; margin-top:14px;}
+#menu ul li ul li ul{margin-top:0px;}
+#menu ul li ul li ul li{background:#333; border:none red 1px;width:300px;}  
+#menu ul li ul li ul li a{background:#666; border:none green 1px; overflow:hidden; text-overflow:ellipsis;} 
+#menu ul li:hover > ul{display: block;}
+#menu ul li ul li a{white-space: nowrap; line-height:30px;}
+#menu ul li ul li ul{position: absolute; top:0; left:145px; display: none; background-color: #000; width:150px;}
+
+
+div#content {
+    border: 1px none red;
+    margin: 25px;
+    min-height: 380px;
+}
+
+h1.first_heading {
+    background: none repeat scroll 0 0 orange;
+    color: white;
+    font-size: 15px;
+    font-weight: normal;
+    margin-bottom: 2em;
+    padding: 0.5em;
+    text-transform: uppercase;
+}
+h1, h2, h3, h4, h5 {
+    font-weight: normal;
+}
+a.orange {
+    background: none repeat scroll 0 0 transparent;
+    color: #FFA500;
+}
+a.orange:active {
+    color: #FF8C00;
+}
+p.first {
+    margin-top: 0;
+}
+p.last {
+    margin-bottom: 0;
+}
+p.under_construction {
+    background: url("/images/under_construction_small.png") no-repeat scroll 0 0 transparent;
+    border: 2px none red;
+    font-size: 20px;
+    height: 50px;
+    padding-left: 45px;
+    padding-top: 15px;
+}
+div#footer {
+    background: black;
+    font-size:0.75em;
+    clear: both;
+    color: white;
+    padding: 0.25em;
+    text-align: center;
+}
+div#dump {
+    background: none repeat scroll 0 0 yellow;
+    margin: 2em auto auto auto;
+    padding: 1em;
+}
+form {
+    font-size: 13px;
+}
+form input {
+    font-size: 14px;
+    padding: 5px;
+}
+form select {
+    font-size: 14px;
+    padding: 5px;
+}
