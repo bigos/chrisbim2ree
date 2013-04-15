@@ -57,9 +57,14 @@ gem 'fancybox-rails'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0"
+  gem 'cucumber-rails', '>= 1.1.1'
+  gem 'capybara', '~> 1.1.1'
+  gem 'database_cleaner', '0.6.5'
 end
 
 gem "execjs"
+
 gem "therubyracer"
 
 gem 'capistrano'
+
