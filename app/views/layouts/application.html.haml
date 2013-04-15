@@ -29,15 +29,17 @@
         #footer
           &copy; Chris Beard Photography
           = Time.now.year
-    #dump
-      %p
-        current user:
-        = current_user.inspect      
-      %p
-        current session:
-        = current_user_session.inspect
-      - if current_user
-        = link_to 'Logout', logout_path
-      - else
-        = link_to 'Login', login_path
-      %p= params.inspect
+          
+    - if Rails.env == 'development'
+      #dump
+        %p
+          current user:
+          = current_user.inspect      
+        %p
+          current session:
+          = current_user_session.inspect
+        - if current_user
+          = link_to 'Logout', logout_path
+        - else
+          = link_to 'Login', login_path
+        %p= params.inspect
