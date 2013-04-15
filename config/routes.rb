@@ -8,7 +8,7 @@ Chrisbim2ree::Application.routes.draw do
   resource :user_session
   resource :account, :controller => "users"
   
-  root :to => 'user_sessions#new'
+  root :to => 'home_page#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
