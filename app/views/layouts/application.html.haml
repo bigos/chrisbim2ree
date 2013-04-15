@@ -19,7 +19,7 @@
             = link_to 'Login', login_path
         #navbar{:style=>"clear:both;"}
           #menu-wrapper
-            = render :partial => 'layouts/navbar'
+            =# render :partial => 'layouts/navbar'
         
         #content    
           = yield
@@ -27,7 +27,8 @@
           %p This is only a sample to test if Hostmonster works with Rails 3.2.13
           %hr
         #footer
-          &copy; Chris Beard Photography 2011
+          &copy; Chris Beard Photography
+          = Time.now.year
     #dump
       %p
         current user:
