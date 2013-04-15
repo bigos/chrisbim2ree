@@ -60,4 +60,3 @@ group :development, :test do
 end
 
 gem "execjs"
-gem "therubyracer"
