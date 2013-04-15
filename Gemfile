@@ -59,9 +59,4 @@ group :development, :test do
   gem "rspec-rails", ">= 2.0"
 end
 
-group :test do
-  gem "factory_girl", "2.6.4"
-  gem "factory_girl_rails"
-  gem "database_cleaner"
-  gem "launchy"
-end
+
