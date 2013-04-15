@@ -7,7 +7,9 @@ Chrisbim2ree::Application.routes.draw do
   match 'logout' => 'user_sessions#destroy'
   resource :user_session
   resource :account, :controller => "users"
-  
+
+  match 'home_page' => 'home_page#index'
+
   root :to => 'home_page#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
