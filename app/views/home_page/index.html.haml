@@ -5,3 +5,37 @@
   This is work in progress. More complete version of the site can be found on:
   %br
   = link_to "Developer's page", 'http://chrisbeardimages-jpod.rhcloud.com/', :target => :blank
+
+#col1
+  %div{:id=>:image_container, :data => {:slidecount => @slides.count}}
+    - position = 1
+    - @slides.each do |slide|
+      %div{:id=>"slide_#{position}", :class=>'slide'}
+        - position += 1
+        = image_tag slide.photo.url
+        %p.caption
+          = slide.caption
+          
+%div.horizontal_separator{:style=>"clear:both;margin-bottom:1.5em;"}
+#col1a
+  != editable_content("news")
+
+%div{:style=>"clear:both;"}
+          
+#col3
+  #col3a
+    #grid_wrapper
+      %h3 Latest Images
+      #flickr-div
+       
+   
+  #col3b
+    %h3 Featured Image
+    != editable_content("featured_image")
+
+  #col3c
+    %h3 Twitter Feed
+    %div
+      = render :partial => 'layouts/twitter_widget'
+      
+%div{:style=>"clear:both;"}  

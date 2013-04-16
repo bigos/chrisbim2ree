@@ -1,6 +1,6 @@
 %h1 Editing slide
 
-= render 'form'
+= render :partial => 'form', :locals => {:new_slide => false}
 
 = link_to 'Show', @slide
 \|

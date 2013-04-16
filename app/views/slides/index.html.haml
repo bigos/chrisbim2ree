@@ -1,30 +1,32 @@
-%h1 Listing slides
+%h1 Homepage Gallery (950 x 450 @96 dpi)
 
 %table
   %tr
-    %th Caption
     %th Position
-    %th Visible
-    %th Photo file name
-    %th Photo content type
-    %th Photo file size
-    %th Photo updated at
+    %th Move
+    %th Add
+    %th Thumbnail
+
+    %th Caption
+
     %th
     %th
     %th
 
   - @slides.each do |slide|
     %tr
-      %td= slide.caption
       %td= slide.position
-      %td= slide.visible
-      %td= slide.photo_file_name
-      %td= slide.photo_content_type
-      %td= slide.photo_file_size
-      %td= slide.photo_updated_at
+      %td
+        - if slide.position
+          = link_to "up", slides_path({:up => slide.position})
+          = link_to "down", slides_path({:down => slide.position})
+      %td
+        = link_to (check_box_tag 'visible','yes', slide.visible ? true: false ), slides_path(params.merge({:toggle_activation => slide.id}))
+      %td= image_tag slide.photo.url(:thumb)
+      %td= slide.caption
       %td= link_to 'Show', slide
       %td= link_to 'Edit', edit_slide_path(slide)
-      %td= link_to 'Destroy', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Delete', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

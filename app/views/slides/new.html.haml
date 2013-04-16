@@ -1,5 +1,5 @@
 %h1 New slide
 
-= render 'form'
+= render :partial => 'form', :locals => {:new_slide => true}
 
 = link_to 'Back', slides_path
