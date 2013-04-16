@@ -1,7 +1,13 @@
+require 'yaml'
+
+
+secrets = YAML.load_file( "#{ File.dirname(__FILE__)}/secret.yml")
+
 set :application, "chrisbim2ree"
 set :repository,  "git@github.com:bigos/chrisbim2ree.git" 
 
-set(:user) { Capistrano::CLI.ui.ask("host monster User name: ") }
+set(:user) { secrets['deployment']['user'] }
+set(:password) { secrets['deployment']['password'] }
 set :app_path, "/home2/#{user}/rails/chrisbim2ree"
 
 
