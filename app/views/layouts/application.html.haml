@@ -30,7 +30,9 @@
         #footer
           &copy; Chris Beard Photography
           = Time.now.year
-          
+      #widget                 
+        = render :partial => 'layouts/flickr_widget'
+                  
     - if Rails.env == 'development'
       #dump
         %p

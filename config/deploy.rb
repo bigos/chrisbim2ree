@@ -1,6 +1,5 @@
 require 'yaml'
 
-
 secrets = YAML.load_file( "#{ File.dirname(__FILE__)}/secret.yml")
 
 set :application, "chrisbim2ree"
