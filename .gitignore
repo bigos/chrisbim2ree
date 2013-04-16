@@ -15,8 +15,11 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
+/config/secret.yml
 /config/database.yml 
 /public/.htaccess
+
+
 
 public/400.shtml
 public/401.shtml
