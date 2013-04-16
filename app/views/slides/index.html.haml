@@ -1,0 +1,31 @@
+%h1 Listing slides
+
+%table
+  %tr
+    %th Caption
+    %th Position
+    %th Visible
+    %th Photo file name
+    %th Photo content type
+    %th Photo file size
+    %th Photo updated at
+    %th
+    %th
+    %th
+
+  - @slides.each do |slide|
+    %tr
+      %td= slide.caption
+      %td= slide.position
+      %td= slide.visible
+      %td= slide.photo_file_name
+      %td= slide.photo_content_type
+      %td= slide.photo_file_size
+      %td= slide.photo_updated_at
+      %td= link_to 'Show', slide
+      %td= link_to 'Edit', edit_slide_path(slide)
+      %td= link_to 'Destroy', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Slide', new_slide_path

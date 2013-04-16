@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Caption:
+  = @slide.caption
+%p
+  %b Position:
+  = @slide.position
+%p
+  %b Visible:
+  = @slide.visible
+%p
+  %b Photo file name:
+  = @slide.photo_file_name
+%p
+  %b Photo content type:
+  = @slide.photo_content_type
+%p
+  %b Photo file size:
+  = @slide.photo_file_size
+%p
+  %b Photo updated at:
+  = @slide.photo_updated_at
+
+= link_to 'Edit', edit_slide_path(@slide)
+\|
+= link_to 'Back', slides_path

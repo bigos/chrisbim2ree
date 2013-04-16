@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @editable.name
+%p
+  %b Content:
+  = @editable.content
+
+= link_to 'Edit', edit_editable_path(@editable)
+\|
+= link_to 'Back', editables_path

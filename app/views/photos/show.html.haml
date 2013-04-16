@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Attachment file name:
+  = @photo.attachment_file_name
+%p
+  %b Attachment content type:
+  = @photo.attachment_content_type
+%p
+  %b Attachment file size:
+  = @photo.attachment_file_size
+%p
+  %b Attachment updated at:
+  = @photo.attachment_updated_at
+
+= link_to 'Edit', edit_photo_path(@photo)
+\|
+= link_to 'Back', photos_path

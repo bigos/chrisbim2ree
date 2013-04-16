@@ -1,0 +1,21 @@
+%h1 Listing editables
+
+%table
+  %tr
+    %th Name
+    %th Content
+    %th
+    %th
+    %th
+
+  - @editables.each do |editable|
+    %tr
+      %td= editable.name
+      %td= editable.content
+      %td= link_to 'Show', editable
+      %td= link_to 'Edit', edit_editable_path(editable)
+      %td= link_to 'Destroy', editable, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Editable', new_editable_path

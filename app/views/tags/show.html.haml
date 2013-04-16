@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tag.name
+%p
+  %b Parent:
+  = @tag.parent_id
+%p
+  %b Photo:
+  = @tag.photo_id
+
+= link_to 'Edit', edit_tag_path(@tag)
+\|
+= link_to 'Back', tags_path
