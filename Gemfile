@@ -63,6 +63,8 @@ end
 
 group :test do
   gem 'cucumber-rails', '>=1.1.1'
+  gem "factory_girl", "2.6.4", :group => :test
+  gem "factory_girl_rails", :group => :test
 end
 
 gem "execjs"
