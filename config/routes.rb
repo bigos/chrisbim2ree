@@ -1,6 +1,21 @@
 Chrisbim2ree::Application.routes.draw do
 
 
+  resources :tags
+
+
+  resources :photos
+
+
+  resources :slides
+
+
+  resources :editables
+
+
+  resources :workshops
+
+
   resources :posts
 
 

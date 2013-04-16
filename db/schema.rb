@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416151019) do
+ActiveRecord::Schema.define(:version => 20130416154143) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -28,10 +28,46 @@ ActiveRecord::Schema.define(:version => 20130416151019) do
   add_index "ckeditor_assets", ["assetable_type", "assetable_id"], :name => "idx_ckeditor_assetable"
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_ckeditor_assetable_type"
 
+  create_table "editables", :force => true do |t|
+    t.string   "name"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "attachment_file_name"
+    t.string   "attachment_content_type"
+    t.integer  "attachment_file_size"
+    t.datetime "attachment_updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
   create_table "posts", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.text     "teaser"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "slides", :force => true do |t|
+    t.string   "caption"
+    t.integer  "position"
+    t.boolean  "visible"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "name"
+    t.integer  "parent_id"
+    t.integer  "photo_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -60,6 +96,15 @@ ActiveRecord::Schema.define(:version => 20130416151019) do
     t.string   "full_name"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+  end
+
+  create_table "workshops", :force => true do |t|
+    t.integer  "duration"
+    t.string   "title"
+    t.text     "content"
+    t.date     "start_date"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end
