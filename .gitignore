@@ -17,7 +17,6 @@ pickle-email-*.html
 
 /config/database.yml 
 /public/.htaccess
-Gemfile.lock
 
 public/400.shtml
 public/401.shtml
