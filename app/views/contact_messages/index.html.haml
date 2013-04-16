@@ -1,0 +1,23 @@
+%h1 Listing contact_messages
+
+%table
+  %tr
+    %th From
+    %th Subject
+    %th Message
+    %th
+    %th
+    %th
+
+  - @contact_messages.each do |contact_message|
+    %tr
+      %td= contact_message.from
+      %td= contact_message.subject
+      %td= contact_message.message
+      %td= link_to 'Show', contact_message
+      %td= link_to 'Edit', edit_contact_message_path(contact_message)
+      %td= link_to 'Destroy', contact_message, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Contact message', new_contact_message_path

@@ -1,6 +1,12 @@
 Chrisbim2ree::Application.routes.draw do
 
 
+  resources :comments
+
+
+  resources :contact_messages
+
+
   resources :tags
 
 
