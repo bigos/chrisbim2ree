@@ -26,10 +26,14 @@ role :db,  "chrisbeard-images.com", :primary => true # This is where Rails migra
    task :restart, :roles => :app do
     run " cd #{app_path}  ; git pull "
     run " touch #{File.join(app_path,'tmp','restart.txt')}"
-    run " ls -l #{File.join(app_path,'tmp','restart.txt')}"
    end
  end
 
 task :list_home, :roles => :app do
   run "ls -1 #{app_path} "
+end
+
+task :recompile_assets do
+  run " cd #{app_path}  "
+  run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake assets:precompile'"
 end
