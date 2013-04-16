@@ -24,6 +24,7 @@ role :db,  "chrisbeard-images.com", :primary => true # This is where Rails migra
    task :start do ; end
    task :stop do ; end
    task :restart, :roles => :app do
+    run " cd #{app_path}  ; git pull "
     run " touch #{File.join(app_path,'tmp','restart.txt')}"
     run " ls -l #{File.join(app_path,'tmp','restart.txt')}"
    end
