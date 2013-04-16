@@ -11,16 +11,16 @@ class Photo < ActiveRecord::Base
 
   def tag_with!(tag_name)
     #p "will try to tag it as #{tag_name}"
-    tag = Tag.where(name: tag_name).first
+    tag = Tag.where(:name => tag_name).first
     unless tag
-      tag = Tag.new(name: tag_name) 
+      tag = Tag.new(:name =>  tag_name) 
       tag.save
     end
-    tagging=Tagging.new(photo_id: self.id, tag_id: tag.id)
+    tagging=Tagging.new(:photo_id => self.id, :tag_id => tag.id)
     tagging.save
     while tag.parent
       tag = tag.parent
-      tagging=Tagging.new(photo_id: self.id, tag_id: tag.id)
+      tagging=Tagging.new(:photo_id => self.id, :tag_id => tag.id)
       tagging.save
     end
   end
