@@ -6,18 +6,12 @@ describe "slides/index" do
       stub_model(Slide,
         :caption => "Caption",
         :position => 1,
-        :visible => false,
-        :photo_file_name => "Photo File Name",
-        :photo_content_type => "Photo Content Type",
-        :photo_file_size => 2
+        :visible => false
       ),
       stub_model(Slide,
         :caption => "Caption",
         :position => 1,
-        :visible => false,
-        :photo_file_name => "Photo File Name",
-        :photo_content_type => "Photo Content Type",
-        :photo_file_size => 2
+        :visible => false
       )
     ])
   end
@@ -28,8 +22,5 @@ describe "slides/index" do
     assert_select "tr>td", :text => "Caption".to_s, :count => 2
     assert_select "tr>td", :text => 1.to_s, :count => 2
     assert_select "tr>td", :text => false.to_s, :count => 2
-    assert_select "tr>td", :text => "Photo File Name".to_s, :count => 2
-    assert_select "tr>td", :text => "Photo Content Type".to_s, :count => 2
-    assert_select "tr>td", :text => 2.to_s, :count => 2
   end
 end

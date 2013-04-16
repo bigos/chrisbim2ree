@@ -4,8 +4,7 @@ describe "posts/new" do
   before(:each) do
     assign(:post, stub_model(Post,
       :title => "MyString",
-      :content => "MyText",
-      :teaser => "MyText"
+      :content => "MyText"
     ).as_new_record)
   end
 
@@ -16,7 +15,6 @@ describe "posts/new" do
     assert_select "form[action=?][method=?]", posts_path, "post" do
       assert_select "input#post_title[name=?]", "post[title]"
       assert_select "textarea#post_content[name=?]", "post[content]"
-      assert_select "textarea#post_teaser[name=?]", "post[teaser]"
     end
   end
 end

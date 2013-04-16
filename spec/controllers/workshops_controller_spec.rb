@@ -24,7 +24,7 @@ describe WorkshopsController do
   # Workshop. As you add validations to Workshop, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "duration" => "1" }
+    { "type" => "" }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -89,14 +89,14 @@ describe WorkshopsController do
       it "assigns a newly created but unsaved workshop as @workshop" do
         # Trigger the behavior that occurs when invalid params are submitted
         Workshop.any_instance.stub(:save).and_return(false)
-        post :create, {:workshop => { "duration" => "invalid value" }}, valid_session
+        post :create, {:workshop => { "type" => "invalid value" }}, valid_session
         assigns(:workshop).should be_a_new(Workshop)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Workshop.any_instance.stub(:save).and_return(false)
-        post :create, {:workshop => { "duration" => "invalid value" }}, valid_session
+        post :create, {:workshop => { "type" => "invalid value" }}, valid_session
         response.should render_template("new")
       end
     end
@@ -110,8 +110,8 @@ describe WorkshopsController do
         # specifies that the Workshop created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Workshop.any_instance.should_receive(:update_attributes).with({ "duration" => "1" })
-        put :update, {:id => workshop.to_param, :workshop => { "duration" => "1" }}, valid_session
+        Workshop.any_instance.should_receive(:update_attributes).with({ "type" => "" })
+        put :update, {:id => workshop.to_param, :workshop => { "type" => "" }}, valid_session
       end
 
       it "assigns the requested workshop as @workshop" do
@@ -132,7 +132,7 @@ describe WorkshopsController do
         workshop = Workshop.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Workshop.any_instance.stub(:save).and_return(false)
-        put :update, {:id => workshop.to_param, :workshop => { "duration" => "invalid value" }}, valid_session
+        put :update, {:id => workshop.to_param, :workshop => { "type" => "invalid value" }}, valid_session
         assigns(:workshop).should eq(workshop)
       end
 
@@ -140,7 +140,7 @@ describe WorkshopsController do
         workshop = Workshop.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Workshop.any_instance.stub(:save).and_return(false)
-        put :update, {:id => workshop.to_param, :workshop => { "duration" => "invalid value" }}, valid_session
+        put :update, {:id => workshop.to_param, :workshop => { "type" => "invalid value" }}, valid_session
         response.should render_template("edit")
       end
     end

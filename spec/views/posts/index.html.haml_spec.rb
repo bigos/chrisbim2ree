@@ -5,13 +5,11 @@ describe "posts/index" do
     assign(:posts, [
       stub_model(Post,
         :title => "Title",
-        :content => "MyText",
-        :teaser => "MyText"
+        :content => "MyText"
       ),
       stub_model(Post,
         :title => "Title",
-        :content => "MyText",
-        :teaser => "MyText"
+        :content => "MyText"
       )
     ])
   end
@@ -20,7 +18,6 @@ describe "posts/index" do
     render
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "tr>td", :text => "Title".to_s, :count => 2
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
     assert_select "tr>td", :text => "MyText".to_s, :count => 2
   end
 end

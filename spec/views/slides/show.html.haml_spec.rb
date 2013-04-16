@@ -5,10 +5,7 @@ describe "slides/show" do
     @slide = assign(:slide, stub_model(Slide,
       :caption => "Caption",
       :position => 1,
-      :visible => false,
-      :photo_file_name => "Photo File Name",
-      :photo_content_type => "Photo Content Type",
-      :photo_file_size => 2
+      :visible => false
     ))
   end
 
@@ -18,8 +15,5 @@ describe "slides/show" do
     rendered.should match(/Caption/)
     rendered.should match(/1/)
     rendered.should match(/false/)
-    rendered.should match(/Photo File Name/)
-    rendered.should match(/Photo Content Type/)
-    rendered.should match(/2/)
   end
 end
