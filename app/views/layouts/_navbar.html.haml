@@ -1,0 +1,42 @@
+
+#menu
+  %ul
+    %li= link_to 'HOME', root_url
+    %li
+      = link_to 'ABOUT ME', "/about_me/about"
+      %ul
+        %li= link_to 'Equipment', "/about_me/equipment"
+        %li= link_to 'Work', "/about_me/work"
+    %li
+      = link_to 'WORKSHOPS', '/workshop_information/show'
+      %ul
+        %li
+          = link_to '5 Day Workshops', '/photo_workshops/5/days'
+          %ul
+            - Workshop.where(:duration => '5').order(:start_date).each do |workshop|
+              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
+        %li
+          = link_to '3 Day Workshops', '/photo_workshops/3/days'
+          %ul
+            - Workshop.where(:duration => '3').order(:start_date).each do |workshop|
+              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop          
+        %li
+          = link_to 'Weekend Workshops', '/photo_workshops/2/days'
+          %ul
+            - Workshop.where(:duration => '2').order(:start_date).each do |workshop|
+              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop          
+        %li= link_to 'editables', editables_path
+        %li= link_to 'slides', slides_path
+
+        
+    %li= link_to 'PERSONAL TUITION', "/about_me/personal_tuition"
+    %li= link_to 'TALKS', "/about_me/talks"
+    %li
+      = link_to 'GALLERIES', '#'
+      %ul        
+        %li= link_to 'photos', photos_path
+        %li= link_to 'categories', tags_path
+    
+    %li= link_to 'BLOG', posts_path 
+    %li= link_to 'CONTACT', '/contact'
+    

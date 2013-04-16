@@ -1,6 +1,9 @@
 Chrisbim2ree::Application.routes.draw do
 
 
+  resources :posts
+
+
   resources :password_resets, :only => [ :new, :create, :edit, :update ]
   
   match 'login' => 'user_sessions#create'

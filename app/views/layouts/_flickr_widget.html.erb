@@ -1,0 +1,22 @@
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+	$.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=56587968@N08&format=json&jsoncallback=?", function(data) {
+	    var target = "#flickr-div"; // Name of div surrounding images.
+	    for (i = 0; i <= 8; i = i + 1) { // Loop through the 6 most recent, [0-5]
+		var pic = data.items[i];
+		var liNumber = i + 1; // Add class to each LI (1-6)		
+		var picurl = pic.media.m.replace("_m.jpg","_s.jpg"); 
+		$(target).append("<a title='" + pic.title + "' href='" + pic.link + "' class='col"+(i%3)+"'>"+
+				 "<img src='" + picurl + 
+				 "' class='col"+ (i%3) +
+				 "' id='grid_"+i+
+				 "' />"+				 
+				 "</a>");
+	    }
+	});
+    });
+</script>
+
+
+
+

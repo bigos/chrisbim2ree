@@ -1,0 +1,39 @@
+#footer_area
+  %div{:class => 'col1'}
+    %h3 Mailing List
+    %p
+      If you would like to join our mailing list
+      and receive a regular newsletter containing
+      news items, hints &amp; tips, inspiration
+      and advanced notification or new workshops,
+      please fill in your email address here:
+      %br
+      %br
+      = text_field_tag 'subscribe'
+      = submit_tag 'Submit'
+  %div{:class => 'col2'}
+    %h3 Follow Me On:  
+    %div
+      = link_to "http://www.flickr.com/photos/56587968@N08/", :class => 'footer_social', :target => '_blank' do
+        %div
+          %span Flickr
+          = image_tag 'flickr.png'
+    %div
+      = link_to "https://www.facebook.com/chris.beard.7902", :class => 'footer_social', :target => '_blank' do
+        %div
+          %span Facebook
+          = image_tag 'facebook.png'
+    %div
+      = link_to "https://twitter.com/CB1mages", :class => 'footer_social', :target => '_blank' do
+        %div
+          %span Twitter
+          = image_tag 'twitter.png'
+  %div{:class => 'col3'}
+    %h3 Latest Blog
+    %ul
+      - posts = Post.find(:all, :order => "created_at DESC",:limit => 3)
+      - posts.each do |post|
+        %li
+          %div.time
+            %strong=  post.created_at.strftime("#{post.created_at.day.ordinalize} %b %Y")
+          = link_to( raw(post.teaser), post, :class=>'teaser')
