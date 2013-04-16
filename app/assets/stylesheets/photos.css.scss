@@ -1,3 +1,81 @@
-// Place all the styles related to the Photos controller here.
+// Place all the styles related to the photos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#photo_grid{ //border:solid red 1px;
+  h3{margin-top:0px;}
+  display:inline-block;
+    width:730px;
+  ul{ list-style: none outside none;
+    padding:0px;
+    margin-top:0px;
+    //border:solid red 1px;
+    li{
+      background: none repeat scroll 0 0 #F9F9F9;
+      float: left;
+      height: 150px;
+      line-height: 150px;
+      overflow: hidden;
+      position: relative;
+      text-align: center;
+      width: 220px;
+        
+  div{text-align:center;
+    background:#eee;
+    width: 225px;
+    height: 150px;
+    line-height:150px;
+    overflow: hidden;
+    position:relative;
+    border:solid #fafafa 2px;
+    img{vertical-align:middle;
+      border:solid #eee 3px;
+ 
+        }
+      }
+    }
+    li.column0{//border:solid red;
+      margin: 0px 0px 20px 0px;}
+      
+    li.column1{//border:solid green;
+      margin: 0px 25px 20px 25px;}
+    li.column2{//border:solid blue;
+      margin: 0px 0px 20px 0px;}
+      }
+    }
+#tags_wrapper{
+  h3{margin-top:0px;}
+  }
+#tags{
+  h3{padding-left:24px;
+    margin-top:5px;
+    margin-bottom:0.5em;
+    }
+  width:220px;
+  background: none repeat scroll 0 0 #F9F9F9;
+  a { color: #000; margin:3px;
+    text-decoration:none;
+    }
+  a:visited { color: #000; }
+  a:hover { color:#333;
+  background:#fff;}
+  ul{list-style: none outside none;
+    padding-left:20px;
+    }
+  ul li:first-child{margin-top:0px;;
+    }
+  ul.depth-0{margin-top:0.5em;
+    }
+  ul.depth-1{
+    padding-left:10px;
+    padding-bottom:1px;
+    li{font-size:13px;
+      line-height:125%;
+      }
+    }
+  li{margin:3px;
+    line-height:150%;
+    font-size:15px;
+    }
+  }

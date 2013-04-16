@@ -1,3 +1,38 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#social_buttons > a {
+  text-decoration: none;
+}
+
+.show-edit-delete{clear:both;
+  margin:0.5em;
+  }  
+
+.post-teaser{display:inline-block;
+  border:solid darken(white,20%) 1px;
+  margin-top:1em;
+  padding:0.75em;
+  background:#fafafa;
+  img{float:left;
+    margin-right: 25px;
+    margin-bottom:0px;
+    }
+
+  #teaser-more{font-size:12px;
+    font-style:italic;
+    text-decoretion:none;
+    }
+
+  h3.post-title{float:left;
+    margin-top: 0px;
+    }
+    
+  p.post-date{float:right;
+    font-weight: bold;
+    margin-top: 0px;
+    }
+  .comment-count{font-size: 10px;}
+  }

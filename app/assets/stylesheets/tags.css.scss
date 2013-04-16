@@ -1,3 +1,38 @@
 // Place all the styles related to the Tags controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#taglist{
+  ul{list-style: none outside none;}
+  a{text-decoration:none;}
+}
+
+ul#category-photos{
+  list-style: none outside none;
+  width:1000px;
+  display:inline-block;
+  padding-left:0px;
+  li{
+    a{text-decoration:none;}
+    float:left;
+    margin: 0px 10px 20px 0px;
+    .photo-frame{
+      background:#eeeeee;
+      border:solid #e0e0e0 1px;
+      text-align:center;
+      .photo-div{
+        width:225px;
+        height:150px;
+        line-height:150px;
+        vertical-align:middle;
+        img{
+          vertical-align:middle;
+          }
+        }
+      .caption{
+        font-size:11px;      
+        text-decoration:none;
+        }          
+      }
+    }
+  }

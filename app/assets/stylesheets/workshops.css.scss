@@ -1,3 +1,11 @@
 // Place all the styles related to the Workshops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div.workshop{
+  border: solid darken(white,5%) 1px;
+  background: darken(white,1%);
+  padding: 1em;
+  margin-bottom:1em;
+}
