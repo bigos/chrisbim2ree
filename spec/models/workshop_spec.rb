@@ -7,28 +7,28 @@ describe Workshop do
     workshop.should be_valid
   end
   it "is invalid without a duration" do
-    FactoryGirl.build(:workshop, duration: nil).should_not be_valid
+    FactoryGirl.build(:workshop, :duration => nil).should_not be_valid
   end
   it "is invalid without a title" do
-    FactoryGirl.build(:workshop, title: nil).should_not be_valid
+    FactoryGirl.build(:workshop, :title => nil).should_not be_valid
   end
   it "is invalid without a teaser" do
-    FactoryGirl.build(:workshop, teaser: nil).should_not be_valid
+    FactoryGirl.build(:workshop, :content => nil).should_not be_valid
   end
-  it "is invalid without a title" do
-    FactoryGirl.build(:workshop, teaser: nil).should_not be_valid
+  it "is invalid without a start_date" do
+    FactoryGirl.build(:workshop, :start_date => nil).should_not be_valid
   end
 
   it "is invalid with wrong duration" do
-    FactoryGirl.build(:workshop, duration: 'weekend').should_not be_valid
+    FactoryGirl.build(:workshop, :duration => 'weekend').should_not be_valid
   end
   it "is valid with duration - weekend" do
-    FactoryGirl.build(:workshop, duration: 2).should be_valid
+    FactoryGirl.build(:workshop, :duration => 2).should be_valid
   end
   it "is valid with duration - 3 day" do
-    FactoryGirl.build(:workshop, duration: 3).should be_valid
+    FactoryGirl.build(:workshop, :duration => 3).should be_valid
   end
   it "is valid with duration - 5 day" do
-    FactoryGirl.build(:workshop, duration: 5).should be_valid
+    FactoryGirl.build(:workshop, :duration => 5).should be_valid
   end
 end

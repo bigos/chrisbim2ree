@@ -7,9 +7,9 @@ describe Tag do
     tag.should be_valid
   end
   it "is invalid with no name" do
-    FactoryGirl.build(:tag, name: '').should_not be_valid
+    FactoryGirl.build(:tag, :name => '').should_not be_valid
   end
   it "is invalid with name made of spaces" do
-    FactoryGirl.build(:tag, name: '   ').should_not be_valid
+    FactoryGirl.build(:tag, :name => '   ').should_not be_valid
   end
 end
