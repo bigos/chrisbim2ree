@@ -8,15 +8,16 @@
 
   .field
     = f.label :duration
-    = f.number_field :duration
+    = f.select :duration, Workshop::DURATION_OPTIONS, :prompt => 'select'
+  .field
+    = f.label :start_date  
+    - formatted_date =  @workshop.start_date ? @workshop.start_date.strftime("%d/%B/%Y") : ''
+    = f.datepicker :start_date, :value => formatted_date
   .field
     = f.label :title
     = f.text_field :title
   .field
     = f.label :content
-    = f.text_area :content
-  .field
-    = f.label :start_date
-    = f.date_select :start_date
+    = f.cktext_area :content
   .actions
     = f.submit 'Save'

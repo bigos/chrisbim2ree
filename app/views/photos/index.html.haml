@@ -1,25 +1,28 @@
-%h1 Listing photos
 
-%table
-  %tr
-    %th Attachment file name
-    %th Attachment content type
-    %th Attachment file size
-    %th Attachment updated at
-    %th
-    %th
-    %th
 
-  - @photos.each do |photo|
-    %tr
-      %td= photo.attachment_file_name
-      %td= photo.attachment_content_type
-      %td= photo.attachment_file_size
-      %td= photo.attachment_updated_at
-      %td= link_to 'Show', photo
-      %td= link_to 'Edit', edit_photo_path(photo)
-      %td= link_to 'Destroy', photo, :method => :delete, :data => { :confirm => 'Are you sure?' }
+#tags_wrapper{:style=>'float:right;'}
+  %h3 Gallery Links
+  %div#tags{:style=>'float:right;'}
+    != tag_links(max_level = 1, :photos)
 
-%br
+- columns = 3
+- col = 0
 
-= link_to 'New Photo', new_photo_path
+
+#photo_grid
+  %h3  Photos
+  %ul
+    - @photos.each do |photo|
+      %li{:class=> "column#{col}"}
+        - col < columns-1 ? col += 1 : col = 0
+        %div
+          = link_to image_tag(photo.attachment.url(:medium)), photo.attachment.url, {:class => 'fancybox', :title => photo.attachment_file_name[0..-5].gsub('_',' ')}
+
+%div{:style=>'clear:both;'}
+  
+= will_paginate @photos
+
+%div.scaffold-bottom-links
+  - if current_admin  
+    = link_to 'New Photo', new_photo_path
+    = link_to 'Bulk Photo Upload', '/bulk_upload/new'

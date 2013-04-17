@@ -1,15 +1,31 @@
 %p#notice= notice
 
-%p
-  %b Title:
-  = @post.title
-%p
-  %b Content:
-  = @post.content
-%p
-  %b Teaser:
-  = @post.teaser
+%div
+  %h2= @post.title
+  %p
+    %strong=  @post.created_at.strftime("#{@post.created_at.day.ordinalize} %b %Y")
+  %p!= @post.content
+%div{:style=>'clear:both;'}
+  = link_to 'Edit', edit_post_path(@post)
+  |
+  = link_to 'Back', posts_path
 
-= link_to 'Edit', edit_post_path(@post)
-\|
-= link_to 'Back', posts_path
+%br
+#social_buttons  
+  = render :partial => "layouts/pinterest_widget"
+  = render :partial => "layouts/twitter_button_widget"
+  = render :partial => "layouts/facebook_like_widget"
+
+
+%p= pluralize @post.comments.count, "comment"
+- @post.comments.each do |comment|
+  %p= comment.content
+
+
+
+%h2 Add a comment:
+= form_for([@post, @post.comments.build]) do |f| 
+  = f.label :content
+  %br
+  = f.text_area :content
+  = f.submit

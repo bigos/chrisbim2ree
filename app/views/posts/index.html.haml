@@ -1,23 +1,23 @@
-%h1 Listing posts
+= link_to 'New Post', new_post_path  if current_admin
 
-%table
-  %tr
-    %th Title
-    %th Content
-    %th Teaser
-    %th
-    %th
-    %th
+%h3 Blog
+- @posts.each do |post|  
+  %div.post-teaser
+    %p.post-date=  post.created_at.strftime("#{post.created_at.day.ordinalize} %b %Y")
+    %h3.post-title= post.title
 
-  - @posts.each do |post|
-    %tr
-      %td= post.title
-      %td= post.content
-      %td= post.teaser
-      %td= link_to 'Show', post
-      %td= link_to 'Edit', edit_post_path(post)
-      %td= link_to 'Destroy', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%br
-
-= link_to 'New Post', new_post_path
+    %p{:style=>'clear:both;'}
+      != post.teaser
+      #teaser-more
+        = link_to 'Read more', post
+    - if post.comments.count > 0
+      .comment-count
+        = pluralize post.comments.count,  "comment"
+    %div{:style=>'clear:both;'}
+    - if current_admin
+      %div.scaffold-bottom-links
+        = link_to 'Edit', edit_post_path(post)
+        = link_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          
+%div.scaffold-bottom-links
+  = link_to 'New Post', new_post_path if current_admin

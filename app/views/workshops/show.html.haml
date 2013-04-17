@@ -1,17 +1,12 @@
 %p#notice= notice
 
 %p
-  %b Duration:
+  %b Type:
   = @workshop.duration
+%h1
+  = @workshop.title + ' - ' + @workshop.date_range
 %p
-  %b Title:
-  = @workshop.title
-%p
-  %b Content:
-  = @workshop.content
-%p
-  %b Start date:
-  = @workshop.start_date
+  != @workshop.content
 
 = link_to 'Edit', edit_workshop_path(@workshop)
 \|

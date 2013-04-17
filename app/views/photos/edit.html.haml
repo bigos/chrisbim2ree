@@ -1,7 +1,21 @@
 %h1 Editing photo
 
-= render 'form'
+%p Tell me how you want to edit photos, perhaps something could be done about it. Perhaps some tag editing stuff can go here.
 
-= link_to 'Show', @photo
-\|
-= link_to 'Back', photos_path
+
+= link_to image_tag(@photo.attachment.url(:medium)), @photo.attachment.url, {:class => 'fancybox', :title => @photo.attachment_file_name[0..-5].gsub('_',' ')}
+
+
+%p
+  - Tag.find(:all, :order=>'name').each do |t|
+    - tagging = Tagging.where(:photo_id=>@photo.id, :tag_id=>t.id).first
+    = link_to (raw t.name+(check_box_tag 'visible','yes', tagging )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
+        
+
+  
+  
+
+%div.scaffold-bottom-links
+  = link_to 'Show', @photo
+  \|
+  = link_to 'Back', photos_path
