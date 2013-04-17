@@ -5,7 +5,7 @@ class BulkUploadController < ApplicationController
     
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @photo }
+      format.json { render :json => @photo }
     end
   end
 end

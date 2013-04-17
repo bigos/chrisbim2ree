@@ -1,4 +1,3 @@
-class AboutMeController < ApplicationController
-  def index
-  end
+class AboutMeController < InheritedResources::Base
+  :only => :index
 end
