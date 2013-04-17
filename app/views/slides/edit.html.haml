@@ -1,5 +1,7 @@
 %h1 Editing slide
 
+= image_tag @slide.photo.url(:thumb)
+
 = render :partial => 'form', :locals => {:new_slide => false}
 
 = link_to 'Show', @slide
