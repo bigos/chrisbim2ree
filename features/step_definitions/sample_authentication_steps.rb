@@ -2,22 +2,9 @@ require 'factory_girl'
 
 Given(/^the following user exists:$/) do |table|
   data = table.raw[1]
-  #p data
-
-  # it fixes following error
-  # Factory already registered: user (FactoryGirl::DuplicateDefinitionError)
-  FactoryGirl.factories.clear
-
-  FactoryGirl.define do
-    factory :user do
-      username data[0]
-      password data[1]
-      active true
-      email "user@example.com"
-      password_confirmation data[1]
-    end
-  end
-  user = FactoryGirl.create(:user)  
+  p data
+  user = FactoryGirl.create(:user, :username => data[0],
+                            :password => data[1])  
   #p user
 end
 

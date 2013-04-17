@@ -3,7 +3,7 @@ require 'factory_girl'
 Given(/^the following tags exist:$/) do |table|
   table.raw.each do |el|
     #p el[0]
-    t = FactoryGirl.create(:tag, name: el[0]) 
+    t = FactoryGirl.create(:tag, :name => el[0]) 
     #p t
   end
   ta = Tag.all
@@ -12,7 +12,7 @@ end
 
 Given(/^the following photos exist:$/) do |table|
   table.raw.each do |el|
-    FactoryGirl.create(:photo, attachment_file_name: el[0]) 
+    FactoryGirl.create(:photo, :attachment_file_name => el[0]) 
   end
   Photo.all.count.should be(table.raw.size)
 end

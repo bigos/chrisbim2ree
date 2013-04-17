@@ -1,38 +1,49 @@
 Chrisbim2ree::Application.routes.draw do
-
-
-  resources :comments
-
-
+  
+  match 'contact' => 'contact_messages#new'
   resources :contact_messages
 
+  get "bulk_upload/new"
 
   resources :tags
-
 
   resources :photos
 
 
-  resources :slides
+  get "workshop_information/show"
 
-
-  resources :editables
-
-
+  match "/photo_workshops/:duration/days" => 'workshops#index'
   resources :workshops
 
 
-  resources :posts
+  match "about_me/:section" => 'about_me#index'
+
+  resources :slides
 
 
   resources :password_resets, :only => [ :new, :create, :edit, :update ]
   
-  match 'login' => 'user_sessions#create'
+  resources :editables
+
+  get "home_page/index"
+
+  match '/activate/:activation_code' => 'activations#create'
+
+  get "activations/create"
+
+  resources :posts do
+    resources :comments
+  end
+
+  match 'login' => 'user_sessions#new'
   match 'logout' => 'user_sessions#destroy'
   resource :user_session
-  resource :account, :controller => "users"
 
-  match 'home_page' => 'home_page#index'
+  match 'register' => 'user#new'
+  resource :account, :controller => "users"
+  
+  mount Ckeditor::Engine => '/ckeditor'
+ 
 
   root :to => 'home_page#index'
   # The priority is based upon order of creation:

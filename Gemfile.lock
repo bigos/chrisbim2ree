@@ -224,7 +224,6 @@ DEPENDENCIES
   cucumber-rails (>= 1.1.1)
   database_cleaner (= 0.6.5)
   execjs
-  factory_girl (= 2.6.4)
   factory_girl_rails
   fancybox-rails
   haml-rails

@@ -3,17 +3,11 @@ require 'factory_girl'
 
 Given(/^a user exists with email: "(.*?)", password: "(.*?)" and username: "(.*?)"$/) do |arg1, arg2, arg3|
   
-
-  FactoryGirl.define do
-    factory :user do
-      username arg3
-      email arg1
-      password arg2
-      password_confirmation arg2
-      active true
-    end
-  end
-  user = FactoryGirl.create(:user) 
+  user = FactoryGirl.create(:user, 
+                            :username => arg3, 
+                            :email => arg1,
+                            :password => arg2, 
+                            :password_confirmation => arg2) 
   p user
 end
 
