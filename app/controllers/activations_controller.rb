@@ -1,6 +1,6 @@
-class ActivationsController < ApplicationController
+class ActivationsController < InheritedResources::Base
   before_filter :require_no_user
-
+  actions :create
   def create
     @user = User.find_using_perishable_token(params[:activation_code], 1.week) || (raise Exception)
     raise Exception if @user.active?

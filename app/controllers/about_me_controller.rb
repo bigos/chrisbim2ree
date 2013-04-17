@@ -1,3 +1,3 @@
 class AboutMeController < InheritedResources::Base
-  :only => :index
+  actions :index
 end
