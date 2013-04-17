@@ -1,15 +1,38 @@
-%p#notice= notice
+%h3 Tags
 
 %p
-  %b Name:
+  %b tag:
   = @tag.name
-%p
-  %b Parent:
-  = @tag.parent_id
-%p
-  %b Photo:
-  = @tag.photo_id
+  - if @tag.photo
+    = image_tag @tag.photo.attachment.url(:thumb)
+  |
+  %b parent:
+  = @tag.parent ? link_to(@tag.parent.name, @tag.parent) : 'none'
+  |
+  - if @tag.children
+    %b children
+    - @tag.children.each do |child|
+      = link_to child.name, child
 
-= link_to 'Edit', edit_tag_path(@tag)
-\|
+%br
+= link_to 'Edit', edit_tag_path
 = link_to 'Back', tags_path
+= link_to 'Delete', @tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%hr
+%h4
+  photos tagged:
+  = @tag.name
+
+- @photos.each do |photo|
+  = link_to (image_tag photo.attachment.url(:thumb)), photo
+  = link_to 'pin it', tag_path(@tag, :pin => photo.id)
+    
+
+%hr
+%h4 These photos are not tagged
+- @untagged_photos.each do |photo|
+  = link_to edit_photo_path(photo) do
+    - image_tag photo.attachment.url(:thumb)
+  &nbsp;
+  = photo.tags.count
