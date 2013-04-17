@@ -6,7 +6,7 @@
 		var pic = data.items[i];
 		var liNumber = i + 1; // Add class to each LI (1-6)		
 		var picurl = pic.media.m.replace("_m.jpg","_s.jpg"); 
-		$(target).append("<a title='" + pic.title + "' href='" + pic.link + "' class='col"+(i%3)+"'>"+
+		$(target).append("<a title='" + pic.title + "' href='" + pic.link + "'  target=\"blank\" class='col"+(i%3)+"'>"+
 				 "<img src='" + picurl + 
 				 "' class='col"+ (i%3) +
 				 "' id='grid_"+i+
