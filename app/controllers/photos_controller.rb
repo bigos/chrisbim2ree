@@ -41,10 +41,15 @@ class PhotosController < InheritedResources::Base
 
     respond_to do |format|
       if @photo.save
-        format.html { render :json => [@photo.to_jq_upload].to_json, 
-          :content_type => 'text/html',
-          :layout => false
-        }
+        logger.info "controller used: " + params['controller']
+        if params[:controller] == 'photos'
+          format.html { redirect_to @photo, :notice => 'Photo was successfully created.' }
+        else
+          format.html { render :json => [@photo.to_jq_upload].to_json, 
+            :content_type => 'text/html',
+            :layout => false
+          }
+        end
         #format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
         format.json { render :json => {:files => [@photo.to_jq_upload] }}
       else
