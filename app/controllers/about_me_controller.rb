@@ -1,3 +1,4 @@
-class AboutMeController < InheritedResources::Base
-  actions :index
+class AboutMeController < ApplicationController
+  def index
+  end
 end
