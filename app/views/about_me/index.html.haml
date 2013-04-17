@@ -1,0 +1,11 @@
+
+- if params[:section] == 'work'
+  != editable_content("about_me_work")
+- elsif  params[:section] == 'personal_tuition'
+  != editable_content("personal_tuition")
+- elsif  params[:section] == 'talks'
+  != editable_content("talks")
+- elsif params[:section] == 'equipment'
+  != editable_content("about_me_equipment")
+- else
+  != editable_content("about_me")
