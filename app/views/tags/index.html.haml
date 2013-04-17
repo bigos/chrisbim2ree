@@ -1,23 +1,24 @@
-%h1 Listing tags
+%h3 Categories
 
-%table
-  %tr
-    %th Name
-    %th Parent
-    %th Photo
-    %th
-    %th
-    %th
-
+%ul#category-photos  
   - @tags.each do |tag|
-    %tr
-      %td= tag.name
-      %td= tag.parent_id
-      %td= tag.photo_id
-      %td= link_to 'Show', tag
-      %td= link_to 'Edit', edit_tag_path(tag)
-      %td= link_to 'Destroy', tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    - child_count = tag.photos.size
+    - if child_count >= 1
+      - photo = tag.photo
+      - if photo
+        %li
+          - html_fragment = capture_haml do
+            %div.photo-frame
+              .photo-div= image_tag photo.attachment.url(:medium)
+              .caption= tag.name
+          = link_to html_fragment, photos_path(:tag => tag.name)
 
-%br
 
+%h3 Tags
+#taglist
+  != tag_links(1000, :tags, true)
+    
+%hr
 = link_to 'New Tag', new_tag_path
+
+        
