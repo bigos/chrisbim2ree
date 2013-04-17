@@ -1,11 +1,4 @@
 
-%h1 Welcome to my Home Page!
-
-%p
-  This is work in progress. More complete version of the site can be found on:
-  %br
-  = link_to "Developer's page", 'http://chrisbeardimages-jpod.rhcloud.com/', :target => :blank
-
 #col1
   %div{:id=>:image_container, :data => {:slidecount => @slides.count}}
     - position = 1
@@ -16,7 +9,7 @@
         %p.caption
           = slide.caption
           
-%div.horizontal_separator{:style=>"clear:both;margin-bottom:1.5em;"}
+%div.horizontal_separator{:style=>"clear:both;"}
 #col1a
   != editable_content("news")
 
