@@ -17,13 +17,10 @@ $black-highlight: #222;
   margin-bottom:20px;
   img{margin:auto;
     display:block;
-    float:left;
-    margin: 0em 2em 2em 0em;
-    }
-  }
+  }}
 $separator_color: darken(white,50%);
 div.horizontal_separator{
-  margin: 0px auto 35px auto;
+  margin: 0px auto;
   background:$separator_color;
   height:1px;
   width:75%;
@@ -58,12 +55,6 @@ div.horizontal_separator{
       }
     }
   }    
-
-#featured_image img{
-  float:left;
-  margin: 0em 2em 2em 0em;
-  }
-
 #col3c{margin-left:0px;
   width:250px;
   float:right;
