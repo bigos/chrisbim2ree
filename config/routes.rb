@@ -1,5 +1,8 @@
 Chrisbim2ree::Application.routes.draw do
   
+  resources :shopping_carts
+
+
   match 'contact' => 'contact_messages#new'
   resources :contact_messages
 

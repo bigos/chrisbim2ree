@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  before_filter :initialize_cart
   protect_from_forgery
   
   helper_method :current_user_session, :current_user, :current_admin
@@ -64,5 +65,32 @@ class ApplicationController < ActionController::Base
   def redirect_back_or_default(default)
     redirect_to(session[:return_to] || default)
     session[:return_to] = nil
+  end
+
+  #shopping cart ##############################
+  def initialize_shopping_cart
+    if cookies[:shopping_cart]
+      @shopping_cart = ShoppingCart.find(:first,:conditions=> ["customer_token=?",cookies[:shopping_cart] ])
+      create_shopping_cart if @shopping_cart == nil      
+      #logger.info '11111111111111111'+cookies.inspect
+      #logger.info cookies[:shopping_cart].inspect+'111111'        
+    else
+      #logger.info '222222222222222222222222'
+      create_shopping_cart
+    end
+  end
+
+  def create_shopping_cart
+    logger.info 'creating shopping cart ~~~~~~~~~~~~~~~~~~~~~~~'
+    @shopping_cart = ShoppingCart.create
+    
+    @hashfunc = Digest::MD5.new
+    @hashname = "MD5"
+    time=Time.now
+    @hashfunc.update(session.inspect+time.to_s+time.tv_usec.to_s)
+    @shopping_cart.customer_token=@hashfunc.hexdigest
+    @shopping_cart.save
+    cookies[:shopping_cart] = { :value => @shopping_cart.customer_token, :expires => 24.hours.from_now }
+    #logger.info "XXXXXXXXXXXXXXXX added a cookie #{@shopping_cart.customer_token} XXXXXXXXXXXXXXXXXXXXXXXXX"
   end
 end
