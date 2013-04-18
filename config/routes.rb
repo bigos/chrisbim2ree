@@ -1,5 +1,8 @@
 Chrisbim2ree::Application.routes.draw do
   
+  resources :cart_items
+
+
   resources :shopping_carts
 
 
