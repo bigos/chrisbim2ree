@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130416155731) do
+ActiveRecord::Schema.define(:version => 20130418230847) do
+
+  create_table "cart_items", :force => true do |t|
+    t.integer  "shopping_cart_id"
+    t.integer  "photo_id"
+    t.integer  "quantity"
+    t.decimal  "price",            :precision => 10, :scale => 0
+    t.string   "option"
+    t.datetime "created_at",                                      :null => false
+    t.datetime "updated_at",                                      :null => false
+  end
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -65,6 +75,12 @@ ActiveRecord::Schema.define(:version => 20130416155731) do
     t.text     "teaser"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "shopping_carts", :force => true do |t|
+    t.string   "customer_token"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "slides", :force => true do |t|

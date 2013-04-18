@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :initialize_cart
+  before_filter :initialize_shopping_cart
   protect_from_forgery
   
   helper_method :current_user_session, :current_user, :current_admin
