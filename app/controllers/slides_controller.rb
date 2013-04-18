@@ -1,5 +1,5 @@
 class SlidesController < InheritedResources::Base
-
+  before_filter :require_admin
   # GET /slides
   # GET /slides.json
   def index

@@ -1,4 +1,5 @@
 class PhotosController < InheritedResources::Base
+  before_filter :require_admin, :except => [:index, :show]
   # GET /photos
   # GET /photos.json
   def index

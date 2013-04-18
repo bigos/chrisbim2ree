@@ -1,2 +1,3 @@
 class CommentsController < InheritedResources::Base
-end
+  before_filter :require_admin, :only => [:edit, :update, :destroy]
+end  
