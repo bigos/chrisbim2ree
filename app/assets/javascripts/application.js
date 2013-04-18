@@ -27,14 +27,12 @@ jQuery(function() {
   $("a.fancydiv").fancybox();
 });
 
-
 $(function() {
     $( "#workshop_start_date" ).datepicker({
 	dateFormat: "dd/MM/yy",
 	firstDay: 1
     });
 });
-
 
 function slideShow() {
     var s=0;
