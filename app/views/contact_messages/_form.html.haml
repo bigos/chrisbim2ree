@@ -16,4 +16,5 @@
     = f.label :message
     = f.text_area :message
   .actions
+    != recaptcha_tags
     = f.submit 'Submit'
