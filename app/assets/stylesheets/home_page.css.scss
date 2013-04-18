@@ -15,12 +15,12 @@ $black-highlight: #222;
 #col1a{//border:solid red 1px;
   min-height:100px;
   margin-bottom:20px;
-  img{margin:auto;
+  img{
     display:block;
   }}
 $separator_color: darken(white,50%);
 div.horizontal_separator{
-  margin: 0px auto;
+  margin: 0px auto 2em auto;
   background:$separator_color;
   height:1px;
   width:75%;
