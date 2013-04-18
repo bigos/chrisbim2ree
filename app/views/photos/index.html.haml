@@ -15,10 +15,16 @@
     - @photos.each do |photo|
       %li{:class=> "column#{col}"}
         - col < columns-1 ? col += 1 : col = 0
-        %div
+        %div.photo-wrapper
           = link_to image_tag(photo.attachment.url(:medium)), photo.attachment.url, {:class => 'fancybox', :title => photo.attachment_file_name[0..-5].gsub('_',' ')}
-
-%div{:style=>'clear:both;'}
+        %div.photo-links
+          - if current_admin
+            = link_to 'Show', photo_path(photo), :class => 'show'
+            = link_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }
+          - else
+            = link_to 'Order Prints', photo_path(photo), :class => 'add-to-basket'
+          
+%div{:style=>'clear:both;'}  
   
 = will_paginate @photos
 

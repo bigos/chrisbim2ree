@@ -21,7 +21,7 @@
       text-align: center;
       width: 220px;
         
-  div{text-align:center;
+  div.photo-wrapper{text-align:center;
     background:#eee;
     width: 225px;
     height: 150px;
@@ -44,6 +44,23 @@
       margin: 0px 0px 20px 0px;}
       }
     }
+
+div.photo-links {
+  height: 1.25em;
+  margin-top: -28px;
+  position: relative;
+    a{
+      background:yellow;
+      padding:0.25em;
+      position:absolute;
+      line-height:1em;
+      color:red;
+      }
+      a.show{margin-left:-6px;}
+      a.delete{margin-left:50px;}
+  }
+  
+  
 #tags_wrapper{
   h3{margin-top:0px;}
   }
