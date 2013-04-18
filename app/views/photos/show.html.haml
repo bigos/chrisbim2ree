@@ -1,24 +1,30 @@
 %p#notice= notice
 
 %p
-  %b Attachment file name:
-  = @photo.attachment_file_name
+  - if current_admin
+    %b Attachment file name:
+    = @photo.attachment_file_name
   = image_tag @photo.attachment.url
-%p
-  %b tags:
-  = @photo.tags.count
-  -  @photo.tags.each do |t|
-    = link_to t.name, t
-    &nbsp;
-%p
-  %b Attachment content type:
-  = @photo.attachment_content_type
-%p
-  %b Attachment file size:
-  = @photo.attachment_file_size
-%p
-  %b Attachment updated at:
-  = @photo.attachment_updated_at
+  
+- if current_admin      
+  %p
+    %b tags:
+    = @photo.tags.count
+    -  @photo.tags.each do |t|
+      = link_to t.name, t
+      &nbsp;
+  %p
+    %b Attachment content type:
+    = @photo.attachment_content_type
+  %p
+    %b Attachment file size:
+    = @photo.attachment_file_size
+  %p
+    %b Attachment updated at:
+    = @photo.attachment_updated_at
+
+%div.add-to-basket-form
+  %p add to basket will go here
 
 %div.scaffold-bottom-links
   = link_to 'Edit', edit_photo_path(@photo)
