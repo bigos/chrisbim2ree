@@ -1,14 +1,10 @@
-%h1 BulkUpload#new
-%p Find me in app/views/bulk_upload/new.html.haml
-
-
-
--#----------------------------------------------------------------------------------------------
 
 .container
   %h2 Upload some images
   %p
-    after refreshing the
+    To perform bulk uplad use you Finder to drop the images over the
+    yellow area, and click Upload.
+    After refreshing the
     = link_to 'page', photos_path
     , uploaded images will be visible on the website
     
@@ -19,7 +15,7 @@
         / The fileinput-button span is used to style the file input field as button
         %span.btn.btn-success.fileinput-button
           %i.icon-plus.icon-white
-          %span Add files...
+          %span Drag and drop your files here and then click this button...
           = f.file_field :attachment #, :multiple => true
         %button.btn.btn-primary.start{:type => "submit"}
           %i.icon-upload.icon-white

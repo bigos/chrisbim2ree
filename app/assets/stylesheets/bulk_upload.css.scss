@@ -1,3 +1,21 @@
 // Place all the styles related to the BulkUpload controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+form#fileupload{
+  border: solid #888 1px;
+  background:yellow;
+  }
+
+.progress{  border:solid yellow 1px;}
+.progress-success{  border:solid black 1px;}
+.progress-striped{  border:solid blue 1px;
+  }
+.active{
+  border:solid blue 1px;
+  }
+    
+div.bar{
+  border:solid green 1px;
+  }
