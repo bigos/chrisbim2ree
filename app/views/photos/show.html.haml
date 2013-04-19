@@ -4,7 +4,8 @@
   - if current_admin
     %b Attachment file name:
     = @photo.attachment_file_name
-  = image_tag @photo.attachment.url
+  #large-photo
+    = image_tag @photo.attachment.url
   
 - if current_admin      
   %p
