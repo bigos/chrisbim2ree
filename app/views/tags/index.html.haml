@@ -18,7 +18,7 @@
 #taglist
   != tag_links(1000, :tags, true)
     
-%hr
-= link_to 'New Tag', new_tag_path
+
+= link_to 'New Tag', new_tag_path if current_admin
 
         
