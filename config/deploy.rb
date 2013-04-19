@@ -44,3 +44,7 @@ task :recompile_assets do
   run " cd #{app_path}  "
   run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake assets:precompile'"
 end
+
+task :turbo do
+    run " rm #{File.join(app_path,'tmp','restart.txt')}"
+end
