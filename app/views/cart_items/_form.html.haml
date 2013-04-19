@@ -7,8 +7,8 @@
           %li= msg
 
   .field
-    = f.hidden_field :shopping_cart_id
-    = f.hidden_field :photo_id
+    = f.hidden_field :shopping_cart_id, :value => @shopping_cart.id
+    = f.hidden_field :photo_id, :value => photo.id
   .field
     = f.label :quantity
     = f.select :quantity, options_for_select(1..10)

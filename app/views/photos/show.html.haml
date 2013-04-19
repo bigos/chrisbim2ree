@@ -10,7 +10,7 @@
   %div.add-to-basket-form
     %p add to basket will go here
     - @cart_item = CartItem.new
-    = render 'cart_items/form'
+    = render 'cart_items/form', :photo => @photo
   
   #photo-show-hide
     = link_to "show large", "", {:id => 'hider', :onclick => "showLargePhoto(); return false"}
