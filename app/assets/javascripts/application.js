@@ -47,6 +47,16 @@ function slideShow() {
     }, interval);
 }
 
+function showLargePhoto() {
+    $('#large-photo').slideToggle();
+    if ($('#hider').text() == 'show large') {
+	$('#hider').text('hide large');
+    } else {
+	$('#hider').text('show large');
+    }
+}
+
+
 $(document).ready(function(){
     slideShow();    
 });
