@@ -42,8 +42,8 @@ function slideShow() {
 	pos =  (s++ % max_slides) + 1;
 	nextpos =  (s % max_slides) + 1;
 	console.log(pos+'   '+nextpos)
-	$('#slide_'+pos).fadeOut(1000);
-	$('#slide_'+nextpos).fadeIn(2000);
+	$('#slide_'+pos).fadeOut(800);
+	$('#slide_'+nextpos).fadeIn(3000);
     }, interval);
 }
 
