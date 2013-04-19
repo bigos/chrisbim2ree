@@ -22,8 +22,6 @@
             = link_to 'Show', photo_path(photo), :class => 'show'
             = link_to 'Edit', edit_photo_path(photo), :class => 'edit'
             = link_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }
-          - else
-            = link_to 'Order Prints', photo_path(photo), :class => 'add-to-basket'
           
 %div{:style=>'clear:both;'}  
   
