@@ -36,6 +36,8 @@
       %ul        
         %li= link_to 'photos', photos_path
         %li= link_to 'categories', tags_path
+        - if current_admin
+          %li= link_to 'photos by filename', photos_path(:order => 'filename')
     
     %li= link_to 'BLOG', posts_path 
     %li= link_to 'CONTACT', '/contact'

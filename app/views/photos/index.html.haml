@@ -27,7 +27,7 @@
           
 %div{:style=>'clear:both;'}  
   
-= will_paginate @photos
+= will_paginate @photos, params=>{:order=>params['order']}
 
 %div.scaffold-bottom-links
   - if current_admin  

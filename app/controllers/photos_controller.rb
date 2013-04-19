@@ -7,7 +7,11 @@ class PhotosController < InheritedResources::Base
     if params[:tag]
       @photos = Photo.includes(:tags).where(:tags => {:name => params[:tag]}).order('photos.created_at DESC').paginate(:page => params[:page], :per_page => 12)
     else
-      @photos = Photo.order('created_at DESC').paginate(:page => params[:page], :per_page => 12) 
+      if params['order'] == 'filename'
+        @photos = Photo.order('photos.attachment_file_name').paginate(:page => params[:page], :per_page => 12) 
+      else
+        @photos = Photo.order('created_at DESC').paginate(:page => params[:page], :per_page => 12) 
+      end
     end
 
     respond_to do |format|

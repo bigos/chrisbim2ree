@@ -14,6 +14,7 @@ class TagsController < InheritedResources::Base
     Photo.all.each do |p|
       @untagged_photos << p if p.tags.count == 0
     end
+    @untagged_photos.sort! {|x,y| x.attachment_file_name <=> y.attachment_file_name}
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @tag }
