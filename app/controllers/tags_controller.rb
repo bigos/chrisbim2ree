@@ -1,5 +1,11 @@
 class TagsController < InheritedResources::Base
   before_filter :require_admin, :except => [:index]
+
+  def index
+    @tags = Tag.order(:name)
+    index!
+  end
+
   def show
     @tag = Tag.find(params[:id])
     if current_admin
