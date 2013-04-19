@@ -24,9 +24,10 @@
           = link_to 'Weekend Workshops', '/photo_workshops/2/days'
           %ul
             - Workshop.where(:duration => '2').order(:start_date).each do |workshop|
-              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop          
-        %li= link_to 'editables', editables_path
-        %li= link_to 'slides', slides_path
+              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
+        - if current_admin
+          %li= link_to 'editables', editables_path
+          %li= link_to 'slides', slides_path
 
         
     %li= link_to 'PERSONAL TUITION', "/about_me/personal_tuition"
