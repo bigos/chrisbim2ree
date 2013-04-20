@@ -3,6 +3,7 @@ class Photo < ActiveRecord::Base
 
   has_many :taggings, :dependent => :destroy
   has_many :tags, :through => :taggings
+  has_many :cart_items
 
   has_attached_file :attachment, :styles => {
       :thumb => "100x150", :medium => "220x150"}
