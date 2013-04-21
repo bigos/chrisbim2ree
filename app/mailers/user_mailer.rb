@@ -1,11 +1,22 @@
 class UserMailer < ActionMailer::Base
-  default :from => "from@example.com"
+  secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
+  default :from => secrets['email'][Rails.env]['sender']
 
+  def contact_form_message(message)
+    @message = message
+    if Rails.env == 'development' or  Rails.env == "test" 
+      @url = "http://localhost:3000"
+    else
+      @url  = "http://www.chrisbeard-photography.co.uk"
+    end
+    mail(:to => @message.from,
+         :subject => @message.subject)
+  end
+  
   def welcome_email(user)
     @user = user
 
-    mail(:to => user.email, 
-         :from => "chris@chrisbeard-images.com",
+    mail(:to => user.email,
          :subject => "Welcome to My Awesome Site")
   end
 
@@ -18,7 +29,6 @@ class UserMailer < ActionMailer::Base
     end
     @activation_path = "activate/#{user.perishable_token}"
     mail(:to => user.email,
-         :from => "chris@chrisbeard-images.com",
          :subject => "Activation Instructions")
   end
 
@@ -29,8 +39,10 @@ class UserMailer < ActionMailer::Base
       @url  = "http://www.chrisbeard-photography.co.uk"
     end
     @reset_path = edit_password_reset_path(user.perishable_token)
+
+    sender = 
+
     mail(:to => user.email,
-         :from => "chris@chrisbeard-images.com",
          :subject => "Password Reset Instructions")
     
   end

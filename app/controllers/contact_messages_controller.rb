@@ -1,3 +1,5 @@
+require 'yaml'
+
 class ContactMessagesController < InheritedResources::Base
   before_filter :require_admin, :except => [:new, :create, :show]
   def create
@@ -6,6 +8,7 @@ class ContactMessagesController < InheritedResources::Base
     if verify_recaptcha(:model => @contact_message, :message => "Oh! It's error with reCAPTCHA!") 
       respond_to do |format|
         if @contact_message.save
+          @contact_message.deliver_contact_message!
           format.html { redirect_to @contact_message, :notice => 'Contact message was successfully created.' }
           format.json { render :json => @contact_message, :status => :created, :location => @contact_message }
         else
