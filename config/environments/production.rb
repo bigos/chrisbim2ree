@@ -68,6 +68,9 @@ Chrisbim2ree::Application.configure do
 
   all_secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
   secret = all_secrets['email']['production']
+
+
+  ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address              => secret["address"],
     :port                 => 26,
