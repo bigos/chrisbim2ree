@@ -66,16 +66,14 @@ Chrisbim2ree::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  all_secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
-  secret = all_secrets['email']['production']
-
-
+  secret = YAML.load_file( "#{ Rails.root}/config/secret.yml")
+  p secret
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
-    :address              => secret["address"],
+    :address              => secret['email']['production']["address"],
     :port                 => 26,
-    :user_name            => secret["username"],
-    :password             => secret["password"],
+    :user_name            => secret['email']['production']["username"],
+    :password             => secret['email']['production']["password"],
     :authentication       => :login,
     :enable_starttls_auto => false
   }
