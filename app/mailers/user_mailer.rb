@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
     else
       @url  = "http://www.chrisbeard-photography.co.uk"
     end
-    mail(:to => secrets['email'][Rails.env]['sender']
+    mail(:to => secrets['email'][Rails.env]['sender'],
          :subject => @message.subject)
   end
   
