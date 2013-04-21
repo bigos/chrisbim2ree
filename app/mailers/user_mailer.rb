@@ -1,6 +1,6 @@
 class UserMailer < ActionMailer::Base
-  secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
-  default :from => secrets['email'][Rails.env]['sender']
+  @@secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
+  default :from => @@secrets['email'][Rails.env]['sender']
 
   def contact_form_message(message)
     @message = message
@@ -9,7 +9,7 @@ class UserMailer < ActionMailer::Base
     else
       @url  = "http://www.chrisbeard-photography.co.uk"
     end
-    mail(:to => secrets['email'][Rails.env]['sender'],
+    mail(:to => @@secrets['email'][Rails.env]['sender'],
          :subject => @message.subject)
   end
   
