@@ -1,3 +1,4 @@
+
 Chrisbim2ree::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -64,4 +65,15 @@ Chrisbim2ree::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+  all_secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
+  secret = all_secrets['email']['production']
+  ActionMailer::Base.smtp_settings = {
+    :address              => secret["address"],
+    :port                 => 26,
+    :user_name            => secret["username"],
+    :password             => secret["password"],
+    :authentication       => :login,
+    :enable_starttls_auto => false
+  }
 end
