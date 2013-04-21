@@ -72,7 +72,7 @@ Chrisbim2ree::Application.configure do
   ActionMailer::Base.smtp_settings = {
     :address              => secret['email']['production']["address"],
     :port                 => 26,
-    :username            => secret['email']['production']["user_name"],
+    :user_name            => secret['email']['production']["user_name"],
     :password             => secret['email']['production']["password"],
     :authentication       => :login,
     :enable_starttls_auto => false
