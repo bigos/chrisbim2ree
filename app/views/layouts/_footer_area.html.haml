@@ -9,8 +9,10 @@
       please fill in your email address here:
       %br
       %br
-      = text_field_tag 'subscribe'
-      = submit_tag 'Submit'
+      - @newsletter_subscriber = NewsletterSubscriber.new
+      = form_for @newsletter_subscriber do |f|
+        = f.text_field :email
+        = f.submit 'Submit'
   %div{:class => 'col2'}
     %h3 Follow Me On:  
     %div

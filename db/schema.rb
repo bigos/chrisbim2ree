@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130418230847) do
+ActiveRecord::Schema.define(:version => 20130422222652) do
 
   create_table "cart_items", :force => true do |t|
     t.integer  "shopping_cart_id"
@@ -56,6 +56,12 @@ ActiveRecord::Schema.define(:version => 20130418230847) do
   create_table "editables", :force => true do |t|
     t.string   "name"
     t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "newsletter_subscribers", :force => true do |t|
+    t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

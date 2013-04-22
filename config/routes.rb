@@ -1,5 +1,8 @@
 Chrisbim2ree::Application.routes.draw do
   
+  resources :newsletter_subscribers
+
+
   resources :cart_items
 
 
