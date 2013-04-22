@@ -9,7 +9,7 @@
 
   %div.add-to-basket-form
     - @cart_item = CartItem.new
-    = render 'cart_items/form', :photo_x => @photo.id
+    = render 'cart_items/form', :photo_id => @photo.id
   
   #photo-show-hide
     = link_to "show large", "", {:id => 'hider', :onclick => "showLargePhoto(); return false"}

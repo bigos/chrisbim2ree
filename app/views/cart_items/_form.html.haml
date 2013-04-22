@@ -1,3 +1,4 @@
+
 %div
   = form_for @cart_item do |f|
     - if @cart_item.errors.any?
@@ -9,7 +10,7 @@
 
     .field
       = f.hidden_field :shopping_cart_id, :value => @shopping_cart.id    
-      = f.hidden_field :photo_id, :value => photo_x
+      = f.hidden_field :photo_id, :value => photo_id
       = f.label :quantity    
       = f.select :quantity, options_for_select(1..10, :selected => @cart_item.quantity)
       = f.label :option    

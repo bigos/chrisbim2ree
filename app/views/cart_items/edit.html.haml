@@ -1,7 +1,9 @@
-%h1 Editing cart_item
+%h3 Editing Shopping Cart Item
 
-= render 'form', :photo => @cart_item.photo
+#small-photo
+  = image_tag @cart_item.photo.attachment.url(:medium)
 
-= link_to 'Show', @cart_item
-\|
+= render 'form', :photo_id => @cart_item.photo.id
+
+%br
 = link_to 'Back', cart_items_path
