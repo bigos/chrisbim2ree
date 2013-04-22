@@ -23,9 +23,10 @@
 
 
 
-%h2 Add a comment:
+%h3 Add a comment:
 = form_for([@post, @post.comments.build]) do |f| 
   = f.label :content
   %br
   = f.text_area :content
-  = f.submit
+  %br
+  = f.submit 'Submit Comment'

@@ -19,21 +19,7 @@
       overflow: hidden;
       position: relative;
       text-align: center;
-      width: 220px;
-        
-  div.photo-wrapper{text-align:center;
-    background:#eee;
-    width: 225px;
-    height: 150px;
-    line-height:150px;
-    overflow: hidden;
-    position:relative;
-    border:solid #fafafa 2px;
-    img{vertical-align:middle;
-      border:solid #eee 3px;
- 
-        }
-      }
+      width: 220px;      
     }
     li.column0{//border:solid red;
       margin: 0px 0px 20px 0px;}
@@ -44,6 +30,19 @@
       margin: 0px 0px 20px 0px;}
       }
     }
+      
+div.photo-wrapper{text-align:center;
+  background:#eee;
+  width: 225px;
+  height: 150px;
+  line-height:150px;
+  overflow: hidden;
+  position:relative;
+  border:solid #fafafa 2px;
+  img{vertical-align:middle;
+    border:solid #eee 3px; 
+    }
+  }
 
 div.photo-links {
   height: 1.25em;

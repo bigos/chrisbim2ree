@@ -1,3 +1,29 @@
 // Place all the styles related to the CartItems controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+table#shopping-cart{
+  border-collapse: collapse;
+  border-spacing: 0;
+  tr.odd{
+    td{
+      background:darken(white,2%);
+      }
+    }
+  tr.even{
+    td{
+      background:darken(white,0.5%);
+      }
+    }
+  tr{
+    td{
+      border-spacing:5px;
+      text-align:right;
+      padding-right: 0.5em;
+      border: 0;
+      }
+      td.total{
+        font-weight:bold;
+        }
+    }
+  }
