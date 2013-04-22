@@ -1,19 +1,17 @@
-= form_for @cart_item do |f|
-  - if @cart_item.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@cart_item.errors.count, "error")} prohibited this cart_item from being saved:"
-      %ul
-        - @cart_item.errors.full_messages.each do |msg|
-          %li= msg
+%div
+  = form_for @cart_item do |f|
+    - if @cart_item.errors.any?
+      #error_explanation
+        %h2= "#{pluralize(@cart_item.errors.count, "error")} prohibited this cart_item from being saved:"
+        %ul
+          - @cart_item.errors.full_messages.each do |msg|
+            %li= msg
 
-  .field
-    = f.hidden_field :shopping_cart_id, :value => @shopping_cart.id
-    = f.hidden_field :photo_id, :value => photo.id
-  .field
-    = f.label :quantity
-    = f.select :quantity, options_for_select(1..10, :selected => @cart_item.quantity)
-  .field
-    = f.label :option
-    = f.select :option, options_for_select(CartItem::OPTIONS.collect{|opt| ["#{opt[1]} - £#{opt[0]}",opt[1]]},:selected => @cart_item.option)
-  .actions
-    = f.submit 'Save'
+    .field
+      = f.hidden_field :shopping_cart_id, :value => @shopping_cart.id    
+      = f.hidden_field :photo_id, :value => photo_x
+      = f.label :quantity    
+      = f.select :quantity, options_for_select(1..10, :selected => @cart_item.quantity)
+      = f.label :option    
+      = f.select :option, options_for_select(CartItem::OPTIONS.collect{|opt| ["#{opt[1]} - £#{opt[0]}",opt[1]]},:selected => @cart_item.option)
+      = f.submit 'Save'

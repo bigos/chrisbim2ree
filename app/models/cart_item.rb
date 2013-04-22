@@ -11,7 +11,7 @@ class CartItem < ActiveRecord::Base
   # options price size
   OPTIONS = [[50, 'A3'], [20, 'A4']]
 
-  before_save :set_price
+  before_validation :set_price
 
   private
   def set_price

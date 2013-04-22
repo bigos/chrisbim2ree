@@ -21,7 +21,7 @@
           - basket_items = @shopping_cart.cart_items.count
           - if basket_items >= 1
             Your shopping basket contains
-            = pluralize  basket_items, 'item'
+            = link_to pluralize(  basket_items, 'item'), cart_items_path
         #navbar{:style=>"clear:both;"}
           #menu-wrapper
             = render :partial => 'layouts/navbar'
