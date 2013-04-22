@@ -11,7 +11,7 @@
       %br
       - @newsletter_subscriber = NewsletterSubscriber.new
       = form_for @newsletter_subscriber do |f|
-        = f.text_field :email
+        = f.text_field :email, :style => 'width:12em;'
         = f.submit 'Submit'
   %div{:class => 'col2'}
     %h3 Follow Me On:  
