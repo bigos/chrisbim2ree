@@ -6,14 +6,12 @@
   <body>
     <h1>You have got new email</h1>
     <p>
-      from : <%= @message.from %>
-    </p>
-    <p>
       from: <%= @message.from %>
       <br>
-      subject: <%= @message.subject %>
-      
+      subject: <%= @message.subject %>      
     </p>
-    <p><%= @message.message %></p>
+    <p>
+      <%= @message.message %>
+    </p>
   </body>
 </html>
