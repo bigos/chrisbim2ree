@@ -12,13 +12,7 @@
     margin-top:0px;
     //border:solid red 1px;
     li{
-      background: none repeat scroll 0 0 #F9F9F9;
       float: left;
-      height: 150px;
-      line-height: 150px;
-      overflow: hidden;
-      position: relative;
-      text-align: center;
       width: 220px;      
     }
     li.column0{//border:solid red;
@@ -33,14 +27,15 @@
       
 div.photo-wrapper{text-align:center;
   background:#eee;
+  border: 1px solid #EEEEEE;
   width: 225px;
   height: 150px;
-  line-height:150px;
+  line-height:144px;
   overflow: hidden;
   position:relative;
-  border:solid #fafafa 2px;
-  img{vertical-align:middle;
-    border:solid #eee 3px; 
+  img{
+    vertical-align:middle;
+    margin-left:0px;
     }
   }
 
