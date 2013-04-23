@@ -13,6 +13,6 @@
       = f.hidden_field :photo_id, :value => photo_id
       = f.label :quantity    
       = f.select :quantity, options_for_select(1..10, :selected => @cart_item.quantity)
-      = f.label :option    
+      = f.label 'Size'    
       = f.select :option, options_for_select(CartItem::OPTIONS.collect{|opt| ["#{opt[1]} - £#{opt[0]}",opt[1]]},:selected => @cart_item.option)
       = f.submit 'Save'
