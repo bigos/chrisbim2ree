@@ -12,7 +12,9 @@ margin-right: auto;
 width: 955px; }
 
 div#logo {
-padding: 25px; }
+  padding: 25px;
+  padding-bottom: 15px;
+  }
 
 div#logo a img {
 border: none; }
@@ -22,17 +24,29 @@ float: right;
 text-align: right;
 width: auto; }
 
-div#login a {
-color: black;
-text-decoration: none; }
-
 div#basket-info{
-  clear: right;
-  float: right;
-  margin-right: 25px;
-  margin-top: 0;
+  clear:right;
+  float:right;
   }
 
+div#basket-link{
+  //border:solid red 1px;
+  width:64px;
+  height:64px;
+  background-image: image-url("/assets/basket.png");
+  background-position:0px 48px;
+  margin-right: 13px;
+  margin-top: -12px;
+  div#item-count{
+    color: orange;
+    font-size: 31px;
+    font-weight: bold;
+    margin-top: 12px;
+    text-align: center;
+    width: 64px;  
+    }
+  }
+  
 div#content {
 margin: 25px;
 min-height: 380px;

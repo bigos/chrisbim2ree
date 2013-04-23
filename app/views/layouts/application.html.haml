@@ -14,14 +14,18 @@
           = link_to image_tag('logo.jpg'), root_url
         #login{:style=>"padding:25px;float:right;"}
           - if current_user
-            = link_to 'Logout', logout_path
+            = current_user.username
+            = "-"
+            = link_to 'logout', logout_path
           - else
-            = link_to 'Login', login_path
+            = link_to 'login', login_path
         #basket-info
           - basket_items = @shopping_cart.cart_items.count
           - if basket_items >= 1
-            Your shopping basket contains
-            = link_to pluralize(  basket_items, 'item'), cart_items_path
+            = link_to cart_items_path do
+              %div#basket-link
+                #item-count= basket_items
+
         #navbar{:style=>"clear:both;"}
           #menu-wrapper
             = render :partial => 'layouts/navbar'
