@@ -31,11 +31,11 @@ div#basket-info{
 
 div#basket-link{
   //border:solid red 1px;
-  width:64px;
-  height:64px;
+  width:48px;
+  height:48px;
   background-image: image-url("/assets/basket.png");
-  background-position:0px 48px;
-  margin-right: 13px;
+  background-position:0px 37px;
+  margin-right: 20px;
   margin-top: -12px;
   div#item-count{
     color: orange;
@@ -43,7 +43,7 @@ div#basket-link{
     font-weight: bold;
     margin-top: 12px;
     text-align: center;
-    width: 64px;  
+    width: 48px;  
     }
   }
   
