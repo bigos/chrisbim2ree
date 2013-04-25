@@ -13,4 +13,9 @@ class CartItemsController < InheritedResources::Base
       format.html { redirect_to cart_items_url }
     end
   end
+  def update
+    update! do |format|
+      format.html { redirect_to cart_items_url }
+    end
+  end
 end

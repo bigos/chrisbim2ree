@@ -22,8 +22,13 @@ table#shopping-cart{
       padding-right: 0.5em;
       border: 0;
       }
-      td.total{
+      td.size{margin-left:10px;
+        }
+      td.quantity{padding-left:60px;}
+      td.price{padding-left:100px;}
+      td.total{padding-left:130px;
         font-weight:bold;
         }
+      td.change{padding-left:110px;}
     }
   }
