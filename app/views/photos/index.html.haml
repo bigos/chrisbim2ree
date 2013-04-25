@@ -8,9 +8,8 @@
 - columns = 3
 - col = 0
 
-
 #photo_grid
-  %h3  Photos
+  %h3= params['tag'] ? params['tag'] : 'Photos'
   %ul
     - @photos.each do |photo|
       %li{:class=> "column#{col}"}

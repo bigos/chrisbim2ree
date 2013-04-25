@@ -33,11 +33,11 @@
     %li= link_to 'PERSONAL TUITION', "/about_me/personal_tuition"
     %li= link_to 'TALKS', "/about_me/talks"
     %li
-      = link_to 'GALLERIES', '#'
-      %ul        
-        %li= link_to 'photos', photos_path
-        %li= link_to 'categories', tags_path
-        - if current_admin
+      = link_to 'GALLERIES', tags_path
+      - if current_admin
+        %ul        
+          %li= link_to 'photos', photos_path
+          %li= link_to 'categories', tags_path
           %li= link_to 'photos by filename', photos_path(:order => 'filename')
     
     %li= link_to 'BLOG', posts_path 

@@ -1,6 +1,14 @@
-%h3 Categories
+#tags_wrapper{:style=>'float:right;'}
+  %h3 Gallery Links
+  %div#tags{:style=>'float:right;'}
+    != tag_links(max_level = 1, :photos)
 
-%ul#category-photos  
+
+- columns = 3
+- col = 0
+
+%h3 Categories
+%ul#category-photos
   - @tags.each do |tag|
     - child_count = tag.photos.size
     - if child_count >= 1
@@ -13,12 +21,9 @@
               .caption= tag.name
           = link_to html_fragment, photos_path(:tag => tag.name)
 
+- if current_admin
+  %h3 Tags
+  #taglist
+    != tag_links(1000, :tags, true)
+  = link_to 'New Tag', new_tag_path if current_admin
 
-%h3 Tags
-#taglist
-  != tag_links(1000, :tags, true)
-    
-
-= link_to 'New Tag', new_tag_path if current_admin
-
-        
