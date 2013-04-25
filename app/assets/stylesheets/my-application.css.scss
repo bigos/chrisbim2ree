@@ -30,18 +30,18 @@ div#basket-info{
   }
 
 div#basket-link{
-  //border:solid red 1px;
-  width:48px;
-  height:48px;
-  background-image: image-url("/assets/basket.png");
-  background-position:0px 37px;
-  margin-right: 20px;
-  margin-top: -12px;
+  background-image: url("/assets/basket.png");
+  background-position: 0 0;
+  height: 41px;
+  margin-right: 19px;
+  margin-top: -23px;
+  width: 43px;
   div#item-count{
     color: orange;
     font-size: 31px;
     font-weight: bold;
     margin-top: 12px;
+    margin-left: -10px;
     text-align: center;
     width: 48px;  
     }
