@@ -13,20 +13,22 @@
         #logo{:style => "border:none red 1px; width:350px;float:left;"}
           = link_to image_tag('logo.jpg'), root_url
           
-        #login{:style=>"padding:25px;float:right;"}
+        #login
           - if current_user
             = current_user.username
             = "-"
             = link_to 'logout', logout_path
           - else
             = link_to 'login', login_path
-        #basket-info
-          = render 'layouts/secure_lock'
-          - basket_items = @shopping_cart.cart_items.count
-          - if basket_items >= 1
-            = link_to cart_items_path do
-              %div#basket-link
-                #item-count= basket_items
+        #multi-wrapper
+          #basket-info
+            - basket_items = @shopping_cart.cart_items.count
+            - if basket_items >= 1
+              = link_to cart_items_path do
+                %div#basket-link
+                  #item-count= basket_items
+          #site-lock-wrapper
+            = render 'layouts/secure_lock'                  
 
         #navbar{:style=>"clear:both;"}
           #menu-wrapper

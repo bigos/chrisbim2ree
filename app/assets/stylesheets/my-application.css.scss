@@ -20,27 +20,45 @@ div#logo a img {
 border: none; }
 
 div#login {
+padding:25px 25px 0 0;;
 float: right;
 text-align: right;
 width: auto; }
 
-div#basket-info{
+#multi-wrapper{
   clear:right;
+  height:50px;
+  min-width:99px;
+  display: inline-block;
+  float:right;
+  }
+  
+div#site-lock-wrapper{
+  width:99px;
+  height:50px;  
+  margin-right: 22px;
+  margin-top: 9px;
+  float:right;
+  }
+  
+div#basket-info{
   float:right;
   }
 
 div#basket-link{
   background-image: url("/assets/basket.png");
   background-position: 0 0;
+  float: left;
   height: 41px;
+  margin-left: -2px;
   margin-right: 19px;
-  margin-top: -23px;
+  margin-top: 15px;
   width: 43px;
   div#item-count{
     color: orange;
     font-size: 31px;
     font-weight: bold;
-    margin-top: 12px;
+    margin-top: 2px;
     margin-left: -10px;
     text-align: center;
     width: 48px;  
