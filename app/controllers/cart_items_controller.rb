@@ -8,4 +8,9 @@ class CartItemsController < InheritedResources::Base
     end
     index!
   end
+  def create
+    create! do |format|
+      format.html { redirect_to cart_items_url }
+    end
+  end
 end

@@ -41,7 +41,7 @@ div.photo-wrapper{text-align:center;
 
 div.photo-links {
   height: 1.25em;
-  margin-top: -28px;
+  margin-top: -14px;
   position: relative;
     a{
       background:yellow;
@@ -50,8 +50,9 @@ div.photo-links {
       line-height:1em;
       color:red;
       }
-      a.show{margin-left:-56px;}
-      a.delete{margin-left:50px;}
+      a.show{margin-left:5px;}
+      a.edit{margin-left:60px}
+      a.delete{margin-left:160px;}
   }
   
   
