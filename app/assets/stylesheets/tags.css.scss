@@ -9,7 +9,7 @@
 
 ul#category-photos{
   list-style: none outside none;
-  width:720px;
+  width:730px;
   display:inline-block;
   margin-top:0px;
   padding-top:0px;
@@ -17,10 +17,9 @@ ul#category-photos{
   li{
     a{text-decoration:none;}
     float:left;
-    margin: 0px 10px 20px 0px;
+    margin: 0px 0px 20px 18px;
     .photo-frame{
       background:#eeeeee;
-      border:solid #e0e0e0 1px;
       text-align:center;
       .photo-div{
         width:225px;
@@ -37,4 +36,7 @@ ul#category-photos{
         }          
       }
     }
+    li.col-0{
+      margin-left:0px;
+      }
   }

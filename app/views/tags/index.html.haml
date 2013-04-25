@@ -14,12 +14,13 @@
     - if child_count >= 1
       - photo = tag.photo
       - if photo
-        %li
+        %li{:class => "col-#{col % columns}"}
           - html_fragment = capture_haml do
             %div.photo-frame
               .photo-div= image_tag photo.attachment.url(:medium)
               .caption= tag.name
           = link_to html_fragment, photos_path(:tag => tag.name)
+        - col += 1
 
 - if current_admin
   %h3 Tags
