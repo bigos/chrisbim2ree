@@ -11,6 +11,8 @@ class Tag < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => {:scope => :parent_id}
   validate :parent_can_not_be_self
 
+  scope :uniquely_named, group(:category_name)
+
   def parent_can_not_be_self
     if self.parent_id and self.parent_id == self.id
       errors.add(:parent_id, "can't be parent of itself")
