@@ -9,7 +9,7 @@ class Workshop < ActiveRecord::Base
     finish = self.start_date + (self.duration.days-1)
     ord_start  = self.start_date.day.ordinalize
     ord_finish = finish.day.ordinalize
-    "#{ord_start} #{self.start_date.strftime(" %b")} to #{ord_finish} #{finish.strftime("%b/%Y")}"    
+    "#{ord_start} #{self.start_date.strftime(" %B")} to #{ord_finish} #{finish.strftime("%B %Y")}"    
   end
   
 end
