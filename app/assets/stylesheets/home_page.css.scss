@@ -3,8 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$black-highlight: #222;
-  
+
 #col1{//border:solid red 1px;
   min-height:100px;
   margin-bottom:20px;
@@ -93,7 +92,10 @@ div.horizontal_separator{
     margin:1px 0px 1px 0px;
     }
   }
+
   
+$black-highlight: #222;
+$blue-link: #7eb3dc;    
 #footer_area{clear:both;
   min-height:5px;
   width:100%;
@@ -138,19 +140,33 @@ div.horizontal_separator{
     li{padding-left:0em;
       list-style-type:none;
         div{
-        strong{font-size:14px;
-          color:darken(white,10%);
-   
-          }}
+          strong{font-size:14px;
+            color:darken(white,10%);   
+          }
+        }
         p{font-size:12px;
           color:darken(white,20%);
           margin-top:-1px;
           margin-bottom:20px;
           }
+          a.teaser{
+            text-decoration:none;
+            font-size:12px;
+            color:white;
+            }
+          a.teaser:hover{
+            p{
+              color: $blue-link;
+              font-style:italic;
+              background: $black-highlight;
+              }
+            }
+          a.teaser:visited{color:white;}
         }  
     }
     div.time{}
 }
+
 
 a.footer_social{text-decoration:none;
   span{color:white;
@@ -159,29 +175,24 @@ a.footer_social{text-decoration:none;
 a.footer_social:hover{color:green;
   background:$black_highlight;
     }  
-a.teaser{text-decoration:none;
-	fornt-size:12px;
-	color:white;
-	}
-a.teaser:hover{
-	p{background: $black-highlight;}
-	}
-a.teaser:visited{color:white;}
+
 
 // slideshow
 
-#image_container{height:470px;	
-	overflow:hidden;
-	.slide{display:none;
-          margin:0px;
-          padding:0px;
-          p{margin:0.25em auto 0px;
-            width:950px;
-            text-align:center;
-	    margin-bottom: 0.5em;
-            clear:both;
-          }
-        }
-	.slide:first-child{display:block;		
-        }
+#image_container{
+  height:470px;	
+  overflow:hidden;
+  .slide{display:none;
+    margin:0px;
+    padding:0px;
+    p{margin:0.25em auto 0px;
+      width:950px;
+      text-align:center;
+      margin-bottom: 0.5em;
+      clear:both;
       }
+    }
+  .slide:first-child{
+    display:block;		
+    }
+  }
