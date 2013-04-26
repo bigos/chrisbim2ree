@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130422222652) do
+ActiveRecord::Schema.define(:version => 20130426165051) do
 
   create_table "cart_items", :force => true do |t|
     t.integer  "shopping_cart_id"
@@ -112,8 +112,9 @@ ActiveRecord::Schema.define(:version => 20130422222652) do
     t.string   "name"
     t.integer  "parent_id"
     t.integer  "photo_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.string   "category_name"
   end
 
   create_table "user_sessions", :force => true do |t|
