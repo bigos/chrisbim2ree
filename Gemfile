@@ -47,6 +47,7 @@ gem "paperclip", "~> 2.7"
 gem 'haml-rails'
 gem "authlogic", "~> 3.2.0"
 gem "ckeditor"
+gem 'chosen-rails'
 
 gem 'jquery_datepicker'
 gem "jquery-fileupload-rails"

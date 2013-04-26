@@ -6,6 +6,9 @@
   - if @tag.photo
     = image_tag @tag.photo.attachment.url(:thumb)
   |
+  %b category name:
+  = @tag.category_name
+  |
   %b parent:
   = @tag.parent ? link_to(@tag.parent.name, @tag.parent) : 'none'
   |

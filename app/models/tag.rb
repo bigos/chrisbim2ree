@@ -1,5 +1,5 @@
 class Tag < ActiveRecord::Base
-  attr_accessible :name, :parent_id
+  attr_accessible :name, :parent_id, :category_name
   
   has_many :taggings
   has_many :photos, :through => :taggings
