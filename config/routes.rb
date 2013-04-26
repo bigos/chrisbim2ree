@@ -14,6 +14,9 @@ Chrisbim2ree::Application.routes.draw do
 
   get "bulk_upload/new"
 
+  resources :tags do
+    get :autocomplete_tag_category_name, :on => :collection
+  end
   resources :tags
 
   resources :photos

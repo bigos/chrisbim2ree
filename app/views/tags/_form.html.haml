@@ -18,6 +18,7 @@
     = f.select :parent_id, Tag.find(:all,:order => 'name').collect {|t| [ t.name, t.id ] }, :include_blank => true #, :class => 'chzn-select' 
   .field
     = f.label :category_name
+    = f.autocomplete_field :category_name, autocomplete_tag_category_name_tags_path
     %br
     - if true #params[:action] == 'new'
       = f.select :category_name, Tag.uniq.pluck(:category_name).delete_if {|x| x == nil}, :include_blank => true #, :class => 'chzn-select' 

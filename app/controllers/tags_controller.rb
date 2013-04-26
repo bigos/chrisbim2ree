@@ -1,5 +1,6 @@
 class TagsController < InheritedResources::Base
   before_filter :require_admin, :except => [:index]
+  autocomplete :tag, :category_name, :full => true
 
   def index
     @tags = Tag.order(:name)
