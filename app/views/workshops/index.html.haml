@@ -1,7 +1,7 @@
 
 - @workshops.each do |workshop|
   %div.workshop
-    %h2= workshop.title
+    %h3= workshop.title
     %p= "#{workshop.duration} days - #{workshop.date_range}"
     != workshop.content
     = link_to 'Show', workshop

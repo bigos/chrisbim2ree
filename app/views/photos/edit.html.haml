@@ -1,7 +1,4 @@
-%h1 Editing photo
-
-%p Tell me how you want to edit photos, perhaps something could be done about it. Perhaps some tag editing stuff can go here.
-
+%h3 Edit Photo
 
 = link_to image_tag(@photo.attachment.url(:medium)), @photo.attachment.url, {:class => 'fancybox', :title => @photo.attachment_file_name[0..-5].gsub('_',' ')}
 
