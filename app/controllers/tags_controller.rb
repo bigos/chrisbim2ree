@@ -3,7 +3,7 @@ class TagsController < InheritedResources::Base
   autocomplete :tag, :category_name, :full => true, :scopes => [:uniquely_named]
 
   def index
-    @tags = Tag.order(:name)
+    @tags = Tag.where(:parent_id => nil).order(:name)
     index!
   end
 

@@ -11,23 +11,24 @@
 #photo_grid
   %h3
     = params['tag'] ? params['tag'] : 'Photos'
-    - if @tag.parent
+    - if @tag && @tag.parent
       &nbsp;
       = link_to 'Up', photos_path(:tag => @tag.parent.name)
-  - if current_admin
+  - if current_admin && @tag
     %ul#category-photos
       - @tag.children.each do |tag|
         %li{:class => "col-#{col % columns}"}
-          - if true #tag.photo
-            - html_fragment = capture_haml do
-              %div.photo-frame
-                .photo-div
-                  - if tag.photo
-                    = image_tag tag.photo.attachment.url(:medium)
-                  - else
-                    thumbnail missing..
-                .caption= tag.name
-            = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)
+          - html_fragment = capture_haml do
+            %div.photo-frame
+              .photo-div
+                - if tag.photo
+                  = image_tag tag.photo.attachment.url(:medium)
+                - else
+                  thumbnail missing..
+              .caption= tag.name
+          = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)
+          
+            
           - col += 1
     %br
   - col = 0
