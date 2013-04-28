@@ -22,26 +22,28 @@ ul#category-photos{
   li{
     a{text-decoration:none;}
     float:left;
-    margin: 0px 0px 20px 18px;
-    .photo-frame{
-      background:#eeeeee;
-      text-align:center;
-      .photo-div{
-        width:225px;
-        height:150px;
-        line-height:150px;
-        vertical-align:middle;
-        img{
-          vertical-align:middle;
-          }
-        }
-      .caption{
-        font-size:11px;      
-        text-decoration:none;
-        }          
-      }
+    margin: 0px 0px 20px 25px;
+
     }
     li.col-0{
       margin-left:0px;
-      }
+    }
   }
+
+div.photo-frame{
+  background:#eeeeee;
+  text-align:center;
+  .photo-div{
+    width:225px;
+    height:150px;
+    line-height:150px;
+    vertical-align:middle;
+    img{
+      vertical-align:middle;
+    }
+  }
+  .caption{
+    font-size:11px;      
+    text-decoration:none;
+    }          
+  }    
