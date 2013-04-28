@@ -11,7 +11,7 @@
 #photo_grid
   %h3
     = params['tag'] ? params['tag'] : 'Photos'
-    - if @tag && @tag.parent
+    - if @tag && @tag.parent && current_admin
       &nbsp;
       = link_to 'Up', photos_path(:tag => @tag.parent.name)
   - if @tag
