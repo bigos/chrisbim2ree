@@ -34,9 +34,13 @@ div.photo-frame{
   background:#eeeeee;
   text-align:center;
   .photo-div{
-    width:225px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    width:212px;
     height:150px;
     line-height:150px;
+    overflow:hidden;
     vertical-align:middle;
     img{
       vertical-align:middle;
