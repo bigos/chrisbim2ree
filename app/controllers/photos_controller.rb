@@ -5,6 +5,8 @@ class PhotosController < InheritedResources::Base
   def index
 
     if params[:tag]
+      @tag = Tag.find(:first, :conditions => {:name => params[:tag] })
+
       @photos = Photo.includes(:tags).where(:tags => {:name => params[:tag]}).order('photos.created_at DESC').paginate(:page => params[:page], :per_page => 12)
     else
       if params['order'] == 'filename'

@@ -10,6 +10,13 @@
 
 #photo_grid
   %h3= params['tag'] ? params['tag'] : 'Photos'
+  - if current_admin
+    - if @tag.parent
+      = link_to 'Up', photos_path(:tag => @tag.parent.name)
+    %ul
+      - @tag.children.each do |tag_child|
+        %li= link_to tag_child.name, photos_path(:tag => tag_child.name)
+    %br  
   %ul
     - @photos.each do |photo|
       %li{:class=> "column#{col}"}
