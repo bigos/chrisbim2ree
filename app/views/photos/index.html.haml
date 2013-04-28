@@ -24,7 +24,7 @@
                 - if tag.photo
                   = image_tag tag.photo.attachment.url(:medium)
                 - else
-                  thumbnail missing..
+                  thumbnail missing...
               .caption= tag.name
           = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)
           

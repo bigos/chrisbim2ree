@@ -10,17 +10,17 @@
 %h3 Gallery
 %ul#category-photos
   - @tags.each do |tag|
-    - child_count = tag.photos.size
-    - if child_count >= 1
-      - photo = tag.photo
-      - if photo
-        %li{:class => "col-#{col % columns}"}
-          - html_fragment = capture_haml do
-            %div.photo-frame
-              .photo-div= image_tag photo.attachment.url(:medium)
-              .caption= tag.name
-          = link_to html_fragment, photos_path(:tag => tag.name)
-        - col += 1
+    %li{:class => "col-#{col % columns}"}
+      - html_fragment = capture_haml do
+        %div.photo-frame
+          .photo-div
+            - if tag.photo
+              = image_tag tag.photo.attachment.url(:medium)
+            - else
+              thumbnail missing...
+          .caption= tag.name
+      = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)      
+      - col += 1
 
 - if current_admin
   %h3 Tags
