@@ -14,7 +14,7 @@
     - if @tag && @tag.parent
       &nbsp;
       = link_to 'Up', photos_path(:tag => @tag.parent.name)
-  - if current_admin && @tag
+  - if @tag
     %ul#category-photos
       - @tag.children.each do |tag|
         %li{:class => "col-#{col % columns}"}
