@@ -18,7 +18,7 @@
               = image_tag tag.photo.attachment.url(:medium)
             - else
               thumbnail missing...
-          .caption= tag.name +' ' +tag.children.count.to_s
+          .caption= tag.name
       - if tag.photo == nil
         = link_to html_fragment, tag
       - elsif tag.children.count == 0
