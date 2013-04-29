@@ -18,8 +18,13 @@
               = image_tag tag.photo.attachment.url(:medium)
             - else
               thumbnail missing...
-          .caption= tag.name
-      = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)      
+          .caption= tag.name + tag.children.count.to_s
+      - if tag.photo == nil
+        = link_to html_fragment, tag
+      - elsif tag.children.count == 0
+        = link_to html_fragment, photos_path(:tag => tag.name)
+      - else
+        = link_to html_fragment, tags_path(:tag => tag.name)
       - col += 1
 
 - if current_admin
