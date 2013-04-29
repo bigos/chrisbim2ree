@@ -38,4 +38,5 @@
         %li
           %div.time
             %strong=  post.created_at.strftime("#{post.created_at.day.ordinalize} %b %Y")
-          = link_to( raw(post.teaser), post, :class=>'teaser')
+          = link_to post, :class=>'teaser' do
+            = raw(post.teaser)
