@@ -17,8 +17,6 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require jquery-fileupload
-//= require chosen-jquery
-//= require tags
 //= require_tree .
 
 

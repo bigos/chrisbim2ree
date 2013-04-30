@@ -48,10 +48,6 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    chosen-rails (0.9.13)
-      coffee-rails (>= 3.2)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
     ckeditor (4.0.4)
       mime-types
       orm_adapter
@@ -225,7 +221,6 @@ DEPENDENCIES
   authlogic (~> 3.2.0)
   capistrano
   capybara (~> 1.1.1)
-  chosen-rails
   ckeditor
   coffee-rails (~> 3.2.1)
   cucumber-rails (>= 1.1.1)

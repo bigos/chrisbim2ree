@@ -15,7 +15,7 @@
   .field
     = f.label 'parent category'
     %br
-    = f.select :parent_id, Tag.find(:all,:order => 'name').collect {|t| [ t.name, t.id ] }, :include_blank => true #, :class => 'chzn-select' 
+    = f.select :parent_id, Tag.find(:all,:order => 'name').collect {|t| [ t.name, t.id ] }, :include_blank => true 
   .field
     = f.label :category_name
     %br

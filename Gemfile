@@ -47,7 +47,6 @@ gem "paperclip", "~> 2.7"
 gem 'haml-rails'
 gem "authlogic", "~> 3.2.0"
 gem "ckeditor"
-gem 'chosen-rails'
 gem 'rails3-jquery-autocomplete'
     
 gem 'jquery_datepicker'
