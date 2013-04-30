@@ -26,11 +26,9 @@
                 - else
                   thumbnail missing...
               .caption= tag.name
-          = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)
-          
-            
+          = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)            
           - col += 1
-    %br
+    
   - col = 0
   %ul
     - @photos.each do |photo|
