@@ -31,9 +31,9 @@
   = link_to (image_tag photo.attachment.url(:thumb)), photo
   = link_to 'pin it', tag_path(@tag, :pin => photo.id)
     
-
-%hr
-%h4 These photos are not tagged
+- if @untagged_photos.count > 1
+  %hr
+  %h4 These photos are not tagged
 - @untagged_photos.each do |photo|
   = link_to edit_photo_path(photo) do
     - image_tag photo.attachment.url(:thumb)
