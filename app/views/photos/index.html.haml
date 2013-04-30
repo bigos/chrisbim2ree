@@ -14,21 +14,7 @@
     - if @tag && @tag.parent && current_admin
       &nbsp;
       = link_to 'Up', photos_path(:tag => @tag.parent.name)
-  - if @tag
-    %ul#category-photos
-      - @tag.children.each do |tag|
-        %li{:class => "col-#{col % columns}"}
-          - html_fragment = capture_haml do
-            %div.photo-frame
-              .photo-div
-                - if tag.photo
-                  = image_tag tag.photo.attachment.url(:medium)
-                - else
-                  thumbnail missing...
-              .caption= tag.name
-          = link_to html_fragment, (tag.photo ? photos_path(:tag => tag.name) : tag)            
-          - col += 1
-    
+
   - col = 0
   %ul
     - @photos.each do |photo|
