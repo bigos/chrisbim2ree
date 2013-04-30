@@ -11,6 +11,7 @@
  *= require_self
  *= require fancybox
  *= require jquery.fileupload-ui
+ *= require chosen
  *= require_tree .
  */
 
