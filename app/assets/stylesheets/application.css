@@ -14,8 +14,6 @@
  *= require_tree .
  */
 
-@import "chosen";
-
 body {
   background-color: #fff;
   color: #333;
