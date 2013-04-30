@@ -45,6 +45,10 @@ task :recompile_assets do
   run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake assets:precompile'"
 end
 
+task :bundle_install do 
+  run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'bundle install'"
+end
+
 task :migrate do 
   run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake db:migrate'"
 end
