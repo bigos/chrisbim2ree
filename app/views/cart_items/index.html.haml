@@ -4,70 +4,73 @@
 
 %h3 Shopping Cart
 
-%table#shopping-cart
-  %tr
-    %th Image
-    %th Size
-    %th Quantity
-    %th Price
-    %th Subtotal
-    %th
-    %th
-  - row = 0
-  - @cart_items.each do |cart_item|
-    - row += 1
-    %tr{:class => row.even? ? 'even' : 'odd' }     
-      %td{:style => 'padding:5px;'}
-        .photo-wrapper
-          = image_tag cart_item.photo.attachment.url(:medium)
-      %td.size
-        &nbsp;
-        = cart_item.option
-      %td.quantity= cart_item.quantity
-      - total_quantity += cart_item.quantity       
-      %td.price= "£#{cart_item.price}"
-      - logger.info "cart: #{cart_item.inspect}      total price#{total_price.inspect}"
-      - total_price += cart_item.quantity * cart_item.price
-      %td.total{:class => 'total'}
-        = "£#{cart_item.quantity * cart_item.price}"
-      %td.change
-        &nbsp;
-        = link_to 'Change', edit_cart_item_path(cart_item)
-      %td= link_to 'Delete', cart_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
-  %tr()
-    %td
-    %td
-    %td= total_quantity
-    %td{:style => 'text-align:left;'}
-      items
-    %td{:class => 'total'}
-      = "£#{total_price}"
-    %td{:style => 'text-align:left;'}
-      Total
-    %td
+- if @shopping_cart.cart_items.count > 0  
+  %table#shopping-cart
+    %tr
+      %th Image
+      %th Size
+      %th Quantity
+      %th Price
+      %th Subtotal
+      %th
+      %th
+    - row = 0
+    - @cart_items.each do |cart_item|
+      - row += 1
+      %tr{:class => row.even? ? 'even' : 'odd' }     
+        %td{:style => 'padding:5px;'}
+          .photo-wrapper
+            = image_tag cart_item.photo.attachment.url(:medium)
+        %td.size
+          &nbsp;
+          = cart_item.option
+        %td.quantity= cart_item.quantity
+        - total_quantity += cart_item.quantity       
+        %td.price= "£#{cart_item.price}"
+        - logger.info "cart: #{cart_item.inspect}      total price#{total_price.inspect}"
+        - total_price += cart_item.quantity * cart_item.price
+        %td.total{:class => 'total'}
+          = "£#{cart_item.quantity * cart_item.price}"
+        %td.change
+          &nbsp;
+          = link_to 'Change', edit_cart_item_path(cart_item)
+        %td= link_to 'Delete', cart_item, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %tr()
+      %td
+      %td
+      %td= total_quantity
+      %td{:style => 'text-align:left;'}
+        items
+      %td{:class => 'total'}
+        = "£#{total_price}"
+      %td{:style => 'text-align:left;'}
+        Total
+      %td
 
-%br
+  %br
 
 
-= form_tag 'https://www.paypal.com/uk/cgi-bin/webscr',:target=>'paypal' do 
-  = hidden_field_tag 'image_url',  'http://chrisbeard-images.com/images/pp_logo.gif'  
-  - x=1
-  - @cart_items.each do |ci|
-    = hidden_field_tag 'item_name_'+x.to_s, sprintf("photo#: %s size: %s ", ci.photo_id, ci.option) 
-    = hidden_field_tag 'amount_'+x.to_s, (ci.price)
-    = hidden_field_tag 'quantity_'+x.to_s, (ci.quantity) 
-    = hidden_field_tag 'option_'+x.to_s, (ci.option) 
-    - x += 1
-    
-  = hidden_field_tag 'handling_cart', 4.99 
-  = hidden_field_tag 'currency_code', 'GBP'
-  = hidden_field_tag 'business', 'sales@chrisbeard-images.com' 
-  = hidden_field_tag 'cmd', '_cart'
-  = hidden_field_tag 'upload', 1 
+  = form_tag 'https://www.paypal.com/uk/cgi-bin/webscr',:target=>'paypal' do 
+    = hidden_field_tag 'image_url',  'http://chrisbeard-images.com/images/pp_logo.gif'  
+    - x=1
+    - @cart_items.each do |ci|
+      = hidden_field_tag 'item_name_'+x.to_s, sprintf("photo#: %s size: %s ", ci.photo_id, ci.option) 
+      = hidden_field_tag 'amount_'+x.to_s, (ci.price)
+      = hidden_field_tag 'quantity_'+x.to_s, (ci.quantity) 
+      = hidden_field_tag 'option_'+x.to_s, (ci.option) 
+      - x += 1
 
-  = hidden_field_tag 'shopping_url', 'http://chrisbeard-images.com/galleries' 
-  = submit_tag "Proceed to Checkout" 
+    = hidden_field_tag 'handling_cart', 4.99 
+    = hidden_field_tag 'currency_code', 'GBP'
+    = hidden_field_tag 'business', 'sales@chrisbeard-images.com' 
+    = hidden_field_tag 'cmd', '_cart'
+    = hidden_field_tag 'upload', 1 
 
+    = hidden_field_tag 'shopping_url', 'http://chrisbeard-images.com/galleries' 
+    = submit_tag "Proceed to Checkout" 
+- else
+  %p Shopping Cart is empty
+  
 - if @shopping_cart.cart_items.count > 0  
   %div{:style => 'margin-top:0em;float:right;'}
     = link_to 'Empty Shopping Cart', empty_shopping_cart_path
