@@ -1,4 +1,6 @@
 Chrisbim2ree::Application.routes.draw do
+
+  match "/empty_shopping_cart" => 'empty_shopping_cart#update'
   
   resources :newsletter_subscribers
 

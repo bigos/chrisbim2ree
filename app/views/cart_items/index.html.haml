@@ -13,7 +13,6 @@
     %th Subtotal
     %th
     %th
-
   - row = 0
   - @cart_items.each do |cart_item|
     - row += 1
@@ -27,6 +26,7 @@
       %td.quantity= cart_item.quantity
       - total_quantity += cart_item.quantity       
       %td.price= "£#{cart_item.price}"
+      - logger.info "cart: #{cart_item.inspect}      total price#{total_price.inspect}"
       - total_price += cart_item.quantity * cart_item.price
       %td.total{:class => 'total'}
         = "£#{cart_item.quantity * cart_item.price}"
@@ -67,3 +67,7 @@
 
   = hidden_field_tag 'shopping_url', 'http://chrisbeard-images.com/galleries' 
   = submit_tag "Proceed to Checkout" 
+
+- if @shopping_cart.cart_items.count > 0  
+  %div{:style => 'margin-top:0em;float:right;'}
+    = link_to 'Empty Shopping Cart', empty_shopping_cart_path

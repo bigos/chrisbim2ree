@@ -5,4 +5,10 @@ class ShoppingCart < ActiveRecord::Base
 
   validates_presence_of :customer_token
 
+  def empty!
+    self.cart_items.each do |cart_item|
+      logger.info 'deleted ' + cart_item.inspect
+      cart_item.destroy
+    end
+  end
 end
