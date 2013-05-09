@@ -17,6 +17,7 @@ class SubscriberMailer < ActionMailer::Base
     end
     
     @subscriber = subscriber
+    logger.info @@secrets.inspect
     mail(:to => @@secrets['email']['admin_email'],
          #:cc => @@secrets['email']['cc'],
          :subject => "You have new subscriber")
