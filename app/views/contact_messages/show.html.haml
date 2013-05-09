@@ -10,6 +10,7 @@
   %b Message:
   = @contact_message.message
 
-= link_to 'Edit', edit_contact_message_path(@contact_message)
-\|
-= link_to 'Back', contact_messages_path
+- if current_admin  
+  = link_to 'Edit', edit_contact_message_path(@contact_message)
+  \|
+  = link_to 'Back', contact_messages_path
