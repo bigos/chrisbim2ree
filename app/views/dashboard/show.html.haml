@@ -1,0 +1,33 @@
+%h3 Dashboard
+
+%div{:class => 'container-fluid', :style => 'padding:0px;'}
+  .row-fluid
+    .span3
+      .well.sidebar-nav
+        %ul.nav.nav-list
+          %li.nav-header Actions
+          %li= link_to 'Turbo', dashboard_path(:section => :turbo)
+    .span9
+      .row-fluid
+        - if params[:section] == nil
+
+        - elsif params[:section] == 'turbo'
+          - restart_file = File.join Rails.root, 'tmp', 'restart.txt'
+          - if File.exists? restart_file
+            - File.delete restart_file
+            Your application has been turboed.
+          - else
+            No need to turbo.
+
+
+
+
+
+
+
+
+
+
+
+
+

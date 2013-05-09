@@ -1,5 +1,8 @@
 Chrisbim2ree::Application.routes.draw do
 
+  match '/dashboard' => 'dashboard#show'
+  match '/dashboard/:section' => 'dashboard#show'
+
   match "/empty_shopping_cart" => 'empty_shopping_cart#update'
   
   resources :newsletter_subscribers
