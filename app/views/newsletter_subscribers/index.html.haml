@@ -14,7 +14,7 @@
       %td= newsletter_subscriber.created_at.strftime("#{newsletter_subscriber.created_at.day.ordinalize} %b %Y")
       %td= link_to 'Show', newsletter_subscriber
       %td= link_to 'Edit', edit_newsletter_subscriber_path(newsletter_subscriber)
-      %td= link_to 'Destroy', newsletter_subscriber, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Destroy', newsletter_subscriber, :method => :delete, :data => { :confirm => "Are you sure to delete #{newsletter_subscriber.email} ?" }
 
 %br
 
