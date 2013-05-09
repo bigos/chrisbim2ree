@@ -5,13 +5,14 @@ class UserMailer < ActionMailer::Base
   else
     @@url = "http://www.chrisbeard-photography.co.uk"
   end
-  default :from => @@secrets['email']['sender']
+  default :from => @@secrets['email_server']['user_name']
 
   def contact_form_message(message)
     @message = message
     @url = @@url
-    mail(:to => @@secrets['email']['user_name'],
+    mail(:to => @@secrets['email']['admin_email'],
          :from => @message.from,
+         :cc => @@secrets['email']['cc'],
          :subject => @message.subject)
   end
   
