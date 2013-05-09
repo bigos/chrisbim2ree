@@ -12,7 +12,7 @@
     - Tag.where(:category_name => category).order('category_name, name').each do |t|
       - tagging = Tagging.where(:photo_id=>@photo.id, :tag_id=>t.id).first
       %div
-        = link_to (raw t.name+(check_box_tag 'visible','yes', tagging )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
+        = link_to (raw t.name+'&nbsp;'+(check_box_tag 'visible','yes', tagging )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
 
 %div.categories-block
   %span.category  
@@ -21,7 +21,7 @@
   - Tag.where(:category_name => nil).order(' name').each do |t|
     - tagging = Tagging.where(:photo_id=>@photo.id, :tag_id=>t.id).first
     %div
-      = link_to (raw t.name+(check_box_tag 'visible','yes', tagging )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
+      = link_to (raw t.name+'&nbsp;'+(check_box_tag 'visible','yes', tagging )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
   
   
   
