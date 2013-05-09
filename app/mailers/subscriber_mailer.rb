@@ -1,6 +1,6 @@
 class SubscriberMailer < ActionMailer::Base
   @@secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
-  default :from => @@secrets['email']['sender']
+  default :from => @@secrets['email_server']['user_name']
   
   def welcome_email(subscriber)
     @subscriber = subscriber
