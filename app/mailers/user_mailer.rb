@@ -1,50 +1,38 @@
 class UserMailer < ActionMailer::Base
   @@secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
-  default :from => @@secrets['email'][Rails.env]['sender']
+  if Rails.env == 'development' or  Rails.env == "test" 
+    @@url = "http://localhost:3000"
+  else
+    @@url = "http://www.chrisbeard-photography.co.uk"
+  end
+  default :from => @@secrets['email']['sender']
 
   def contact_form_message(message)
     @message = message
-    if Rails.env == 'development' or  Rails.env == "test" 
-      @url = "http://localhost:3000"
-    else
-      @url  = "http://www.chrisbeard-photography.co.uk"
-    end
-    mail(:to => @@secrets['email']['production']['user_name'],
+    @url = @@url
+    mail(:to => @@secrets['email']['user_name'],
          :from => @message.from,
          :subject => @message.subject)
   end
   
   def welcome_email(user)
     @user = user
-
     mail(:to => user.email,
          :subject => "Welcome to My Awesome Site")
   end
 
   def activation_instructions(user)
     @user = user
-    if Rails.env == 'development' or  Rails.env == "test" 
-      @url = "http://localhost:3000/"
-    else
-      @url  = "http://www.chrisbeard-photography.co.uk/"
-    end
+    @url = @@url
     @activation_path = "activate/#{user.perishable_token}"
     mail(:to => user.email,
          :subject => "Activation Instructions")
   end
 
   def password_reset_instructions(user)
-   if Rails.env == 'development' or  Rails.env == "test" 
-      @url = "http://localhost:3000"
-    else
-      @url  = "http://www.chrisbeard-photography.co.uk"
-    end
+    @url = @@url
     @reset_path = edit_password_reset_path(user.perishable_token)
-
-    sender = 
-
     mail(:to => user.email,
-         :subject => "Password Reset Instructions")
-    
+         :subject => "Password Reset Instructions")    
   end
 end

@@ -1,11 +1,12 @@
 class SubscriberMailer < ActionMailer::Base
   @@secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
-  default :from => @@secrets['email'][Rails.env]['sender']
+  default :from => @@secrets['email']['sender']
   
   def welcome_email(subscriber)
     @subscriber = subscriber
     mail(:to => subscriber.email,
-         :subject => "Thank you for subscription")
+         #:cc => @@secrets['email']['cc'],
+         :subject => "Thank You for Registering")
   end
 
   def admin_notification(subscriber)
@@ -16,7 +17,8 @@ class SubscriberMailer < ActionMailer::Base
     end
     
     @subscriber = subscriber
-    mail(:to => @@secrets['email']['production']['user_name'],
+    mail(:to => @@secrets['email']['user_name'],
+         #:cc => @@secrets['email']['cc'],
          :subject => "You have new subscriber")
   end
 end
