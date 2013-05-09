@@ -10,7 +10,7 @@ Feature: UserRegistrationAndActivation
   Scenario: Successful registration
     Given I am not logged in
     And I am on the homepage
-    When I follow "Login"
+    When I follow "login"
     And I follow "Register"
     And I fill in the following registration details:
       | username      | james_bond |

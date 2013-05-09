@@ -11,19 +11,19 @@ Feature: Authentication
   Scenario: Successful login
     Given I am not logged in
     And I am on the homepage
-    When I follow "Login"
+    When I follow "login"
     And I fill in the following:
       | username      | leonard |
       | Password      | secret  |
     And I press "Login"
     Then I should be on the user page
-    And I should see "Logout"
-    And I should not see "Login"
+    And I should see "logout"
+    And I should not see "login"
 
   Scenario: Successful logout
     Given I am logged in as "leonard"
     And I am on the user page
-    When I follow "Logout"
+    When I follow "logout"
     Then I should be on the homepage
-    And I should see "Login"
-    And I should not see "Logout"
+    And I should see "login"
+    And I should not see "logout"

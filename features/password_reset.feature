@@ -7,7 +7,7 @@ Feature: Password Reset
     Given a user exists with email: "user@domain.com", password: "password" and username: "test_user"
     And I am not logged in
     And I am on the homepage
-    When I follow "Login"
+    When I follow "login"
 
     And I follow "I forgot my password"
     Then I should see text "Reset Password"
@@ -26,7 +26,7 @@ Feature: Password Reset
   Scenario: Reset password no account
     Given I am not logged in
     And I am on the homepage
-    When I follow "Login"
+    When I follow "login"
 
     And I follow "I forgot my password"
     Then I should see text "Reset Password"

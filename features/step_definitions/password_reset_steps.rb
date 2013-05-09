@@ -38,7 +38,7 @@ end
 
 Then(/^I should be able to log in with username "(.*?)" and password "(.*?)"$/) do |arg1, arg2|
   visit root_path
-  click_link "Login"
+  click_link "login"
   fill_in('Username', :with => arg1)
   fill_in('Password', :with => arg2)
   click_button('Login')
