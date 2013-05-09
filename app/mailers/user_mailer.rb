@@ -12,7 +12,7 @@ class UserMailer < ActionMailer::Base
     @url = @@url
     mail(:to => @@secrets['email']['admin_email'],
          :from => @message.from,
-         :cc => @@secrets['email']['cc'],
+         #:cc => @@secrets['email']['cc'],
          :subject => @message.subject)
   end
   
