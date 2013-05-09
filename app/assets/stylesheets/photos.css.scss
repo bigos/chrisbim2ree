@@ -10,6 +10,7 @@
   ul{ list-style: none outside none;
     padding:0px;
     margin-top:0px;
+    margin-left:0px;
     //border:solid red 1px;
     li{
       float: left;
@@ -74,6 +75,7 @@ div.photo-links {
   background:#fff;}
   ul{list-style: none outside none;
     padding-left:20px;
+    margin-left:0px;
     }
   ul li:first-child{margin-top:0px;;
     }
