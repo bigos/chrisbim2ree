@@ -28,7 +28,7 @@
             = link_to 'Edit', edit_photo_path(photo), :class => 'edit'
             = link_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }
           
-%div{:style=>'clear:both;'}  
+%div{:style=>'clear:left;'}  
   
 = will_paginate @photos, params=>{:order=>params['order']}
 
