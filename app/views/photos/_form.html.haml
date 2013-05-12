@@ -10,4 +10,4 @@
     = f.label 'Select File'
     = f.file_field :attachment
   .actions
-    = f.submit 'Save'
+    = f.submit (params[:action] == 'new' ? 'Upload' : 'Save')
