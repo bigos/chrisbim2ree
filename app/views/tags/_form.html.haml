@@ -9,16 +9,20 @@
 
   .field
     = f.label :name
-    %br
     = f.text_field :name
-
   .field
     = f.label 'parent category'
-    %br
     = f.select :parent_id, Tag.find(:all,:order => 'name').collect {|t| [ t.name, t.id ] }, :include_blank => true 
   .field
     = f.label :category_name
-    %br
     = f.autocomplete_field :category_name, autocomplete_tag_category_name_tags_path   
   .actions
     = f.submit 'Save'
+
+.container-fluid    
+  .sidebar
+    .well.span5.offset5
+      %h5 Help - example values
+      %p name: Deers
+      %p parent category: Nature
+      %p category name: Species
