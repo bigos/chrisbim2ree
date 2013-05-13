@@ -1,4 +1,19 @@
 
+.well{:style => 'float:right; width:20em;'}
+  %h5 Example values
+  %p
+    %strong name:
+    Deers
+    (required)
+  %p
+    %strong parent category:
+    Nature
+    (optional)
+  %p
+    %strong category name:
+    Species
+    (optional)
+
 = form_for @tag do |f|
   - if @tag.errors.any?
     #error_explanation
@@ -18,11 +33,3 @@
     = f.autocomplete_field :category_name, autocomplete_tag_category_name_tags_path   
   .actions
     = f.submit 'Save'
-
-.container-fluid    
-  .sidebar
-    .well.span5.offset5
-      %h5 Help - example values
-      %p name: Deers
-      %p parent category: Nature
-      %p category name: Species
