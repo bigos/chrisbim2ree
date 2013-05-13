@@ -1,19 +1,4 @@
 
-.well{:style => 'float:right; width:20em;'}
-  %h5 Example values
-  %p
-    %strong name:
-    Deer
-    (required)
-  %p
-    %strong parent category:
-    Nature
-    (optional)
-  %p
-    %strong category name:
-    Species
-    (optional)
-
 = form_for @tag do |f|
   - if @tag.errors.any?
     #error_explanation
@@ -23,13 +8,19 @@
           %li= msg
 
   .field
-    = f.label :name
+    = f.label 'Tag name'
     = f.text_field :name
+  .field    
+    - if params[:parent_id]
+      = f.hidden_field :parent_id, :value => params[:parent_id]
+    - elsif params[:action] == 'edit'
+      = f.label 'parent category'
+      = f.select :parent_id, Tag.find(:all,:order => 'name').collect {|t| [ t.name, t.id ] }, :include_blank => true 
   .field
-    = f.label 'parent category'
-    = f.select :parent_id, Tag.find(:all,:order => 'name').collect {|t| [ t.name, t.id ] }, :include_blank => true 
-  .field
-    = f.label :category_name
-    = f.autocomplete_field :category_name, autocomplete_tag_category_name_tags_path   
+    - if params[:category_name]
+      = f.hidden_field :category_name, :value => params[:category_name]
+    - else
+      = f.label :category_name
+      = f.autocomplete_field :category_name, autocomplete_tag_category_name_tags_path   
   .actions
     = f.submit 'Save'

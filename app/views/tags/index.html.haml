@@ -31,5 +31,10 @@
   %h3 Tags
   #taglist
     != tag_links(1000, :tags, true, true, true)
-  = link_to 'New Tag', new_tag_path if current_admin
 
+
+  - categories = Tag.where(:parent_id => nil).collect{|t| t.category_name}.uniq.reject{|e| e.nil?}
+  - categories.each do |category|
+    = link_to (button_tag "Add #{category}"), new_tag_path(:category_name => category)
+  %br or if nothing else applies...
+  = link_to (button_tag 'Add Category'), new_tag_path

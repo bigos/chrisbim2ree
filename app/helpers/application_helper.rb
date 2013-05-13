@@ -12,8 +12,9 @@ module ApplicationHelper
     end
 
     if add_child
-      children = (tag.children.collect{|t| t.category_name}).uniq
-      str << "&nbsp; add child #{children.inspect}"
+      children = (tag.children.collect{|t| t.category_name}).uniq.reject{|e| e.nil?}
+      str << (link_to (button_tag " add #{children.count == 1 ? children[0]: 'Subcategory'}"), new_tag_path(:category_name => children[0], :parent_id => tag.id))
+
     end
 
     str << recursive_tag_links(tag.name, level+increase, max_level, type, show_count, show_category_name, add_child).to_s
