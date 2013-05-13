@@ -10,7 +10,12 @@ module ApplicationHelper
     if show_category_name
       str << "&nbsp;<span class=\"category_name\">#{tag.category_name}</span>" 
     end
- 
+
+    if add_child
+      children = (tag.children.collect{|t| t.category_name}).uniq
+      str << "&nbsp; add child #{children.inspect}"
+    end
+
     str << recursive_tag_links(tag.name, level+increase, max_level, type, show_count, show_category_name, add_child).to_s
     str << "</li>\n"
   end

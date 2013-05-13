@@ -30,6 +30,6 @@
 - if current_admin
   %h3 Tags
   #taglist
-    != tag_links(1000, :tags, true, true)
+    != tag_links(1000, :tags, true, true, true)
   = link_to 'New Tag', new_tag_path if current_admin
 
