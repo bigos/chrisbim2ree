@@ -62,14 +62,15 @@ function showLargePhoto() {
 $(document).ready(function(){
     slideShow();    
 
-    $('.tag-li').mouseleave(function(){
-	$('.subcategory-button').hide();
-	var el = this;
-	$(el).css('border-style','solid');
-	console.log('weeeeeeeeeeeeeeee '+this);
-    });
+
     $('.tag-li').mouseenter(function(){
-	$('.subcategory-button').show();	
+	var el = $(this).find('span')[1];
+	$(el).show();
+    });
+
+    $('.tag-li').mouseleave(function(){
+	var el = $(this).find('span')[1];
+	$(el).hide();
     });
 
 });
