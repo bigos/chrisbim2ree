@@ -38,11 +38,11 @@ $(function() {
 
 function slideShow() {
     var s=0;
-    max_slides = $('#image_container').data('slidecount');
-    interval = 7000;
+    var max_slides = $('#image_container').data('slidecount');
+    var interval = 7000;
     setInterval( function(){
-	pos =  (s++ % max_slides) + 1;
-	nextpos =  (s % max_slides) + 1;
+	var pos =  (s++ % max_slides) + 1;
+	var nextpos =  (s % max_slides) + 1;
 	console.log(pos+'   '+nextpos)
 	$('#slide_'+pos).fadeOut(800);
 	$('#slide_'+nextpos).fadeIn(3000);
@@ -61,4 +61,10 @@ function showLargePhoto() {
 
 $(document).ready(function(){
     slideShow();    
+
+    $('.tag-li').mouseleave(function(){
+	$(this).hide();
+	console.log('weeeeeeeeeeeeeeee '+this);
+    });
+
 });

@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def tag_li(tag, increase,level, max_level, type, show_count, show_category_name, add_child)
-    str =  "<li>"
+    str =  '<li class="tag-li">'
     str << link_to( tag.name + (show_count ? " #{tagged_count( tag)}" : ''), (type == :tags ? tag : photos_path(:tag => tag.name)))
     if show_category_name
       str << "&nbsp;<span class=\"category_name\">#{tag.category_name}</span>" 
