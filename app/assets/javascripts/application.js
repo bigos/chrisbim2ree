@@ -63,8 +63,13 @@ $(document).ready(function(){
     slideShow();    
 
     $('.tag-li').mouseleave(function(){
-	$(this).hide();
+	$('.subcategory-button').hide();
+	var el = this;
+	$(el).css('border-style','solid');
 	console.log('weeeeeeeeeeeeeeee '+this);
+    });
+    $('.tag-li').mouseenter(function(){
+	$('.subcategory-button').show();	
     });
 
 });
