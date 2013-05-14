@@ -6,6 +6,7 @@ module ApplicationHelper
 
   def tag_li(tag, increase,level, max_level, type, show_count, show_category_name, add_child)
     str =  '<li class="tag-li">'
+    str << '<div class="tag-li-div">'
     str << link_to( tag.name + (show_count ? " #{tagged_count( tag)}" : ''), (type == :tags ? tag : photos_path(:tag => tag.name)))
     if show_category_name
       str << "&nbsp;<span class=\"category_name\">#{tag.category_name}</span>" 
@@ -16,6 +17,7 @@ module ApplicationHelper
       str << '<span class="subcategory-button"">'
       str << (link_to (button_tag " add #{children.count == 1 ? children[0]: 'Subcategory'}"), new_tag_path(:category_name => children[0], :parent_id => tag.id))
       str << '</span>'
+      str << '</div>'
     end
 
     str << recursive_tag_links(tag.name, level+increase, max_level, type, show_count, show_category_name, add_child).to_s

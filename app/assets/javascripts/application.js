@@ -63,12 +63,12 @@ $(document).ready(function(){
     slideShow();    
 
 
-    $('.tag-li').mouseenter(function(){
+    $('.tag-li-div').mouseenter(function(){
 	var el = $(this).find('span')[1];
 	$(el).show();
     });
 
-    $('.tag-li').mouseleave(function(){
+    $('.tag-li-div').mouseleave(function(){
 	var el = $(this).find('span')[1];
 	$(el).hide();
     });
