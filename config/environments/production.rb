@@ -79,7 +79,4 @@ Chrisbim2ree::Application.configure do
   }
   p ActionMailer::Base.smtp_settings
 
-  # replace this with your tracker code
-  GA.tracker = "UA-40939399-1"
-
 end
