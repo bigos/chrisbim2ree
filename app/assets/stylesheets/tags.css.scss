@@ -60,6 +60,11 @@ div.photo-frame{
   }    
 
 .subcategory-button{
-  margin-left:1em;
-  display:none;
+  margin-left: 1em;
+  display: none;
+  float: right;
+  }
+
+.tag-li-div:hover{
+  background: darken(white,5%);
   }
