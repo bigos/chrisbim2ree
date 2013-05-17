@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Subject:
+  = @newsletter.subject
+%p
+  %b Content:
+  = @newsletter.content
+
+= link_to 'Edit', edit_newsletter_path(@newsletter)
+\|
+= link_to 'Back', newsletters_path

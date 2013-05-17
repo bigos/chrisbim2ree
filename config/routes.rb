@@ -1,5 +1,8 @@
 Chrisbim2ree::Application.routes.draw do
 
+  resources :newsletters
+
+
   match '/dashboard' => 'dashboard#show'
   match '/dashboard/:section' => 'dashboard#show'
 
