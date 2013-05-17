@@ -1,5 +1,6 @@
 Chrisbim2ree::Application.routes.draw do
 
+  match "/send_newsletter/:id" => 'newsletters#send_newsletter'
   resources :newsletters
 
 
