@@ -5,14 +5,11 @@ class NewsletterMailer < ActionMailer::Base
     @@url = "http://www.chrisbeard-photography.co.uk"
   end
 
-  def newsletter(message)
+  def newsletter(message, email)
     @message = message
     @url = @@url
-    recipients = NewsletterSubscribers.all
-    recipients.each do |recipient|
-      mail(:to => recipient.email,
-           :from => 'enquiries@chrisbeard-images.com'
-           :subject => message.subject)
-    end
+    mail(:to => email,
+         :from => 'enquiries@chrisbeard-images.com',
+         :subject => message.subject)
   end
 end

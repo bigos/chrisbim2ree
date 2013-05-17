@@ -4,6 +4,7 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <%= @message.content %>
+
+    <%= @message.content.gsub('src="/', 'src="http://chrisbeard-images.com/' ) %>
   </body>
 </html>
