@@ -3,6 +3,11 @@ class SubscriberMailer < ActionMailer::Base
   default :from => @@secrets['email_server']['user_name']
   
   def welcome_email(subscriber)
+    if Rails.env == 'development' or  Rails.env == "test" 
+      @url = "http://localhost:3000"
+    else
+      @url  = "http://www.chrisbeard-photography.co.uk"
+    end
     @subscriber = subscriber
     mail(:to => subscriber.email,
          #:cc => @@secrets['email']['cc'],
