@@ -1,5 +1,9 @@
 Chrisbim2ree::Application.routes.draw do
 
+  match "/unsubscribe/:unsubscribe_token" => "newsletter_unsubscribe#unsubscribe"
+
+  get "newsletter_unsubscribe/unsubscribe"
+
   match "/send_newsletter/:id" => 'newsletters#send_newsletter'
   resources :newsletters
 

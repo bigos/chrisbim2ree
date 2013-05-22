@@ -8,5 +8,5 @@ end
 
 Then(/^unsubscribe token should not be nil$/) do
   ns = NewsletterSubscriber.last
-  ns.unsubscribe_token.should_not be(nil)
+  ns.unsubscribe_token.should_not eq(nil)
 end
