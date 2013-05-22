@@ -1,13 +1,10 @@
 class SubscriberMailer < ActionMailer::Base
   @@secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
+  @@url  = "http://chrisbeard-images.com"
   default :from => @@secrets['email_server']['user_name']
   
   def welcome_email(subscriber)
-    if Rails.env == 'development' or  Rails.env == "test" 
-      @url = "http://localhost:3000"
-    else
-      @url  = "http://chrisbeard-images.com"
-    end
+    @url = @@url
     @subscriber = subscriber
     mail(:to => subscriber.email,
          #:cc => @@secrets['email']['cc'],
@@ -15,12 +12,6 @@ class SubscriberMailer < ActionMailer::Base
   end
 
   def new_subscription_admin_notification(subscriber)
-    if Rails.env == 'development' or  Rails.env == "test" 
-      @url = "http://localhost:3000"
-    else
-      @url  = "http://www.chrisbeard-photography.co.uk"
-    end
-    
     @subscriber = subscriber
     mail(:to => @@secrets['email']['admin_email'],
          #:cc => @@secrets['email']['cc'],
