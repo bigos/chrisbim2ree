@@ -15,13 +15,15 @@ class NewsletterSubscriber < ActiveRecord::Base
     "/unsubscribe/#{self.unsubscribe_token}?email=#{self.email}"
   end
 
+  def unsubscription_notifications
+    SubscriberMailer.goodbye_email(self).deliver
+    SubscriberMailer.unsubscribed_admin_notification(self).deliver
+  end
+
   private  
   def new_subscription_notifications
     SubscriberMailer.welcome_email(self).deliver
     SubscriberMailer.new_subscription_admin_notification(self).deliver
   end
-  def unsubscription_notifications
-    SubscriberMailer.goodbye_email(self).deliver
-    SubscriberMailer.unsubscribed_admin_notification(self).deliver
-  end
+
 end

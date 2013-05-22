@@ -5,6 +5,7 @@ class NewsletterUnsubscribeController < ApplicationController
     logger.info @subscriber.inspect
     if @subscriber
       @email = @subscriber.email
+      @subscriber.unsubscription_notifications
       @subscriber.destroy
     end
   end
