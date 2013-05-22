@@ -1,12 +1,13 @@
 %p#notice= notice
 
-%p
-  %b Subject:
-  = @newsletter.subject
-%p
-  %b Content:
-  = raw @newsletter.content
+%div
+  %p
+    %b Subject:
+    = @newsletter.subject
+    %p
+      %b Content:
+      = raw @newsletter.content
 
-= link_to 'Edit', edit_newsletter_path(@newsletter)
-\|
-= link_to 'Back', newsletters_path
+    = link_to 'Edit', edit_newsletter_path(@newsletter)
+    \|
+    = link_to 'Back', newsletters_path
