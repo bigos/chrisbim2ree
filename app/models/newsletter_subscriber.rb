@@ -2,7 +2,7 @@ class NewsletterSubscriber < ActiveRecord::Base
   attr_accessible :email, :unsubscribe_token
 
   before_create :set_unsubscribe_token_if_blank
-  after_create :deliver_email_notifications
+  after_create :new_subscription_notifications
   
   def set_unsubscribe_token_if_blank
     require 'digest/md5'
@@ -11,9 +11,17 @@ class NewsletterSubscriber < ActiveRecord::Base
     end
   end
 
+  def unsubscribe_path
+    "/unsubscribe/#{self.unsubscribe_token}?email=#{self.email}"
+  end
+
   private  
-  def deliver_email_notifications
+  def new_subscription_notifications
     SubscriberMailer.welcome_email(self).deliver
-    SubscriberMailer.admin_notification(self).deliver
+    SubscriberMailer.new_subscription_admin_notification(self).deliver
+  end
+  def unsubscription_notifications
+    SubscriberMailer.goodbye_email(self).deliver
+    SubscriberMailer.unsubscribed_admin_notification(self).deliver
   end
 end
