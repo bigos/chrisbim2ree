@@ -4,7 +4,9 @@
 
     <div style="float:right;">
       Newsletter
-      <%= @message.subject %>
+      <br>
+      <%= subject %>
     </div>
-
-    If you are having trouble viewing this newsletter, please click here to open it in your web browser.
+    <div style="clear :both;">
+    If you are having trouble viewing this newsletter, please 
+    <%= link_to 'click here',"http://chrisbeard-images.com/newsletters/#{newsletter_id}" %> to open it in your web browser.
