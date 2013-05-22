@@ -12,5 +12,3 @@ Feature: Subscribe to the newsletter
     And I press "Subscribe"
     Then subscriber count should be "1"
     And unsubscribe token should not be nil
-    And I should get email notification
-    And chris should get email notification
