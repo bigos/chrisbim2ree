@@ -6,7 +6,7 @@ class SubscriberMailer < ActionMailer::Base
     if Rails.env == 'development' or  Rails.env == "test" 
       @url = "http://localhost:3000"
     else
-      @url  = "http://www.chrisbeard-images.com"
+      @url  = "http://chrisbeard-images.com"
     end
     @subscriber = subscriber
     mail(:to => subscriber.email,
