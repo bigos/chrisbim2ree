@@ -1,13 +1,10 @@
 %p#notice= notice
 
 %div{:style => 'max-width: 600px;'}
-  %p
-    = render :partial => 'newsletter_mailer/before.html.erb', :locals => {:subject => @newsletter.subject, :newsletter_id => @newsletter.id}
-    
+  %p    
     = raw @newsletter.content
-      
-    = render :partial => 'newsletter_mailer/after.html.erb', :locals => {:full_unsubscribe_path => '#'}
 
-    = link_to 'Edit', edit_newsletter_path(@newsletter)
-    \|
-    = link_to 'Back', newsletters_path
+- if current_admin    
+  = link_to 'Edit', edit_newsletter_path(@newsletter) 
+  \|
+  = link_to 'Back', newsletters_path
