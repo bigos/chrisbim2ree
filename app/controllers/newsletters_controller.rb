@@ -4,7 +4,8 @@ class NewslettersController < InheritedResources::Base
     @newsletter = Newsletter.find( params[:id])
     logger.info @newsletter.inspect
     logger.info params.inspect
-    @newsletter.deliver_newsletter!
+    mode = params[:mode]
+    @newsletter.deliver_newsletter! mode
     respond_to do |format|
       format.html { redirect_to newsletters_url }
     end

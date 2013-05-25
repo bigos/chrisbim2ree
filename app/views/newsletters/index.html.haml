@@ -1,19 +1,19 @@
 %h3 Newsletters
 
 - @newsletters.each do |newsletter|
-  %div
+  %div{:style => 'background: #ddd; padding: 1em; margin: 1em auto;'}
     %h5
       = newsletter.subject
     %div
       = newsletter.content
     %br
     %div
-      = link_to 'Test', "/send_newsletter/#{newsletter.id}"
+      = link_to 'Test', "/send_newsletter/#{newsletter.id}?mode=test"
       = link_to 'Send', "/send_newsletter/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' }
       = link_to 'Show', newsletter
       = link_to 'Edit', edit_newsletter_path(newsletter)
       = link_to 'Destroy', newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
+
 
 = link_to 'New Newsletter', new_newsletter_path
