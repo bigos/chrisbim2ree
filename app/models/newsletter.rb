@@ -3,15 +3,12 @@ class Newsletter < ActiveRecord::Base
 
   def deliver_newsletter!
     recipients = NewsletterSubscriber.all.collect{|subscriber| subscriber.email}
-    # once everything is tested remove below dummy data
-    secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
-    recipients = [
-                  secrets['test_recipients']['recipient1'],
-                  secrets['test_recipients']['recipient2']
-                 ]
+    recipients = NewsletterSubscriber.all
     recipients.each do |recipient|
-      logger.info "going to send to " + recipient
-      NewsletterMailer.newsletter(self, recipient).deliver
+      if recipient.email.index 'jacek'
+        logger.info "going to send to " + recipient.email
+        NewsletterMailer.newsletter(self, recipient.email).deliver
+      end
     end
   end
 end

@@ -1,22 +1,18 @@
-%h1 Listing newsletters
+%h3 Newsletters
 
-%table
-  %tr
-    %th Subject
-    %th Content
-    %th
-    %th
-    %th
-    %th
-
-  - @newsletters.each do |newsletter|
-    %tr
-      %td= newsletter.subject
-      %td= newsletter.content
-      %td= link_to 'Send', "/send_newsletter/#{newsletter.id}"
-      %td= link_to 'Show', newsletter
-      %td= link_to 'Edit', edit_newsletter_path(newsletter)
-      %td= link_to 'Destroy', newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- @newsletters.each do |newsletter|
+  %div
+    %h5
+      = newsletter.subject
+    %div
+      = newsletter.content
+    %br
+    %div
+      = link_to 'Test', "/send_newsletter/#{newsletter.id}"
+      = link_to 'Send', "/send_newsletter/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' }
+      = link_to 'Show', newsletter
+      = link_to 'Edit', edit_newsletter_path(newsletter)
+      = link_to 'Destroy', newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
