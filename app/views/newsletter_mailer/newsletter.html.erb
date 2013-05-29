@@ -4,15 +4,19 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <img alt="logo" style="float: left;" src="http://chrisbeard-images.com/assets/logo.jpg">
-    
-    <h3>CHRIS BEARD IMAGES</h3>
-    
-    <div style="float:right;">
-      Newsletter
-      <br>
-      <%= @message.subject %>
+    <div style="text-align: center;">
+      <h3>Chris Beard Images</h3>
     </div>
+    <div style="height: 70px; text-align: center; background-image: url(http://chrisbeard-images.com/assets/logo.jpg); background-repeat: no-repeat; background-position: -16px -16px;">
+      
+      
+      <div style="float:right; text-align: right;">
+	Newsletter
+	<br>
+	<%= @message.subject %>
+      </div>
+    </div>
+
     <div style="clear :both;"></div>
     <p>
       If you are having trouble viewing this newsletter, please 
@@ -28,7 +32,7 @@
     </p>
     <br>
     <br>
-    <div style="text-align:center;">
+    <div style="text-align:center; font-size: 12px;">
       All content of this email is copyright Chris Bears Images 2013
     </div>
     
