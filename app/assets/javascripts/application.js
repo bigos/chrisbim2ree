@@ -60,7 +60,7 @@ function showLargePhoto() {
 
 
 $(document).ready(function(){
-    slideShow();    
+    slideShow();
 
 
     $('.tag-li-div').mouseenter(function(){

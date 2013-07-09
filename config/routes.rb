@@ -56,6 +56,7 @@ Chrisbim2ree::Application.routes.draw do
 
   get "activations/create"
 
+  match '/publish/post/:id' => 'posts#publish'
   resources :posts do
     resources :comments
   end

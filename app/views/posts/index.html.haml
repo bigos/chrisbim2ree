@@ -3,6 +3,9 @@
 %h3 Blog
 - @posts.each do |post|  
   %div.post-teaser
+    - unless post.published
+      %span.published
+        not published yet
     %p.post-date=  post.created_at.strftime("#{post.created_at.day.ordinalize} %b %Y")
     %h3.post-title= post.title
 
@@ -17,6 +20,7 @@
     - if current_admin
       %div.scaffold-bottom-links
         = link_to 'Edit', edit_post_path(post)
+        = link_to 'Publish', "/publish/post/#{post.id}"
         = link_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
           
 %div.scaffold-bottom-links
