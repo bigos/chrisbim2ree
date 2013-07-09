@@ -14,4 +14,10 @@ class PostsController < InheritedResources::Base
     @post.save
     redirect_to posts_url
   end
+  def unpublish
+    @post = Post.find params[:id]
+    @post.published = false
+    @post.save
+    redirect_to posts_url
+  end
 end
