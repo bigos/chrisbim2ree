@@ -19,10 +19,17 @@
     %div{:style=>'clear:both;'}
     - if current_admin
       %div.scaffold-bottom-links
-        = link_to 'Edit', edit_post_path(post)
-        = link_to 'Publish', "/publish/post/#{post.id}" unless post.published
-        = link_to 'Unpublish', "/unpublish/post/#{post.id}" if post.published
-        = link_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = link_to edit_post_path(post) do
+          = button_tag 'Edit'
+        - if post.published
+          = link_to "/unpublish/post/#{post.id}" do
+            = button_tag 'Unpublish'
+        - else
+          = link_to "/publish/post/#{post.id}" do 
+            = button_tag 'Publish'
+        
+        = link_to post, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+          = button_tag 'Delete'
           
 %div.scaffold-bottom-links
   = link_to 'New Post', new_post_path if current_admin
