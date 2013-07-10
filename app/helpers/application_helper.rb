@@ -43,8 +43,11 @@ module ApplicationHelper
   def tag_links( max_level = 1000, type = :tags, show_count = false, show_category_name = false, add_child = false)
     top_tags = Tag.where(:parent_id => nil).order(:name).all
     level = 1
-    str = ''    
+    str = '' 
+
     str << "<ul class=\"depth-0\">"
+
+    str << '<li class="tag-li"><div class="tag-li-div"><a href="/photos">Latest Images</a></div></li>'
     top_tags.each do |tag|
       str << tag_li(tag, 0, level, max_level, type, show_count, show_category_name, add_child)
     end
