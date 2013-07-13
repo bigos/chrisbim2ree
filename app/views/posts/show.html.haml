@@ -22,14 +22,20 @@
 
 %p= pluralize @post.comments.count, "comment"
 - @post.comments.each do |comment|
-  %p= comment.content
+  .comment
+    %p= comment.content
+    .comment_time
+      = time_ago_in_words comment.created_at
+      ago
 
 
 
 %h3 Add a comment:
 = form_for([@post, @post.comments.build]) do |f| 
+  = f.hidden_field :post_id, :value => @post.id
   = f.label :content
   %br
   = f.text_area :content
   %br
   = f.submit 'Submit Comment'
+

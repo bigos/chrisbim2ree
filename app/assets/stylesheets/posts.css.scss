@@ -52,3 +52,14 @@ span.published{
 .scaffold-bottom-links a{
     margin-right:15px;
 }
+
+.comment{
+    border: solid #ccc 1px;
+    background: darken(white,3%);
+    padding:1em;
+    margin-bottom: 1em;
+    .comment_time{
+        font-size: 0.75em;
+        text-align:right;
+    }
+}
