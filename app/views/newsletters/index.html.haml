@@ -5,15 +5,21 @@
     %h5
       = newsletter.subject
     %div
-      = newsletter.content
+      != newsletter.content
     %br
-    %div
-      = link_to 'Test', "/send_newsletter/#{newsletter.id}?mode=test"
-      = link_to 'Send', "/send_newsletter/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' }
-      = link_to 'Show', newsletter
-      = link_to 'Edit', edit_newsletter_path(newsletter)
-      = link_to 'Destroy', newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+    %div.buttons
+      = link_to "/send_newsletter/#{newsletter.id}?mode=test" do
+        = button_tag 'Test'
+      = link_to "/send_newsletter/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' } do
+        = button_tag 'Send'
+      = link_to newsletter do
+        = button_tag 'Show'
+      = link_to edit_newsletter_path(newsletter) do
+        = button_tag 'Edit'
+      = link_to newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+        = button_tag 'Delete'
 
 
 
-= link_to 'New Newsletter', new_newsletter_path
+= link_to  new_newsletter_path do
+  = button_tag 'New Newsletter'
