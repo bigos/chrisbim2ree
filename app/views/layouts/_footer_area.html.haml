@@ -33,7 +33,7 @@
   %div{:class => 'col3'}
     %h3 Latest Blog
     %ul
-      - posts = Post.find(:all, :order => "created_at DESC",:limit => 3)
+      - posts = Post.where(:published => true).order("created_at DESC").limit( 3)
       - posts.each do |post|
         %li
           %div.time
