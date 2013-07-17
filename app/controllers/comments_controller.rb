@@ -3,4 +3,7 @@ class CommentsController < InheritedResources::Base
   def create
     create! {post_url :id => @comment.post_id}
   end
+  def destroy
+    destroy! {post_url :id => @comment.post_id}
+  end
 end  
