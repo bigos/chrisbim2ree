@@ -66,6 +66,9 @@ group :test do
   gem 'cucumber-rails', '>=1.1.1', :require => false
   gem "factory_girl", "2.6.4"
   gem "factory_girl_rails"
+
+  gem 'action_mailer_cache_delivery', '~> 0.3.5'
+  gem 'email_spec'
 end
 
 gem "execjs"
