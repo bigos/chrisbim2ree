@@ -16,9 +16,11 @@
     = button_tag 'Back'
 
 %br
-#social_buttons  
-  = render :partial => "layouts/pinterest_widget"
-  = render :partial => "layouts/twitter_button_widget"
+#social_buttons{:style =>'display:block;'}  
+  %span#pin-it
+    = render :partial => "layouts/pinterest_widget"
+  %span#tweet-it
+    = render :partial => "layouts/twitter_button_widget"
   = render :partial => "layouts/facebook_like_widget"
 
 
@@ -40,4 +42,3 @@
   = f.text_area :content
   %br
   = f.submit 'Submit Comment'
-
