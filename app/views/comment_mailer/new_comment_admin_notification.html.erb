@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>You have a new comment</h1>
+    <p>
+      A website visitor has viewed post <b><%= @comment.post.title%></b> and successfully submitted following comment:
+    </p>
+    <p>
+      <%= @comment.content %>
+    </p>
+  </body>
+</html>

@@ -67,7 +67,7 @@ group :test do
   gem "factory_girl", "2.6.4"
   gem "factory_girl_rails"
 
-  gem 'action_mailer_cache_delivery', '~> 0.3.5'
+  # gem 'action_mailer_cache_delivery', '0.3.2'
   gem 'email_spec'
 end
 
