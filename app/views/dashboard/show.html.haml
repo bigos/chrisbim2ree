@@ -8,6 +8,7 @@
           %li.nav-header Actions
           %li= link_to 'Turbo', dashboard_path(:section => :turbo)
           %li= link_to 'newsletters', newsletters_path
+          %li= link_to 'all comments', comments_path
     .span9
       .row-fluid
         - if params[:section] == nil
