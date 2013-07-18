@@ -5,7 +5,13 @@ class CommentsController < InheritedResources::Base
     create! (:notice => "Your comment has been created and will be shown on this page apon approval") {post_url :id => @comment.post_id}
   end
   def destroy
-    destroy! {post_url :id => @comment.post_id}
+    destroy! {
+      if @comment.post_id
+        post_url :id => @comment.post_id
+      else
+        comments_url
+      end
+    }
   end
   def publish
     @comment = Comment.find params[:id]
