@@ -13,9 +13,10 @@
       != post.teaser
       #teaser-more
         = link_to 'Read more', post
-    - if post.comments.count > 0
+    - comments = Comment.where(:post_id => post.id).where(:published => true)
+    - if comments.count > 0
       .comment-count
-        = pluralize post.comments.count,  "comment"
+        = pluralize comments.count,  "comment"
     %div{:style=>'clear:both;'}
     - if current_admin
       %div.scaffold-bottom-links
