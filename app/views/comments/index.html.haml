@@ -4,6 +4,8 @@
   %tr
     %th Post
     %th Content
+    %th Name
+    %th Published
     %th
     %th
     %th
@@ -12,6 +14,8 @@
     %tr
       %td= comment.post_id
       %td= comment.content
+      %td= comment.name
+      %td= comment.published ? 'published' : 'not published'
       %td= link_to 'Show', comment
       %td= link_to 'Edit', edit_comment_path(comment)
       %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }

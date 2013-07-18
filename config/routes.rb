@@ -34,6 +34,9 @@ Chrisbim2ree::Application.routes.draw do
 
   resources :photos
 
+  resources :comments
+  match '/unpublish/comment/:id' => 'comments#unpublish'
+  match '/publish/comment/:id' => 'comments#publish'
 
   get "workshop_information/show"
 

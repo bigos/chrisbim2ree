@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709100536) do
+ActiveRecord::Schema.define(:version => 20130718111229) do
 
   create_table "cart_items", :force => true do |t|
     t.integer  "shopping_cart_id"
@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(:version => 20130709100536) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
+    t.boolean  "published"
   end
 
   create_table "contact_messages", :force => true do |t|

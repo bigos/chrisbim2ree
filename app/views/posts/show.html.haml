@@ -24,14 +24,26 @@
   = render :partial => "layouts/facebook_like_widget"
 
 
-%p= pluralize @post.comments.count, "comment"
-- @post.comments.each do |comment|
+
+- if current_admin
+  - comments = Comment.where(:post_id => @post.id)
+- else
+  - comments = Comment.where(:post_id => @post.id).where(:published => true)
+
+%p= pluralize comments.count, "comment"
+- comments.each do |comment|
   .comment
-    %p= comment.content
+    %p= comment.content    
     .comment_time
+      %b= comment.name
       = time_ago_in_words comment.created_at
       ago
+    .action_buttons
       - if current_admin
+        = link_to 'Edit', edit_comment_path(comment)
+        \|
+        = link_to 'Publish', "/publish/comment/#{comment.id}" unless comment.published
+        = link_to 'Unpublish', "/unpublish/comment/#{comment.id}" if comment.published
         = button_to 'Delete',"/posts/#{@post.id}/comments/#{comment.id}", :method => :delete, :data => { :confirm => 'Are you sure?' } 
 
 
@@ -39,5 +51,8 @@
 = form_for([@post, @post.comments.build]) do |f| 
   = f.hidden_field :post_id, :value => @post.id
   = f.text_area :content
+  %br
+  = f.label :name
+  = f.text_field :name
   %br
   = f.submit 'Submit Comment'

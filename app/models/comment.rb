@@ -1,7 +1,9 @@
 class Comment < ActiveRecord::Base
-  attr_accessible :content, :post_id
+  attr_accessible :content, :post_id, :name, :published
   belongs_to :post
 
+  validates :content, :presence => true
+  validates :name, :presence => true
   after_create :new_comment_notification
 
   def new_comment_notification

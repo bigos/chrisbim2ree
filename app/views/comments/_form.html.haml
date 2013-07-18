@@ -6,11 +6,17 @@
         - @comment.errors.full_messages.each do |msg|
           %li= msg
 
-  .field
-    = f.label :post_id
-    = f.number_field :post_id
+    
+  = f.hidden_field :post_id
   .field
     = f.label :content
     = f.text_area :content
+  .field
+    = f.label :name
+    = f.text_field :name
+  - if current_admin
+    .field
+      = f.label :published
+      = f.check_box :published
   .actions
     = f.submit 'Save'

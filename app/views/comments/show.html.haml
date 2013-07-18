@@ -7,6 +7,8 @@
   %b Content:
   = @comment.content
 
+= link_to 'Post', post_path(@comment.post)
+\|
 = link_to 'Edit', edit_comment_path(@comment)
 \|
 = link_to 'Back', comments_path
