@@ -1,5 +1,10 @@
 module ApplicationHelper
 
+  def blink_to(label,url)
+    link_to url do
+      raw "<div class=\"btn\">#{label} </div>"
+    end
+  end
   def tagged_count(tag)
     Photo.includes(:tags).where(:tags => {:name => tag.name}).count.to_s
   end
