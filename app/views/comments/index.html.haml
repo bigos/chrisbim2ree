@@ -16,8 +16,17 @@
       %td= comment.content
       %td= comment.name
       %td= comment.published ? 'published' : 'not published'
-      %td= link_to 'Show', comment
-      %td= link_to 'Edit', edit_comment_path(comment)
-      %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td 
+        = link_to comment do
+          .btn.btn-success
+            Show
+      %td
+        = link_to edit_comment_path(comment) do
+          .btn
+            Edit
+      %td
+        = link_to comment, :method => :delete, :data => { :confirm => 'Are you sure?' } do
+          .btn.btn-danger
+            Delete
 
 
