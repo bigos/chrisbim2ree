@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  def blink_to(label,url)
+  def blink_to(label,url, html_options = {})
     link_to url do
       raw "<div class=\"btn\">#{label} </div>"
     end
