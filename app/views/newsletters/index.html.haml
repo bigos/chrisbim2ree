@@ -8,11 +8,13 @@
       != newsletter.content
     %br
     %div.buttons
-      = blink_to 'Test', "/send_newsletter/#{newsletter.id}?mode=test"
-      = blink_to 'Send', "/send_newsletter/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' }
       = blink_to 'Show', newsletter
       = blink_to 'Edit', edit_newsletter_path(newsletter)
-      = blink_to 'Delete', newsletter, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      = blink_to 'Delete', newsletter, {:method => :delete, :data => { :confirm => 'Are you sure?' }}
+      %span{:style=>'margin-left:3em;'}
+      = blink_to 'Test', "/send_newsletter/#{newsletter.id}?mode=test"
+      %span{:style=>'margin-left:3em;'}
+      = blink_to 'Send', "/send_newsletter/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' }
 
 = link_to  new_newsletter_path do
   = button_tag 'New Newsletter'
