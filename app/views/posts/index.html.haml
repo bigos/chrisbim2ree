@@ -1,4 +1,4 @@
-= link_to 'New Post', new_post_path  if current_admin
+= blink_to 'New Post', new_post_path  if current_admin
 
 %h3 Blog
 - @posts.each do |post|  
@@ -20,17 +20,13 @@
     %div{:style=>'clear:both;'}
     - if current_admin
       %div.scaffold-bottom-links
-        = link_to edit_post_path(post) do
-          = button_tag 'Edit'
+        = blink_to 'Edit', edit_post_path(post)
         - if post.published
-          = link_to "/unpublish/post/#{post.id}" do
-            = button_tag 'Unpublish'
+          = blink_to  'Unpublish', "/unpublish/post/#{post.id}"
         - else
-          = link_to "/publish/post/#{post.id}" do 
-            = button_tag 'Publish'
+          = blink_to 'Publish',"/publish/post/#{post.id}" 
         
-        = link_to post, :method => :delete, :data => { :confirm => 'Are you sure?' } do
-          = button_tag 'Delete'
+        = blink_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
           
 %div.scaffold-bottom-links
   = link_to 'New Post', new_post_path if current_admin

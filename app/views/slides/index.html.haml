@@ -24,9 +24,9 @@
         = link_to (check_box_tag 'visible','yes', slide.visible ? true: false ), slides_path(params.merge({:toggle_activation => slide.id}))
       %td= image_tag slide.photo.url(:thumb)
       %td= slide.caption
-      %td= link_to 'Show', slide
-      %td= link_to 'Edit', edit_slide_path(slide)
-      %td= link_to 'Delete', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= blink_to 'Show', slide
+      %td= blink_to 'Edit', edit_slide_path(slide)
+      %td= blink_to 'Delete', slide, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
