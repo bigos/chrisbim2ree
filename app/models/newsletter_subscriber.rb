@@ -16,8 +16,8 @@ class NewsletterSubscriber < ActiveRecord::Base
   end
 
   def unsubscription_notifications
-    SubscriberMailer.goodbye_email(self).deliver
-    SubscriberMailer.unsubscribed_admin_notification(self).deliver
+    # SubscriberMailer.goodbye_email(self).deliver
+    # SubscriberMailer.unsubscribed_admin_notification(self).deliver
   end
 
   private  
