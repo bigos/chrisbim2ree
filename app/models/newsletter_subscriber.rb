@@ -16,14 +16,14 @@ class NewsletterSubscriber < ActiveRecord::Base
   end
 
   def unsubscription_notifications
-    # SubscriberMailer.goodbye_email(self).deliver
-    # SubscriberMailer.unsubscribed_admin_notification(self).deliver
+    SubscriberMailer.goodbye_email(self).deliver
+    SubscriberMailer.unsubscribed_admin_notification(self).deliver
   end
 
   private  
   def new_subscription_notifications
-    # SubscriberMailer.welcome_email(self).deliver
-    # SubscriberMailer.new_subscription_admin_notification(self).deliver
+    SubscriberMailer.welcome_email(self).deliver
+    SubscriberMailer.new_subscription_admin_notification(self).deliver
   end
 
 end
