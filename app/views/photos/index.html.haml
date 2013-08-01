@@ -22,9 +22,9 @@
         - col < columns-1 ? col += 1 : col = 0
         %div.photo-wrapper
           = link_to image_tag(photo.attachment.url(:medium)), photo.attachment.url, {:class => 'fancybox', :title => "<a href=\"#{photo_path(photo)}\">Order Prints</a>"}
-        %div.photo-links
-          = # photo.tags.first.name there's problem with tags order, perhaps i will have to give up on it
-          - if current_admin
+        - if current_admin
+          %div.photo-links
+            = # photo.tags.first.name there's problem with tags order, perhaps i will have to give up on ity
             = blink_to 'Show', photo_path(photo), :class => 'show'
             = blink_to 'Edit', edit_photo_path(photo), :class => 'edit'
             = blink_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }

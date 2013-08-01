@@ -41,19 +41,28 @@ div.photo-wrapper{text-align:center;
   }
 
 div.photo-links {
-  height: 1.25em;
+  height: 3y.25em;
   margin-top: -14px;
   position: relative;
+  display: inline-block;
     a{
-      background:yellow;
       padding:0.25em;
       position:absolute;
       line-height:1em;
       color:red;
       }
-      a.show{margin-left:5px;}
-      a.edit{margin-left:60px}
-      a.delete{margin-left:160px;}
+    a:hover{
+        background:none;
+    }
+      a.show{margin-left: 1px;
+             margin-top: -20px;
+            }
+      a.edit{margin-left:75px;
+             margin-top: -20px;
+            }
+      a.delete{margin-left:140px;
+             margin-top: -20px;
+              }
   }
   
   
