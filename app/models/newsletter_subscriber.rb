@@ -22,8 +22,8 @@ class NewsletterSubscriber < ActiveRecord::Base
 
   private  
   def new_subscription_notifications
-    SubscriberMailer.welcome_email(self).deliver
-    SubscriberMailer.new_subscription_admin_notification(self).deliver
+    # SubscriberMailer.welcome_email(self).deliver
+    # SubscriberMailer.new_subscription_admin_notification(self).deliver
   end
 
 end
