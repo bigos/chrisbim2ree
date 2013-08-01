@@ -6,6 +6,6 @@
     = @newsletter_subscriber.email
     
 - if current_admin    
-  = link_to 'Edit', edit_newsletter_subscriber_path(@newsletter_subscriber)
+  = blink_to 'Edit', edit_newsletter_subscriber_path(@newsletter_subscriber)
   \|
-  = link_to 'Back', newsletter_subscribers_path
+  = blink_to 'Back', newsletter_subscribers_path

@@ -18,9 +18,9 @@
       = link_to child.name, child
 
 %br
-= link_to 'Edit', edit_tag_path
-= link_to 'Back', tags_path
-= link_to 'Delete', @tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
+= blink_to 'Edit', edit_tag_path
+= blink_to 'Back', tags_path
+= blink_to 'Delete', @tag, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %hr
 %h4

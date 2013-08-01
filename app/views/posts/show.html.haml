@@ -9,11 +9,9 @@
     %strong=  @post.created_at.strftime("#{@post.created_at.day.ordinalize} %b %Y")
   %p!= @post.content
 %div{:style=>'clear:both;'}
-  = link_to edit_post_path(@post) do
-    = button_tag 'Edit'
+  = blink_to 'Edit', edit_post_path(@post)
   
-  = link_to posts_path do
-    = button_tag 'Back'
+  = blink_to 'Back',posts_path 
 
 %br
 #social_buttons{:style =>'display:block;'}  
@@ -40,11 +38,11 @@
       ago
     .action_buttons
       - if current_admin
-        = link_to 'Edit', edit_comment_path(comment)
+        = blink_to 'Edit', edit_comment_path(comment)
         \|
-        = link_to 'Publish', "/publish/comment/#{comment.id}" unless comment.published
-        = link_to 'Unpublish', "/unpublish/comment/#{comment.id}" if comment.published
-        = button_to 'Delete',"/posts/#{@post.id}/comments/#{comment.id}", :method => :delete, :data => { :confirm => 'Are you sure?' } 
+        = blink_to 'Publish', "/publish/comment/#{comment.id}" unless comment.published
+        = blink_to 'Unpublish', "/unpublish/comment/#{comment.id}" if comment.published
+        = blink_to 'Delete',"/posts/#{@post.id}/comments/#{comment.id}", :method => :delete, :data => { :confirm => 'Are you sure?' } 
 
 
 %h3 Add a comment:

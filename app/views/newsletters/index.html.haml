@@ -16,5 +16,4 @@
       %span{:style=>'margin-left:3em;'}
       = blink_to 'Send', "/send_newsletter/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' }
 
-= link_to  new_newsletter_path do
-  = button_tag 'New Newsletter'
+= blink_to 'New newsletter', new_newsletter_path

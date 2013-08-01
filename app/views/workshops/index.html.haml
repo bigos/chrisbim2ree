@@ -4,11 +4,11 @@
     %h3= workshop.title
     %p= "#{workshop.duration} days - #{workshop.date_range}"
     != workshop.content
-    = link_to 'Show', workshop
+    = blink_to 'Show', workshop
     - if current_admin
-      = link_to 'Edit', edit_workshop_path(workshop)
-      = link_to 'Destroy', workshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      = blink_to 'Edit', edit_workshop_path(workshop)
+      = blink_to 'Destroy', workshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
-= link_to 'New Workshop', new_workshop_path if current_admin
+= blink_to 'New Workshop', new_workshop_path if current_admin

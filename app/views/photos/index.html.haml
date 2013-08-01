@@ -25,9 +25,9 @@
         %div.photo-links
           = # photo.tags.first.name there's problem with tags order, perhaps i will have to give up on it
           - if current_admin
-            = link_to 'Show', photo_path(photo), :class => 'show'
-            = link_to 'Edit', edit_photo_path(photo), :class => 'edit'
-            = link_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }
+            = blink_to 'Show', photo_path(photo), :class => 'show'
+            = blink_to 'Edit', edit_photo_path(photo), :class => 'edit'
+            = blink_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }
           
 %div{:style=>'clear:left;'}  
   
