@@ -10,7 +10,7 @@
 %h3 Gallery
 
 - html_fragment = capture_haml do
-  %div.photo-frame{:style =>'width:220px;'}
+  %div.photo-frame{:style =>'width:220px;margin-bottom:1.5em;'}
     .photo-div
       = image_tag Photo.last.attachment.url(:medium)      
     %div{:class=>'caption',:style=>'font-size:14px;'}
