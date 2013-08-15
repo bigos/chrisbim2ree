@@ -13,8 +13,9 @@
   %div.photo-frame{:style =>'width:220px;'}
     .photo-div
       = image_tag Photo.last.attachment.url(:medium)      
-    .caption= 'Latest Images'
-= link_to html_fragment, photos_path,:style => 'text-decoration:none;'
+    %div{:class=>'caption',:style=>'font-size:14px;'}
+      = 'Latest Images'
+= link_to html_fragment, photos_path,:style => 'text-decoration:none;font-size:13px;'
 
 %p
 
