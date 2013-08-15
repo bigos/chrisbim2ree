@@ -7,8 +7,6 @@
   %b Content:
   = @comment.content
 
-= blink_to 'Post', post_path(@comment.post)
-\|
-= blink_to 'Edit', edit_comment_path(@comment)
-\|
-= blink_to 'Back', comments_path
+= blink_to 'Back', post_path(@comment.post)
+= blink_to 'Edit', edit_comment_path(@comment) if current_admin
+= blink_to 'Comments', comments_path if current_admin

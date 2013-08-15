@@ -17,10 +17,10 @@
       %td= comment.name
       %td= comment.published ? 'published' : 'not published'
       %td 
-        = blink_to 'Show', comment 
+        = blink_to 'Show', comment if current_admin
       %td
-        = blink_to 'Edit',edit_comment_path(comment)
+        = blink_to 'Edit',edit_comment_path(comment) if current_admin
       %td
-        = blink_to 'Delete', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        = blink_to('Delete', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }) if current_admin
 
 

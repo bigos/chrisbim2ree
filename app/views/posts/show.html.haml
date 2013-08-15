@@ -39,7 +39,6 @@
     .action_buttons
       - if current_admin
         = blink_to 'Edit', edit_comment_path(comment)
-        \|
         = blink_to 'Publish', "/publish/comment/#{comment.id}" unless comment.published
         = blink_to 'Unpublish', "/unpublish/comment/#{comment.id}" if comment.published
         = blink_to 'Delete',"/posts/#{@post.id}/comments/#{comment.id}", :method => :delete, :data => { :confirm => 'Are you sure?' } 
@@ -53,4 +52,5 @@
   = f.label :name
   = f.text_field :name
   %br
+  != recaptcha_tags
   = f.submit 'Submit Comment'
