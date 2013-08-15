@@ -7,7 +7,7 @@
 - columns = 3
 - col = 0
 
-%h3 Latest Images
+%h3 Gallery
 
 - html_fragment = capture_haml do
   %div.photo-frame{:style =>'width:220px;'}
@@ -16,8 +16,8 @@
     .caption= 'Latest Images'
 = link_to html_fragment, photos_path,:style => 'text-decoration:none;'
 
+%p
 
-%h3 Gallery
 %ul#category-photos
   - @tags.each do |tag|
     %li{:class => "col-#{col % columns}"}
