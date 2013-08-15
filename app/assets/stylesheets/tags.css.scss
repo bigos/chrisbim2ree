@@ -53,9 +53,10 @@ div.photo-frame{
       vertical-align:middle;
     }
   }
+  a{text-decoration:none;}
   .caption{
     font-size:13px;      
-    text-decoration:none;
+    text-decoration:none !important;
     }          
   }    
 

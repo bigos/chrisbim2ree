@@ -7,6 +7,16 @@
 - columns = 3
 - col = 0
 
+%h3 Latest Images
+
+- html_fragment = capture_haml do
+  %div.photo-frame{:style =>'width:220px;'}
+    .photo-div
+      = image_tag Photo.last.attachment.url(:medium)      
+    .caption= 'Latest Images'
+= link_to html_fragment, photos_path,:style => 'text-decoration:none;'
+
+
 %h3 Gallery
 %ul#category-photos
   - @tags.each do |tag|
