@@ -16,8 +16,9 @@
       %span{:style=>'margin-left:3em;'}
       = blink_to 'Send to All', "/send_newsletter_to_all/#{newsletter.id}", :method => :get, :data => { :confirm => 'Are you certain?' }
       %span{:style=>'margin-left:3em;'}
-      = form_tag "/send_newsletter/#{newsletter.id}" do
-        = button_tag 'Sent to', :confirm => 'Are you positively sure?'
-        = select_tag("newsletter_subscriber_id",options_from_collection_for_select(NewsletterSubscriber.all, 'id', 'email'))
+      .send_to_subscriber
+        = form_tag "/send_newsletter/#{newsletter.id}" do
+          = button_tag 'Send to', :class=>'btn', :confirm => 'Are you positively sure?'
+          = select_tag("newsletter_subscriber_id",options_from_collection_for_select(NewsletterSubscriber.all, 'id', 'email'))
 
 = blink_to 'New newsletter', new_newsletter_path
