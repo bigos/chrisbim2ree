@@ -1,8 +1,7 @@
 class Newsletter < ActiveRecord::Base
   attr_accessible :content, :subject
 
-  def deliver_newsletter!(mode)
-    recipients = NewsletterSubscriber.all.collect{|subscriber| subscriber.email}
+  def deliver_newsletter_to_all!(mode)
     recipients = NewsletterSubscriber.all
     recipients.each do |recipient|
       if mode == 'test'
@@ -15,5 +14,10 @@ class Newsletter < ActiveRecord::Base
         NewsletterMailer.newsletter(self, recipient.email).deliver
       end
     end
+  end
+
+  def deliver_newsletter(email)
+    logger.info "going to send to " + email
+    NewsletterMailer.newsletter(self, email).deliver
   end
 end

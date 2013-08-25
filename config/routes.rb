@@ -4,6 +4,7 @@ Chrisbim2ree::Application.routes.draw do
 
   get "newsletter_unsubscribe/unsubscribe"
 
+  match "/send_newsletter_to_all/:id" => 'newsletters#send_newsletter_to_all'
   match "/send_newsletter/:id" => 'newsletters#send_newsletter'
   resources :newsletters
 
