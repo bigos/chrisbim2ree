@@ -76,6 +76,6 @@ Chrisbim2ree::Application.configure do
     :authentication       => :login,
     :enable_starttls_auto => false
   }
-  p ActionMailer::Base.smtp_settings
+
 
 end
