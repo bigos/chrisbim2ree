@@ -1,4 +1,3 @@
-# -*- coding: undecided -*-
 class CartItem < ActiveRecord::Base
   attr_accessible :option, :photo_id, :price, :quantity, :shopping_cart_id
 
@@ -16,7 +15,7 @@ class CartItem < ActiveRecord::Base
   private
   def set_price
     OPTIONS.each do |opt|
-      if self.option == opt[1] 
+      if self.option == opt[1]
         self.price = opt[0]
       end
     end
