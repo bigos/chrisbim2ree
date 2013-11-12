@@ -67,7 +67,6 @@ Chrisbim2ree::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   secret = YAML.load_file( "#{ Rails.root}/config/secret.yml")
-  p secret
   ActionMailer::Base.delivery_method = :smtp
   ActionMailer::Base.smtp_settings = {
     :address              => secret['email_server']["address"],
