@@ -22,7 +22,7 @@
             = link_to 'login', login_path
         #multi-wrapper
           #basket-info
-            - basket_items = 1 # @shopping_cart.cart_items.count
+            - basket_items =  @shopping_cart.cart_items.count
             - if basket_items >= 1
               = link_to cart_items_path do
                 %div#basket-link
