@@ -29,9 +29,9 @@
             = blink_to 'Edit', edit_photo_path(photo), :class => 'edit'
             = blink_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }
           
-%div{:style=>'clear:left;'}  
-  
-= will_paginate @photos, params=>{:order=>params['order']}
+%div{:style=>'clear:left;'}    
+
+= will_paginate @photos, :params=>{:order=>params['order']}
 
 %div.scaffold-bottom-links
   - if current_admin  
