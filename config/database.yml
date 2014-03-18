@@ -38,7 +38,7 @@ production:
   database: chrisbim2ree_production
   pool: 5
   username: root
-  password:
+  password: stormylighthouse
   socket: /var/run/mysqld/mysqld.sock
 
 cucumber:

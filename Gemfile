@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.16'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -30,7 +30,7 @@ gem 'jquery-rails'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
 # gem 'capistrano'
@@ -48,7 +48,7 @@ gem 'haml-rails'
 gem "authlogic", "~> 3.2.0"
 gem "ckeditor"
 gem 'rails3-jquery-autocomplete'
-    
+
 gem 'jquery_datepicker'
 gem "jquery-fileupload-rails"
 
@@ -79,4 +79,3 @@ gem 'capistrano'
 
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'font-awesome-sass-rails'
-

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :initialize_shopping_cart
+  before_filter :initialize_shopping_cart, :remove_old_shopping_carts
   protect_from_forgery
 
   helper_method :current_user_session, :current_user, :current_admin
@@ -68,6 +68,11 @@ class ApplicationController < ActionController::Base
   end
 
   #shopping cart ##############################
+  def remove_old_shopping_carts
+    objects = ShoppingCart.where("created_at < :week", {:week => 1.week.ago})
+    objects.each{|o| o.destroy}
+  end
+
   def initialize_shopping_cart
     if cookies[:shopping_cart]
       @shopping_cart = ShoppingCart.find(:first,:conditions=> ["customer_token=?",cookies[:shopping_cart] ])

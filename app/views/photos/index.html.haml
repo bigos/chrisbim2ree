@@ -1,5 +1,3 @@
-
-
 #tags_wrapper{:style=>'float:right;'}
   %h3 Gallery Links
   %div#tags{:style=>'float:right;'}
@@ -28,12 +26,11 @@
             = blink_to 'Show', photo_path(photo), :class => 'show'
             = blink_to 'Edit', edit_photo_path(photo), :class => 'edit'
             = blink_to 'Delete', photo_path(photo), :class => 'delete', :method => :delete, :data => { :confirm => 'Are you sure?' }
-          
-%div{:style=>'clear:left;'}  
-  
-= will_paginate @photos, params=>{:order=>params['order']}
+
+  %div{:style=>'clear:left;'}
+  = will_paginate @photos, :params=>{:order=>params['order']}
 
 %div.scaffold-bottom-links
-  - if current_admin  
+  - if current_admin
     = blink_to 'New Photo', new_photo_path
     = blink_to 'Bulk Photo Upload', '/bulk_upload/new'
