@@ -7,15 +7,15 @@ set :repository,  "git@github.com:bigos/chrisbim2ree.git"
 
 set(:user) { secrets['deployment']['user'] }
 set(:password) { secrets['deployment']['password'] }
-set :app_path, "/home2/#{user}/rails/chrisbim2ree"
+set :app_path, "/home/#{user}/Rails/chrisbim2ree"
 
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "chrisbeard-images.com"                          # Your HTTP server, Apache/etc
-role :app, "chrisbeard-images.com"                          # This may be the same as your `Web` server
-role :db,  "chrisbeard-images.com", :primary => true # This is where Rails migrations will run
+role :web, "188.226.167.41"                          # Your HTTP server, Apache/etc
+role :app, "188.226.167.41"                          # This may be the same as your `Web` server
+role :db,  "188.226.167.41", :primary => true # This is where Rails migrations will run
 
 
 # if you want to clean up old releases on each deploy uncomment this:
@@ -32,7 +32,6 @@ role :db,  "chrisbeard-images.com", :primary => true # This is where Rails migra
     run " cd #{app_path}  ; git pull "
     run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake assets:precompile'"
     run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake db:migrate' "
-    run " touch #{File.join(app_path,'tmp','restart.txt')}"
    end
  end
 
@@ -41,7 +40,6 @@ task :list_home, :roles => :app do
 end
 
 task :recompile_assets do
-  run " cd #{app_path}  "
   run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake assets:precompile'"
 end
 
@@ -53,6 +51,4 @@ task :migrate do
   run " cd #{app_path}  ; RAILS_ENV=production bundle exec 'rake db:migrate'"
 end
 
-task :turbo do
-    run " rm #{File.join(app_path,'tmp','restart.txt')}"
-end
+
