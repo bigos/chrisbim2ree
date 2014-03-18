@@ -1,4 +1,6 @@
 require 'yaml'
+require "rvm/capistrano"
+require "bundler/capistrano"
 
 secrets = YAML.load_file( "#{ File.dirname(__FILE__)}/secret.yml")
 
