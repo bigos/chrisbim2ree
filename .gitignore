@@ -19,10 +19,9 @@ pickle-email-*.html
 /config/database.yml 
 /public/.htaccess
 
-# Ignore paperclip assets
+# Ignore  assets
 /public/system/
-
-# Ignore ckeditor assets
+/public/assets
 /public/ckeditor_assets/
 
 
