@@ -65,6 +65,12 @@ Chrisbim2ree::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   config.action_mailer.delivery_method = :sendmail
+
+  # mails server specific fix
+  config.action_mailer.sendmail_settings = {
+    :arguments => "-i"
+  }
+
   config.action_mailer.perform_deliveries = true
   # secret = YAML.load_file( "#{ Rails.root}/config/secret.yml")
   # ActionMailer::Base.delivery_method = :smtp
