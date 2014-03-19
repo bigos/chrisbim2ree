@@ -67,9 +67,7 @@ Chrisbim2ree::Application.configure do
   config.action_mailer.delivery_method = :sendmail
 
   # mails server specific fix
-  config.action_mailer.sendmail_settings = {
-    :arguments => "-i"
-  }
+  config.action_mailer.sendmail_settings = { :arguments => "-i" }
 
   config.action_mailer.perform_deliveries = true
   # secret = YAML.load_file( "#{ Rails.root}/config/secret.yml")
