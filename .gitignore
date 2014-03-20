@@ -20,16 +20,14 @@ pickle-email-*.html
 /public/.htaccess
 
 # Ignore  assets
-/public/system/
-/public/assets
+/public/system/*
+/public/assets/*
 /public/ckeditor_assets/
-
 
 
 public/400.shtml
 public/401.shtml
 public/403.shtml
 public/404.shtml
-public/500.php
 public/500.shtml
 public/default.html
