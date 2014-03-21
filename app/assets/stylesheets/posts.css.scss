@@ -22,9 +22,13 @@
     margin-bottom:0px;
     }
 
-  #teaser-more{font-size:12px;
+  .teaser-more{font-size:12px;
     font-style:italic;
     text-decoretion:none;
+    display:inline;
+    a{white-space:nowrap;
+     display:inline-block;}
+    div{display:inline-block;}
     }
 
   h3.post-title{float:left;
@@ -35,7 +39,9 @@
     font-weight: bold;
     margin-top: 0px;
     }
-  .comment-count{font-size: 10px;}
+  .comment-count{font-size: 10px;
+                 white-space:nowrap;
+                 }
   }
 
 

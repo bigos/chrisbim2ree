@@ -11,12 +11,15 @@
 
     %p{:style=>'clear:both;'}
       != post.teaser
-      #teaser-more
+      .teaser-more
         = blink_to 'Read more', post
-    - comments = Comment.where(:post_id => post.id).where(:published => true)
-    - if comments.count > 0
-      .comment-count
-        = pluralize comments.count,  "comment"
+        - comments = Comment.where(:post_id => post.id).where(:published => true)
+        %div{:style => 'float:right;'}
+          - if comments.count > 0
+            .comment-count
+              = pluralize comments.count,  "comment"
+          facebk
+          tweets
     %div{:style=>'clear:both;'}
     - if current_admin
       %div.scaffold-bottom-links
