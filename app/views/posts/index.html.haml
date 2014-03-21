@@ -1,7 +1,7 @@
 = blink_to 'New Post', new_post_path  if current_admin
 
 %h3 Blog
-- @posts.each do |post|  
+- @posts.each do |post|
   %div.post-teaser
     - unless post.published
       %span.published
@@ -12,7 +12,7 @@
     %p{:style=>'clear:both;'}
       != post.teaser
       #teaser-more
-        = link_to 'Read more', post
+        = blink_to 'Read more', post
     - comments = Comment.where(:post_id => post.id).where(:published => true)
     - if comments.count > 0
       .comment-count
@@ -24,9 +24,9 @@
         - if post.published
           = blink_to  'Unpublish', "/unpublish/post/#{post.id}"
         - else
-          = blink_to 'Publish',"/publish/post/#{post.id}" 
-        
+          = blink_to 'Publish',"/publish/post/#{post.id}"
+
         = blink_to 'Delete', post, :method => :delete, :data => { :confirm => 'Are you sure?' }
-          
+
 %div.scaffold-bottom-links
   = blink_to 'New Post', new_post_path if current_admin
