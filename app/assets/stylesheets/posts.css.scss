@@ -28,7 +28,9 @@
     display:inline;
     a{white-space:nowrap;
      display:inline-block;}
-    div{display:inline-block;}
+    div{display:inline-block;
+        float:none;
+        height:2em;}
     }
 
   h3.post-title{float:left;
