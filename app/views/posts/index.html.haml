@@ -1,5 +1,7 @@
 = blink_to 'New Post', new_post_path  if current_admin
 
+= render_shareable
+
 %h3 Blog
 - @posts.each do |post|
   %div.post-teaser
