@@ -202,6 +202,9 @@ GEM
       multi_json (~> 1.0)
       rubyzip
       websocket (~> 1.0.4)
+    shareable (0.0.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -264,6 +267,7 @@ DEPENDENCIES
   rspec-rails (>= 2.0)
   rvm-capistrano
   sass-rails (~> 3.2.3)
+  shareable
   therubyracer
   thin
   uglifier (>= 1.0.3)

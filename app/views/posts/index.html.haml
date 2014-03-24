@@ -14,16 +14,11 @@
       .teaser-more
         = blink_to 'Read more', post
         - comments = Comment.where(:post_id => post.id).where(:published => true)
-        .social_buttons
+        .buttons
           - if comments.count > 0
             .comment-count
               = pluralize comments.count,  "comment"
-          %span.pin-it
-            = render :partial => "layouts/pinterest_widget"
-          %span.tweet-it
-            = render :partial => "layouts/twitter_button_widget"
-          %span.facebook-like
-            = render :partial => "layouts/facebook_like_widget"
+          = render_shareable :buttons=> ['twitter', 'facebook']
     %div{:style=>'clear:both;'}
     - if current_admin
       %div.scaffold-bottom-links

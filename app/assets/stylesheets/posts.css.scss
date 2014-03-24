@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 #social_buttons > a {
   text-decoration: none;
 }
@@ -28,10 +27,16 @@
     display:inline;
     a{white-space:nowrap;
      display:inline-block;}
-    div{display:inline-block;
-        float:none;
-        height:2em;}
-    }
+    .buttons{display:inline-block;
+        float:right;
+        overflow-y:none;
+        height:2em;
+        .comment-count{display:inline-block;
+                       margin-right:35px;}
+            .share{display:inline-block;
+                   float:right;}
+            }
+              }
 
   h3.post-title{float:left;
     margin-top: 0px;
@@ -82,3 +87,14 @@ span.published{
 .fb-like{
     //border:solid red 1px;
 }
+
+nav.share {display:inline-block;} /* shareable's nav tag */
+nav.share div {float:left; overflow:hidden;}
+nav.share iframe {max-height:20px; border:0; margin-top:0; padding-top:0;} /* if using medium sized buttons */
+#___plusone_0 {max-width:70px; font-size: default; }
+.twitter-share-button, .twitter-count-horizontal {max-width:80px;}
+.fb_iframe_widget span { vertical-align: top; }
+.fb_edge_widget_with_comment { vertical-align: top;}
+.fb-like{display:inline-block}
+* html .fb-like{display:inline}/* ie6 inline block fix*/
+*+html .fb-like{display:inline}/* ie7 inline block fix*/
