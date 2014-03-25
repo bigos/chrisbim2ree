@@ -72,7 +72,7 @@ namespace :deploy do
       ln -s #{shared_path}/system #{latest_release}/public/system &&
       ln -s #{shared_path}/ckeditor_assets #{latest_release}/public/ckeditor_assets &&
       ln -s #{shared_path}/pids #{latest_release}/tmp/pids &&
-      ln -s #{shared_path}/config/seret.yml #{latest_release}/config/secret.yml &&
+      ln -s #{shared_path}/config/secret.yml #{latest_release}/config/secret.yml &&
       ln -s #{shared_path}/config/database.yml #{latest_release}/config/database.yml
     CMD
   end
