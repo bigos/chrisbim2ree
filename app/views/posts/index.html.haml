@@ -13,11 +13,16 @@
       != post.teaser
       .teaser-more
         = blink_to 'Read more', post
-        - comments = Comment.where(:post_id => post.id).where(:published => true)
         .buttons
+          - comments = Comment.where(:post_id => post.id).where(:published => true)
           - if comments.count > 0
             .comment-count
               = pluralize comments.count,  "comment"
+          - not_published_comments = Comment.where(:post_id => post.id).where(:published => nil)
+          - if current_admin
+            - if not_published_comments.count > 0
+              .comment-count
+                = pluralize not_published_comments.count, "not published comment"
           = render_shareable(:buttons => ['twitter', 'facebook','pinterest'], :url => post_url(post))
     %div{:style=>'clear:both;'}
     - if current_admin

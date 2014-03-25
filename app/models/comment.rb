@@ -1,6 +1,6 @@
 class Comment < ActiveRecord::Base
   attr_accessible :content, :post_id, :name, :published
-  belongs_to :post
+  belongs_to :post, :inverse_of => :comments
 
   validates :content, :presence => true
   validates :name, :presence => true
