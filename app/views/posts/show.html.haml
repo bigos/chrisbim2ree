@@ -10,18 +10,11 @@
   %p!= @post.content
 %div{:style=>'clear:both;'}
   = blink_to 'Edit', edit_post_path(@post)
-  
-  = blink_to 'Back',posts_path 
+
+  = blink_to 'Back',posts_path
 
 %br
-#social_buttons{:style =>'display:block;'}  
-  %span#pin-it
-    = render :partial => "layouts/pinterest_widget"
-  %span#tweet-it
-    = render :partial => "layouts/twitter_button_widget"
-  = render :partial => "layouts/facebook_like_widget"
-
-
+= render_shareable :buttons=> ['twitter', 'facebook','pinterest']
 
 - if current_admin
   - comments = Comment.where(:post_id => @post.id)
@@ -29,9 +22,10 @@
   - comments = Comment.where(:post_id => @post.id).where(:published => true)
 
 %p= pluralize comments.count, "comment"
+
 - comments.each do |comment|
   .comment
-    %p= comment.content    
+    %p= comment.content
     .comment_time
       %b= comment.name
       = time_ago_in_words comment.created_at
@@ -41,11 +35,11 @@
         = blink_to 'Edit', edit_comment_path(comment)
         = blink_to 'Publish', "/publish/comment/#{comment.id}" unless comment.published
         = blink_to 'Unpublish', "/unpublish/comment/#{comment.id}" if comment.published
-        = blink_to 'Delete',"/posts/#{@post.id}/comments/#{comment.id}", :method => :delete, :data => { :confirm => 'Are you sure?' } 
+        = blink_to 'Delete',"/posts/#{@post.id}/comments/#{comment.id}", :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 
 %h3 Add a comment:
-= form_for([@post, @post.comments.build]) do |f| 
+= form_for([@post, @post.comments.build]) do |f|
   = f.hidden_field :post_id, :value => @post.id
   = f.text_area :content
   %br
