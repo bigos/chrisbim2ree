@@ -36,6 +36,7 @@ namespace :deploy do
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
       run "chmod +x #{app_path}/shared/config/unicorn_init.sh"
+      run "ls -l #{app_path}/current "
       run "sh #{app_path}/current/config/unicorn_init.sh #{command}"
     end
   end
