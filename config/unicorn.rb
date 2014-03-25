@@ -32,7 +32,7 @@ listen 8080, :tcp_nopush => true
 timeout 30
 
 # feel free to point this anywhere accessible on the filesystem
-pid "/home/chris/Rails/chrisbim2ree/pids/unicorn.pid"
+pid "/home/chris/Rails/chrisbim2ree/tmp/pids/unicorn.pid"
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
