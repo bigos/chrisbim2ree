@@ -12,7 +12,7 @@ set :scm, "git"
 set :branch, "master"
 set :repository,  "git@github.com:bigos/chrisbim2ree.git"
 set :deploy_via, :remote_cache
-set :deploy_to, "/home/#{user}/apps/#{application}"
+set :deploy_to, "/home/#{user}/testCapistrano/#{application}"
 set :use_sudo, false
 
 # set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
