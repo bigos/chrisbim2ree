@@ -12,6 +12,6 @@ Scenario: Leaving a comment
   And I fill in xpath "comment_content" with "This is a test comment"
   And I fill in xpath "comment_name" with "James Bond"
   And I press "Submit Comment"
-  Then I should be on last post page
+  Then I should be on last comment page
   And I should see text "This is a test comment"
   And I should see text "James Bond"
