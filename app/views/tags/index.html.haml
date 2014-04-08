@@ -12,7 +12,7 @@
 - html_fragment = capture_haml do
   %div.photo-frame{:style =>'width:220px;margin-bottom:1.5em;'}
     .photo-div
-      = image_tag Photo.last.attachment.url(:medium)      
+      = image_tag Photo.last.attachment.url(:medium)
     %div{:class=>'caption',:style=>'font-size:14px;'}
       = 'Latest Images'
 = link_to html_fragment, photos_path,:style => 'text-decoration:none;font-size:13px;'
@@ -45,7 +45,9 @@
 
 
   - categories = Tag.where(:parent_id => nil).collect{|t| t.category_name}.uniq.reject{|e| e.nil?}
-  - categories.each do |category|
-    = link_to (button_tag "Add #{category}"), new_tag_path(:category_name => category)
-  %br or if nothing else applies...
-  = link_to (button_tag 'Add Category'), new_tag_path
+  .spaced-out-buttons
+    - categories.each do |category|
+      = link_to (button_tag "Add #{category}"), new_tag_path(:category_name => category)
+    = link_to (button_tag 'Add Category'), new_tag_path
+  %div{:class => 'button-comment'}
+    Add Category if nothing else applies...

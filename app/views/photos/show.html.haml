@@ -10,13 +10,15 @@
   %div.add-to-basket-form
     - @cart_item = CartItem.new
     = render 'cart_items/form', :photo_id => @photo.id
-  
+    .canvas-prints
+      Canvas prints available on special request, please contact me for more details.
+
   #photo-show-hide
     = link_to "show large", "", {:id => 'hider', :onclick => "showLargePhoto(); return false"}
   #large-photo
     = image_tag @photo.attachment.url
-  
-- if current_admin      
+
+- if current_admin
   %p
     %b tags:
     = @photo.tags.count
