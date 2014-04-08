@@ -25,6 +25,10 @@ jQuery(function() {
   $("a.fancybox").fancybox();
 });
 
+$(document).ready(function() {
+  $("a.fancybox").fancybox();
+});
+
 jQuery(function() {
   $("a.fancydiv").fancybox();
 });
