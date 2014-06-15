@@ -1,5 +1,5 @@
 %h3 Edit Photo
-
+- # TODO hardcoded length of name componentnt of filename
 = link_to image_tag(@photo.attachment.url(:medium)), @photo.attachment.url, {:class => 'fancybox', :title => @photo.attachment_file_name[0..-5].gsub('_',' ')}
 %div{:style => 'height:0.75em;'}
 - categories = (Tag.uniq.pluck(:category_name).delete_if {|x| x == nil}).sort
@@ -12,19 +12,19 @@
     - Tag.where(:category_name => category).order('category_name, name').each do |t|
       - tagging = Tagging.where(:photo_id=>@photo.id, :tag_id=>t.id).first
       %div
-        = link_to (raw t.name+'&nbsp;'+(check_box_tag 'visible','yes', tagging )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
+        = link_to (raw t.name + '&nbsp;' + (tagging ? "&#9745;"  : "&#9744;")) , edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
 
 %div.categories-block
-  %span.category  
+  %span.category
     not categorised yet:
   %br
   - Tag.where(:category_name => nil).order(' name').each do |t|
     - tagging = Tagging.where(:photo_id=>@photo.id, :tag_id=>t.id).first
     %div
-      = link_to (raw t.name+'&nbsp;'+(check_box_tag 'visible','yes', tagging )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
-  
-  
-  
+      = link_to (raw t.name+'&nbsp;'+(tagging ? "&#9745;"  : "&#9744;" )), edit_photo_path(tagging ? {:remove_tag => t.name} : {:add_tag => t.name})
+
+
+
 
 %div.scaffold-bottom-links
   = blink_to 'Show', @photo
