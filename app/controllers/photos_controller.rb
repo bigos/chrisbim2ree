@@ -10,9 +10,9 @@ class PhotosController < InheritedResources::Base
       @photos = Photo.includes(:tags).where(:tags => {:name => params[:tag]}).order('photos.created_at DESC').paginate(:page => params[:page], :per_page => 12)
     else
       if params['order'] == 'filename'
-        @photos = Photo.order('photos.attachment_file_name').paginate(:page => params[:page], :per_page => 12) 
+        @photos = Photo.order('photos.attachment_file_name').paginate(:page => params[:page], :per_page => 12)
       else
-        @photos = Photo.order('created_at DESC').paginate(:page => params[:page], :per_page => 12) 
+        @photos = Photo.order('created_at DESC').paginate(:page => params[:page], :per_page => 12)
       end
     end
 
@@ -34,10 +34,10 @@ class PhotosController < InheritedResources::Base
           @photo.recursively_remove_tag params[:remove_tag]
         end
       else
-      flash[:error] = 'Error: Only admin can do that.' 
+      flash[:error] = 'Error: Only admin can do that.'
       end
     else
-      flash[:error] = 'Error: You need to log in as admin to do that.' 
+      flash[:error] = 'Error: You need to log in as admin to do that.'
     end
   end
 
@@ -52,7 +52,7 @@ class PhotosController < InheritedResources::Base
         if params[:controller] == 'photos'
           format.html { redirect_to @photo, :notice => 'Photo was successfully created.' }
         else
-          format.html { render :json => [@photo.to_jq_upload].to_json, 
+          format.html { render :json => [@photo.to_jq_upload].to_json,
             :content_type => 'text/html',
             :layout => false
           }
