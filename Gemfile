@@ -76,7 +76,7 @@ gem "execjs"
 gem "therubyracer"
 
 gem 'capistrano'
-gem 'rvm-capistrano'
+gem 'rvm-capistrano', '1.5.1', require: false
 
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'font-awesome-sass-rails'
