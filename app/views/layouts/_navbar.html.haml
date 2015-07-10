@@ -1,4 +1,3 @@
-
 #menu
   %ul
     %li= link_to 'HOME', root_url
@@ -19,11 +18,16 @@
           = link_to '3 Day Workshops', '/photo_workshops/3/days'
           %ul
             - Workshop.where(:duration => '3').order(:start_date).each do |workshop|
-              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop          
+              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
         %li
           = link_to 'Weekend Workshops', '/photo_workshops/2/days'
           %ul
             - Workshop.where(:duration => '2').order(:start_date).each do |workshop|
+              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
+        %li
+          = link_to 'One Day Workshops', '/photo_workshops/1/days'
+          %ul
+            - Workshop.where(:duration => '1').order(:start_date).each do |workshop|
               %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
         - if current_admin
           %li= link_to 'editables', editables_path
@@ -31,17 +35,16 @@
           %li= link_to 'subscribers', newsletter_subscribers_path
           %li= link_to 'dashboard', dashboard_path
           %li= link_to 'newsletters', newsletters_path
-        
+
     %li= link_to 'PERSONAL TUITION', "/about_me/personal_tuition"
     %li= link_to 'TALKS', "/about_me/talks"
     %li
       = link_to 'GALLERIES', tags_path
       - if current_admin
-        %ul        
+        %ul
           %li= link_to 'photos', photos_path
           %li= link_to 'categories', tags_path
           %li= link_to 'photos by filename', photos_path(:order => 'filename')
-    
-    %li= link_to 'BLOG', posts_path 
+
+    %li= link_to 'BLOG', posts_path
     %li= link_to 'CONTACT', '/contact'
-    
