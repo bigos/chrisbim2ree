@@ -52,7 +52,7 @@ gem 'rails3-jquery-autocomplete'
 gem 'jquery_datepicker'
 gem "jquery-fileupload-rails"
 
-gem "recaptcha", :require => "recaptcha/rails"
+gem "recaptcha", ">= 0.3.7", :require => "recaptcha/rails"
 
 gem 'fancybox-rails'
 
