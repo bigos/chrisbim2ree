@@ -1,5 +1,9 @@
 %p#notice= notice
 
+
+%p
+  %b Sent:
+  = @contact_message.created_at
 %p
   %b From:
   = @contact_message.from
@@ -10,7 +14,7 @@
   %b Message:
   = @contact_message.message
 
-- if current_admin  
+- if current_admin
   = blink_to 'Edit', edit_contact_message_path(@contact_message)
   \|
   = blink_to 'Back', contact_messages_path
