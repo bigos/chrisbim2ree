@@ -9,8 +9,6 @@ set :repo_url, "git@github.com:bigos/chrisbim2ree.git"
 
 # change the IP to production server
 server '192.168.1.78', roles: [:web, :app, :db], primary: true
-# change branch to master when ready for the production server
-set :branch,        :newdeploy
 
 set :user, "#{secrets['deployment']['user'] }"
 set :puma_threads,    [4, 16]
@@ -34,7 +32,7 @@ set :puma_init_active_record, true  # Change to false when not using ActiveRecor
 
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/#{fetch(:user)}/apps/#{fetch(:application)}"
+set :deploy_to, "/home/#{fetch(:user)}/Rails/#{fetch(:application)}"
 
 
 # Default value for :scm is :git
