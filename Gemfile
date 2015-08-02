@@ -31,9 +31,6 @@ gem 'test-unit'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
-# Use unicorn as the app server
-gem 'unicorn'
-
 # Deploy with Capistrano
 # gem 'capistrano'
 
@@ -42,7 +39,6 @@ gem 'unicorn'
 
 ### my gems
 
-gem 'thin'
 gem 'will_paginate', '>= 3.0.0'
 gem "inherited_resources", ">= 1.3.0"
 gem "paperclip", "~> 2.7"
@@ -77,10 +73,18 @@ gem "execjs"
 
 gem "therubyracer"
 
-gem 'capistrano'
-gem 'rvm-capistrano', '1.5.1', require: false
-
 gem 'bootstrap-sass', '~> 2.3.1.0'
 gem 'font-awesome-sass-rails'
 
 gem 'shareable'
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano-secrets-yml'
+  gem 'capistrano-rvm'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano3-puma'
+end
+
+gem 'puma'

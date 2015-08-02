@@ -1,81 +1,48 @@
-require 'yaml'
-require "rvm/capistrano"
-require "bundler/capistrano"
-secrets = YAML.load_file( "#{ File.dirname(__FILE__)}/secret.yml")
+# config valid only for current version of Capistrano
+lock '3.4.0'
 
-set(:user) { secrets['deployment']['user'] }
-set(:password) { secrets['deployment']['password'] }
-set :application, "chrisbim2ree"
-set :app_path, "/home/#{user}/Rails/#{application}"
+set :application, 'my_app_name'
+set :repo_url, 'git@example.com:me/my_repo.git'
 
-set :scm, "git"
-set :branch, "master"
-set :repository,  "git@github.com:bigos/chrisbim2ree.git"
-set :deploy_via, :remote_cache
-set :ssh_options, { :forward_agent => true }
+# Default branch is :master
+# ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
-set :deploy_to, "#{app_path}"
-set :use_sudo, false
+# Default deploy_to directory is /var/www/my_app_name
+# set :deploy_to, '/var/www/my_app_name'
 
-set :normalize_asset_timestamps, false
+# Default value for :scm is :git
+# set :scm, :git
 
-# set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+# Default value for :format is :pretty
+# set :format, :pretty
 
-role :web, "188.226.167.41"                                # Your HTTP server, Apache/etc
-role :app, "188.226.167.41"                                # This may be the same as your `Web` server
-role :db,  "188.226.167.41", :primary => true              # This is where Rails migrations will run
+# Default value for :log_level is :debug
+# set :log_level, :debug
 
+# Default value for :pty is false
+# set :pty, true
 
-# if you want to clean up old releases on each deploy uncomment this:
-after "deploy:restart", "deploy:cleanup"
+# Default value for :linked_files is []
+# set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+# Default value for linked_dirs is []
+# set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
+
+# Default value for default_env is {}
+# set :default_env, { path: "/opt/ruby/bin:$PATH" }
+
+# Default value for keep_releases is 5
+# set :keep_releases, 5
 
 namespace :deploy do
-  %w[start stop restart].each do |command|
-    desc "#{command} unicorn server"
-    task command, roles: :app, except: {no_release: true} do
-      run "chmod +x #{app_path}/shared/config/unicorn_init.sh"
-      run "ls -l #{app_path}/current "
-      run "sh #{app_path}/current/config/unicorn_init.sh #{command}"
+
+  after :restart, :clear_cache do
+    on roles(:web), in: :groups, limit: 3, wait: 10 do
+      # Here we can do anything such as:
+      # within release_path do
+      #   execute :rake, 'cache:clear'
+      # end
     end
   end
 
-  desc "Make sure local git is in sync with remote."
-  task :check_revision, roles: :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/master`
-      puts "WARNING: HEAD is not the same as origin/master"
-      puts "Run `git push` to sync changes."
-      exit
-    end
-  end
-  before "deploy", "deploy:check_revision"
-end
-
-
-namespace :deploy do
-  desc "Deploy your application"
-  task :default do
-    update
-    restart
-  end
-  task :finalize_update, :except => {:no_release => true} do
-    run "chmod -R g+w #{latest_release}" if fetch(:group_writable, true)
-
-    # mkdir -p is making sure that the directories are there for some SCM's that don't
-    # save empty folders
-    run <<-CMD
-      rm -rf #{latest_release}/log #{latest_release}/public/system #{latest_release}/tmp/pids &&
-      mkdir -p #{latest_release}/public &&
-      mkdir -p #{latest_release}/tmp &&
-      ln -s #{shared_path}/log #{latest_release}/log &&
-      ln -s #{shared_path}/system #{latest_release}/public/system &&
-      ln -s #{shared_path}/ckeditor_assets #{latest_release}/public/ckeditor_assets &&
-      ln -s #{shared_path}/pids #{latest_release}/tmp/pids &&
-      ln -s #{shared_path}/config/secret.yml #{latest_release}/config/secret.yml &&
-      ln -s #{shared_path}/config/database.yml #{latest_release}/config/database.yml
-    CMD
-  end
 end
