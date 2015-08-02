@@ -52,7 +52,7 @@ gem "jquery-fileupload-rails"
 
 gem "recaptcha", ">= 0.3.7", :require => "recaptcha/rails"
 
-gem 'fancybox-rails'
+gem 'fancybox2-rails', '~> 0.2.8'
 
 group :development, :test do
   gem "rspec-rails", ">= 2.0"
