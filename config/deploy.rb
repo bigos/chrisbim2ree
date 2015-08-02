@@ -8,7 +8,7 @@ set :application, "chrisbim2ree"
 set :repo_url, "git@github.com:bigos/chrisbim2ree.git"
 
 # change the IP to production server
-server '192.168.1.76', roles: [:web, :app, :db], primary: true
+server '192.168.1.78', roles: [:web, :app, :db], primary: true
 # change branch to master when ready for the production server
 set :branch,        :newdeploy
 
