@@ -24,7 +24,7 @@
       %li{:class=> "column#{col}"}
         - col < columns-1 ? col += 1 : col = 0
         %div.photo-wrapper
-          = link_to image_tag(photo.attachment.url(:medium)), photo.attachment.url, {:class => 'fancybox fancybox.iframe', :title => "Order Prints"}
+          = link_to image_tag(photo.attachment.url(:medium)), photo.attachment.url, {:class => 'fancybox fancybox.iframe', :title => "<a href=\"#{photo_path(photo)}\">Order Prints</a>"}
         - if current_admin
           %div.photo-links
             = # photo.tags.first.name there's problem with tags order, perhaps i will have to give up on ity

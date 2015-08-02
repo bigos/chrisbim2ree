@@ -12,12 +12,12 @@
 //
 //= require ckeditor/init
 //= require jquery
+//= require fancybox
 //= require jquery_ujs
 //= require jquery-ui
 //= require autocomplete-rails
 //= require jquery-fileupload
 //= require bootstrap
-//= require fancybox
 //= require_tree .
 
 
