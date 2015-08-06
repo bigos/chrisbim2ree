@@ -76,6 +76,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -152,6 +153,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.2)
     multi_json (1.11.2)
@@ -173,6 +175,12 @@ GEM
     polyglot (0.3.5)
     power_assert (0.2.4)
     powerpack (0.1.1)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     puma (2.12.2)
     rack (1.4.7)
     rack-cache (1.2)
@@ -244,6 +252,7 @@ GEM
     shareable (1.1.4)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    slop (3.6.0)
     sprockets (2.2.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -305,6 +314,7 @@ DEPENDENCIES
   json
   mysql2
   paperclip (~> 2.7)
+  pry-rails
   puma
   rails (= 3.2.22)
   rails3-jquery-autocomplete

@@ -82,6 +82,8 @@ gem 'font-awesome-sass-rails'
 gem 'shareable'
 
 group :development do
+  gem 'pry-rails'
+
   gem 'capistrano'
   gem 'capistrano-secrets-yml'
   gem 'capistrano-rvm'
