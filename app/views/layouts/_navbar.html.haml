@@ -10,6 +10,11 @@
       = link_to 'WORKSHOPS', '/workshop_information/show'
       %ul
         %li
+          = link_to '6 Day Workshops', '/photo_workshops/6/days'
+          %ul
+            - Workshop.where(:duration => '6').order(:start_date).each do |workshop|
+              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
+        %li
           = link_to '5 Day Workshops', '/photo_workshops/5/days'
           %ul
             - Workshop.where(:duration => '5').order(:start_date).each do |workshop|
