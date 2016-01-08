@@ -5,6 +5,10 @@ class Workshop < ActiveRecord::Base
   DURATION_OPTIONS = {'one day' =>1, 'weekend' => 2, '3 day' => 3, '5 day'=> 5, '6 day' => 6}
   validates :duration, :inclusion => { :in => DURATION_OPTIONS.values, :message => "%{value} is not a valid workshop duration" }
 
+  def self.duration_in_words(d)
+    DURATION_OPTIONS.key(d)
+  end
+
   def date_range
     finish = self.start_date + (self.duration.days-1)
     ord_start  = self.start_date.day.ordinalize

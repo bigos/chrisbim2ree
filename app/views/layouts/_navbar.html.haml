@@ -7,33 +7,14 @@
         %li= link_to 'Equipment', "/about_me/equipment"
         %li= link_to 'Work', "/about_me/work"
     %li
-      = link_to 'WORKSHOPS', '/workshop_information/show'
+      = link_to 'WORKSHOPS ', '/workshop_information/show'
       %ul
-        %li
-          = link_to '6 Day Workshops', '/photo_workshops/6/days'
-          %ul
-            - Workshop.where(:duration => '6').order(:start_date).each do |workshop|
-              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
-        %li
-          = link_to '5 Day Workshops', '/photo_workshops/5/days'
-          %ul
-            - Workshop.where(:duration => '5').order(:start_date).each do |workshop|
-              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
-        %li
-          = link_to '3 Day Workshops', '/photo_workshops/3/days'
-          %ul
-            - Workshop.where(:duration => '3').order(:start_date).each do |workshop|
-              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
-        %li
-          = link_to 'Weekend Workshops', '/photo_workshops/2/days'
-          %ul
-            - Workshop.where(:duration => '2').order(:start_date).each do |workshop|
-              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
-        %li
-          = link_to 'One Day Workshops', '/photo_workshops/1/days'
-          %ul
-            - Workshop.where(:duration => '1').order(:start_date).each do |workshop|
-              %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
+        - @workshop_durations.each do |wd|
+          %li
+            =link_to "#{Workshop.duration_in_words(wd).titleize} Workshops", workshop_durations_path(duration: wd)
+            %ul
+              - Workshop.where(:duration => wd).order(:start_date).each do |workshop|
+                %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
         - if current_admin
           %li= link_to 'editables', editables_path
           %li= link_to 'slideshow', slides_path

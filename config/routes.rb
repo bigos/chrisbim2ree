@@ -13,7 +13,7 @@ Chrisbim2ree::Application.routes.draw do
   match '/dashboard/:section' => 'dashboard#show'
 
   match "/empty_shopping_cart" => 'empty_shopping_cart#update'
-  
+
   resources :newsletter_subscribers
 
 
@@ -41,7 +41,7 @@ Chrisbim2ree::Application.routes.draw do
 
   get "workshop_information/show"
 
-  match "/photo_workshops/:duration/days" => 'workshops#index'
+  match "/photo_workshops/:duration/days" => 'workshops#index', as: :workshop_durations
   resources :workshops
 
 
@@ -51,7 +51,7 @@ Chrisbim2ree::Application.routes.draw do
 
 
   resources :password_resets, :only => [ :new, :create, :edit, :update ]
-  
+
   resources :editables
 
   get "home_page/index"
@@ -72,9 +72,9 @@ Chrisbim2ree::Application.routes.draw do
 
   match 'register' => 'user#new'
   resource :account, :controller => "users"
-  
+
   mount Ckeditor::Engine => '/ckeditor'
- 
+
 
   root :to => 'home_page#index'
   # The priority is based upon order of creation:

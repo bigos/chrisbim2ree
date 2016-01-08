@@ -8,7 +8,9 @@
 %p
   != @workshop.content
 
-- if current_admin  
+- if current_admin
   = blink_to 'Edit', edit_workshop_path(@workshop)
   \|
   = blink_to 'Back', workshops_path
+  \|
+  = blink_to 'Destroy', @workshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
