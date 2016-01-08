@@ -1,3 +1,7 @@
+- @workshop_durations.each do |wd|
+  =blink_to "#{Workshop.duration_in_words(wd).titleize} Workshops", workshop_durations_path(duration: wd), style: 'margin-right:1em;'
+
+
 %h3 Workshops
 
 != editable_content("Workshops")

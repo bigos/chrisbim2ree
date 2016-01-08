@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
   end
 
   def initlialize_workshops
-    @workshop_durations = Workshop.pluck(:duration).sort {|x,y| y<=>x}
+    @workshop_durations = Workshop.pluck(:duration).sort {|x,y| y<=>x}.uniq
 
   end
 
