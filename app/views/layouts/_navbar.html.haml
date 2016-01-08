@@ -16,6 +16,7 @@
               - Workshop.where(:duration => wd).order(:start_date).each do |workshop|
                 %li= link_to (workshop.date_range + ' ' + workshop.title), workshop
         - if current_admin
+          %li= link_to 'add new workshop', new_workshop_path
           %li= link_to 'editables', editables_path
           %li= link_to 'slideshow', slides_path
           %li= link_to 'subscribers', newsletter_subscribers_path
