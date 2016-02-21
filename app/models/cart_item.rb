@@ -8,7 +8,7 @@ class CartItem < ActiveRecord::Base
   validates_numericality_of :quantity, :only_integer => true, :greater_than_or_equal_to => 1
 
   # options price size
-  OPTIONS = [[95, 'A3'], [50, 'A4']]
+  OPTIONS = [[149, 'A2'], [95, 'A3'], [50, 'A4']]
 
   before_validation :set_price
 
