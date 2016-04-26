@@ -12,7 +12,7 @@ gem 'json'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
+  gem 'sass-rails'
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
@@ -76,7 +76,7 @@ gem "execjs"
 
 gem "therubyracer"
 
-gem 'bootstrap-sass', '~> 2.3.1.0'
+gem 'foundation-rails'
 gem 'font-awesome-sass-rails'
 
 gem 'shareable'

@@ -14,12 +14,11 @@
 //= require jquery
 //= require fancybox
 //= require jquery_ujs
+//= require foundation
 //= require jquery-ui
 //= require autocomplete-rails
 //= require jquery-fileupload
-//= require bootstrap
 //= require_tree .
-
 
 jQuery(function() {
   $("a.fancybox").fancybox();
@@ -79,3 +78,5 @@ $(document).ready(function(){
     });
 
 });
+
+$(function(){ $(document).foundation(); });

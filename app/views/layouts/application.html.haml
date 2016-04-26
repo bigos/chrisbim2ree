@@ -1,72 +1,16 @@
-!!!
-%html
+!!! 5
+%html{ :lang => "en" }
   %head
-    %title Chris Beard Images
-    = stylesheet_link_tag    "application", :media => "all"
-    = stylesheet_link_tag    "http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"
-    = javascript_include_tag "application"
-    = csrf_meta_tags
-    %script{ src: "https://www.google.com/recaptcha/api.js" }
+    %meta{ :charset => "utf-8" }
+
+    %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+    %title= content_for?(:title) ? yield(:title) : "Untitled"
+
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tag
+
   %body
-    = render :partial => 'layouts/facebook_JS_code'
-    #wrapper
-      #page
-        #logo{:style => "border:none red 1px; width:350px;float:left;"}
-          = link_to image_tag('logo.jpg'), root_url
 
-        #login
-          - if current_user
-            = current_user.username
-            = "-"
-            = link_to 'logout', logout_path
-          - else
-            = link_to 'login', login_path
-        #multi-wrapper
-          #basket-info
-            - basket_items =  @shopping_cart.cart_items.count
-            - if basket_items >= 1
-              = link_to cart_items_path do
-                %div#basket-link
-                  #item-count= basket_items
-          #site-lock-wrapper
-            = #render 'layouts/secure_lock'
-
-        #navbar{:style=>"clear:both;"}
-          #menu-wrapper
-            = render :partial => 'layouts/navbar'
-
-        #content
-          - flash.each do |name, msg|
-            - if msg.is_a?(String)
-              %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
-                %a.close{"data-dismiss" => "alert"} ×
-                = content_tag :div, msg, :id => "flash_#{name}"
-          = yield
-
-          %div{:style=>'clear:both'}
-
-        = render :partial =>'layouts/footer_area'
-        #footer
-          &copy; Chris Beard Photography
-          = Time.now.year
-      #widget
-        = render :partial => 'layouts/flickr_widget'
-
-    - if Rails.env == 'development'
-      #dump
-        %p
-          current user:
-          = current_user.inspect
-        %p
-          current session:
-          = current_user_session.inspect
-        - if current_user
-          = link_to 'Logout', logout_path
-        - else
-          = link_to 'Login', login_path
-        %p= params.inspect
-        %p
-          shopping cart:
-          = @shopping_cart.inspect
-
-    = render :partial => 'layouts/google_analytics' if Rails.env.production?
+    = yield
