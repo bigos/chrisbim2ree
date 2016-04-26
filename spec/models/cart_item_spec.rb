@@ -10,9 +10,8 @@ describe CartItem do
   it "missing photo_id should not be valid" do
     FactoryGirl.build(:cart_item, :photo_id => nil).should_not be_valid
   end
-  it "missing price should not be valid" do
-    FactoryGirl.build(:cart_item, :price => nil).should_not be_valid
-  end
+
+
   it "missing quantity should not be valid" do
     FactoryGirl.build(:cart_item, :quantity => nil).should_not be_valid
   end

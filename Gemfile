@@ -55,8 +55,8 @@ gem "recaptcha", ">= 0.3.7", :require => "recaptcha/rails"
 gem 'fancybox-rails'
 
 group :development, :test do
-  gem "rspec-rails", ">= 2.0"
-  gem 'capybara', '~> 1.1.1'
+  gem "rspec-rails", ">= 3.0"
+  gem 'capybara', '~> 2.7.0'
   gem 'database_cleaner', '0.6.5'
 
   gem 'rubocop', require: false

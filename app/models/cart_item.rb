@@ -4,6 +4,7 @@ class CartItem < ActiveRecord::Base
   belongs_to :shopping_cart
   belongs_to :photo
 
+  validates_presence_of :price
   validates_presence_of :shopping_cart_id, :photo_id, :quantity, :option, :price
   validates_numericality_of :quantity, :only_integer => true, :greater_than_or_equal_to => 1
 
