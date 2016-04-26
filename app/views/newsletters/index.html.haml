@@ -2,12 +2,11 @@
 
 - @newsletters.each do |newsletter|
   %div{:style => 'background: #ddd; padding: 1em; margin: 1em auto;'}
-    %h5
-      = newsletter.subject
+    = link_to_function newsletter.subject, "$('#toggled_buttons_#{newsletter.id}').toggle()"
     %div
-      != newsletter.content
+      !=""
     %br
-    %div.buttons
+    %div.buttons{ id: "toggled_buttons_#{newsletter.id}", style: 'display:none'}
       = blink_to 'Show', newsletter
       = blink_to 'Edit', edit_newsletter_path(newsletter)
       = blink_to 'Delete', newsletter, {:method => :delete, :data => { :confirm => 'Are you sure?' }}
