@@ -1,5 +1,4 @@
-
-#col1
+%div{style: 'height:520px'}
   %div{:id=>:image_container, :data => {:slidecount => @slides.count}}
     - position = 1
     - @slides.each do |slide|
@@ -8,26 +7,26 @@
         = image_tag slide.photo.url
         %p.caption
           = slide.caption
-          
+
 %div.horizontal_separator{:style=>"clear:both;"}
-#col1a
+#news
   != editable_content("news")
 
-%div.horizontal_separator{:style=>"clear:both; margin-bottom: 11px; margin-top: 32px;"}         
-#col3
-  #col3a
+%div.horizontal_separator{:style=>"clear:both; margin-bottom: 11px; margin-top: 32px;"}
+.row
+  %div{class: 'small-4 columns'}
     #grid_wrapper
       %h3 Latest Images
       #flickr-div
-       
-   
-  #col3b
+
+
+  %div{class: 'small-4 columns'}
     %h3 Featured Image
     != editable_content("featured_image")
 
-  #col3c
+  %div{class: 'small-4 columns'}
     %h3 Twitter Feed
     %div
       = render :partial => 'layouts/twitter_widget'
-      
-%div{:style=>"clear:both;"}  
+
+%div{:style=>"clear:both;"}

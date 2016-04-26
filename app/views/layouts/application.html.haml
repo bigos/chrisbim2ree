@@ -47,9 +47,11 @@
           %div{:style=>'clear:both'}
 
         = render :partial =>'layouts/footer_area'
-        #footer
-          &copy; Chris Beard Photography
-          = Time.now.year
+        .row
+          %div{class: 'small-12 columns'}
+            #footer
+              &copy; Chris Beard Photography
+              = Time.now.year
       #widget
         = render :partial => 'layouts/flickr_widget'
 

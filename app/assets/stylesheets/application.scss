@@ -11,9 +11,9 @@
  *
  *= require_self
  *= require foundation_and_overrides
- *= require foundation
  *= require fancybox
  *= require jquery.fileupload-ui
+ *= require foundation
  *= require_tree .
  */
 
@@ -79,3 +79,10 @@ div {
   margin: 1em;
   padding: 2em;
 }
+
+div#footer {
+  background: gray;
+  color: white;
+  padding: 0.25em;
+  text-align: center;
+  clear: both; }
