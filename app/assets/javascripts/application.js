@@ -18,6 +18,7 @@
 //= require jquery-ui
 //= require autocomplete-rails
 //= require jquery-fileupload
+//= require jquery.slick
 //= require_tree .
 
 jQuery(function() {
@@ -39,19 +40,6 @@ $(function() {
     });
 });
 
-function slideShow() {
-    var s=0;
-    var max_slides = $('#image_container').data('slidecount');
-    var interval = 7000;
-    setInterval( function(){
-	var pos =  (s++ % max_slides) + 1;
-	var nextpos =  (s % max_slides) + 1;
-	console.log(pos+'   '+nextpos)
-	$('#slide_'+pos).fadeOut(800);
-	$('#slide_'+nextpos).fadeIn(3000);
-    }, interval);
-}
-
 function showLargePhoto() {
     $('#large-photo').slideToggle();
     if ($('#hider').text() == 'show large') {
@@ -64,8 +52,6 @@ function showLargePhoto() {
 
 
 $(document).ready(function(){
-    slideShow();
-
 
     $('.tag-li-div').mouseenter(function(){
 	var el = $(this).find('span')[1];

@@ -1,12 +1,13 @@
-%div{style: 'height:520px'}
-  %div{:id=>:image_container, :data => {:slidecount => @slides.count}}
-    - position = 1
-    - @slides.each do |slide|
-      %div{:id=>"slide_#{position}", :class=>'slide'}
-        - position += 1
-        = image_tag slide.photo.url
-        %p.caption
-          = slide.caption
+%div{id: 'slideshow-wrapper'}
+  %div{style: " margin auto 25%;"}
+    %div{ :class => 'home-page-slideshow scroller', :data => {:slidecount => @slides.count}}
+      - position = 1
+      - @slides.each do |slide|
+        %div{:id=>"slide_#{position}"}
+          - position += 1
+          = image_tag slide.photo.url
+          %p.caption
+            = slide.caption
 
 %div.horizontal_separator{:style=>"clear:both;"}
 #news
@@ -30,3 +31,17 @@
       = render :partial => 'layouts/twitter_widget'
 
 %div{:style=>"clear:both;"}
+
+:javascript
+    $(document).ready( function() {
+      $('.home-page-slideshow').slick({
+
+
+        dots: true,
+        speed: 500,
+        fade: true,
+        cssEase: 'linear',
+        autoplay: true,
+        autoplaySpeed: 2000,
+    });
+    } );

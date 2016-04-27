@@ -1,4 +1,7 @@
 @import "foundation_and_overrides";
+@import "slick";
+@import 'slick-theme';
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -86,3 +89,31 @@ div#footer {
   padding: 0.25em;
   text-align: center;
   clear: both; }
+
+
+
+.scroller {
+  div {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+.slick-prev::before, .slick-next::before {
+  color: #000;
+}
+
+.slick-next {
+  right: -5px;
+}
+
+.slick-prev {
+  left: -5px;
+  z-index:500;
+}
+
+.slick-slide img {
+  display: inline-block;
+}
+
+.home-page-slideshow{margin: auto 10%;}

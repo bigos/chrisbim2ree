@@ -23,6 +23,7 @@ end
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
+gem 'jquery-slick-rails'
 gem 'test-unit'
 
 # To use ActiveModel has_secure_password
