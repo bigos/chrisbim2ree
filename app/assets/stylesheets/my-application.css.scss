@@ -3,7 +3,10 @@ background: #333;
 font-family: arial, verdana, sans-serif; }
 
 div#wrapper {
-margin: 0px auto; }
+  margin: 0px auto;
+  overflow: hidden;
+  position: relative;
+}
 
 div#page {
 background: white;

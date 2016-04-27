@@ -1,5 +1,5 @@
 %div{id:'footer_area', class: 'row'}
-  %div{:class => 'small-4 columns'}
+  %div{:class => 'large-4 columns'}
     %h3 Mailing List
     %p
       If you would like to join our mailing list
@@ -13,24 +13,26 @@
       = form_for @newsletter_subscriber do |f|
         = f.text_field :email, :style => 'width:160px;'
         = f.submit 'Subscribe'
-  %div{:class => 'small-4 columns'}
-    %h3 Follow Me On:
-    %div
-      = link_to "http://www.flickr.com/photos/56587968@N08/", :class => 'footer_social', :target => '_blank' do
-        %div
-          %span Flickr
+  %div{:class => 'large-4 columns'}
+    %div{class: 'row'}
+      %h3 Follow Me On:
+      %div
+        = link_to "http://www.flickr.com/photos/56587968@N08/", :class => 'footer_social', :target => '_blank' do
+          %div
+            Flickr
           = image_tag 'flickr.png'
-    %div
-      = link_to "https://www.facebook.com/chris.beard.14811", :class => 'footer_social', :target => '_blank' do
-        %div
-          %span Facebook
+      %div
+        = link_to "https://www.facebook.com/chris.beard.14811", :class => 'footer_social', :target => '_blank' do
+          %div
+            Facebook
           = image_tag 'facebook.png'
-    %div
-      = link_to "https://twitter.com/CB1mages", :class => 'footer_social', :target => '_blank' do
-        %div
-          %span Twitter
+      %div
+        = link_to "https://twitter.com/CB1mages", :class => 'footer_social', :target => '_blank' do
+          %div
+            Twitter
           = image_tag 'twitter.png'
-  %div{:class => 'small-4 columns'}
+
+  %div{:class => 'large-4 columns blog-teaser'}
     %h3 Latest Blog
     %ul
       - posts = Post.where(:published => true).order("created_at DESC").limit( 3)
