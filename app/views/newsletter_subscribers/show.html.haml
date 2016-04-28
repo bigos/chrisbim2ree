@@ -4,8 +4,9 @@
   - if current_admin
     %b Email:
     = @newsletter_subscriber.email
-    
-- if current_admin    
+    %b IP
+    = @newsletter_subscriber.subscriber_ip
+- if current_admin
   = blink_to 'Edit', edit_newsletter_subscriber_path(@newsletter_subscriber)
   \|
   = blink_to 'Back', newsletter_subscribers_path

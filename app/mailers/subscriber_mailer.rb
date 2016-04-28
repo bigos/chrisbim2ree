@@ -2,7 +2,7 @@ class SubscriberMailer < ActionMailer::Base
   @@secrets = YAML.load_file( "#{ Rails.root}/config/secret.yml")
   @@url  = "http://chrisbeard-images.com"
   default :from => @@secrets['email_server']['user_name']
-  
+
   def welcome_email(subscriber)
     @url = @@url
     @subscriber = subscriber
@@ -15,7 +15,7 @@ class SubscriberMailer < ActionMailer::Base
     @subscriber = subscriber
     mail(:to => @@secrets['email']['admin_email'],
          #:cc => @@secrets['email']['cc'],
-         :subject => "You have new subscriber")
+         :subject => "You have new subscriber from IP: #{@subscriber.subscriber_ip}")
   end
 
   def goodbye_email(subscriber)

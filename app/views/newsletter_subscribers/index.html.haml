@@ -4,6 +4,7 @@
   %tr
     %th Email
     %th Joined Date
+    %th Joined from IP
     %th
     %th
     %th
@@ -12,6 +13,7 @@
     %tr
       %td= newsletter_subscriber.email
       %td= newsletter_subscriber.created_at.strftime("#{newsletter_subscriber.created_at.day.ordinalize} %b %Y")
+      %td= newsletter_subscriber.subscriber_ip
       %td= blink_to 'Show', newsletter_subscriber
       %td= blink_to 'Edit', edit_newsletter_subscriber_path(newsletter_subscriber)
       %td= blink_to 'Destroy', newsletter_subscriber, :method => :delete, :data => { :confirm => "Are you sure to delete #{newsletter_subscriber.email} ?" }
@@ -19,4 +21,3 @@
 %br
 
 = blink_to 'New Newsletter subscriber', new_newsletter_subscriber_path
-
