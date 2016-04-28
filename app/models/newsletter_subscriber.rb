@@ -3,7 +3,7 @@ class NewsletterSubscriber < ActiveRecord::Base
 
   before_create :set_unsubscribe_token_if_blank
   after_create :new_subscription_notifications
-  
+
   def set_unsubscribe_token_if_blank
     require 'digest/md5'
     if self.unsubscribe_token == nil
@@ -20,7 +20,7 @@ class NewsletterSubscriber < ActiveRecord::Base
     SubscriberMailer.unsubscribed_admin_notification(self).deliver
   end
 
-  private  
+  private
   def new_subscription_notifications
     SubscriberMailer.welcome_email(self).deliver
     SubscriberMailer.new_subscription_admin_notification(self).deliver
