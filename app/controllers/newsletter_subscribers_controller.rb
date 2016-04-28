@@ -9,7 +9,7 @@ class NewsletterSubscribersController < InheritedResources::Base
     logger.info "/n/n/nip stuff"
     logger.info request.env.inspect
     logger.info "/n/n/n"
-    byebug
+
     @newsletter_subscriber.subscriber_ip = request.env["HTTP_X_FORWARDED_FOR"]
 
     create!
