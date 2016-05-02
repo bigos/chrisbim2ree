@@ -52,7 +52,6 @@ function showLargePhoto() {
 
 
 $(document).ready(function(){
-
     $('.tag-li-div').mouseenter(function(){
 	var el = $(this).find('span')[1];
 	$(el).show();
