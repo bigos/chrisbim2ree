@@ -1,6 +1,12 @@
 class NewsletterSubscriber < ActiveRecord::Base
   attr_accessible :email, :unsubscribe_token
 
+  validates :email, :uniqueness => { :case_sensitive => false,
+                                     :message => 'already subscribed'
+                                   }
+
+  validates :email, :presence => true
+
   before_create :set_unsubscribe_token_if_blank
   after_create :new_subscription_notifications
 

@@ -1,5 +1,5 @@
 class NewsletterSubscribersController < InheritedResources::Base
-  before_filter :require_admin, :except => [:show, :create]
+  before_filter :require_admin, :except => [:show, :new, :create]
 
   def create
     @request = request
