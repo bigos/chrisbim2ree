@@ -6,15 +6,14 @@
       and receive a regular newsletter containing
       news items, hints &amp; tips, inspiration
       and advanced notification or new workshops,
-      please fill in your email address here:
+      please click subscribe button:
       %br
       %br
-      - @newsletter_subscriber = NewsletterSubscriber.new
-      = form_for @newsletter_subscriber do |f|
-        = f.text_field :email, :style => 'width:160px;'
-        = f.submit 'Subscribe'
+      = button_to 'Subscribe',  new_newsletter_subscriber_path, method: 'get'
+
+
   %div{:class => 'col2'}
-    %h3 Follow Me On:  
+    %h3 Follow Me On:
     %div
       = link_to "http://www.flickr.com/photos/56587968@N08/", :class => 'footer_social', :target => '_blank' do
         %div

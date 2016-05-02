@@ -74,5 +74,7 @@ div {
 #dump{
   background: yellow;
   margin: 1em;
-  padding: 2em; 
+  padding: 2em;
 }
+
+.actions {margin: 1en auto;}

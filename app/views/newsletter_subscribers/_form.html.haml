@@ -8,6 +8,7 @@
 
   .field
     = f.label :email
-    = f.text_field :email
+    = f.text_field :email, style: 'margin-bottom: 1em;'
   .actions
-    = f.submit 'Save'
+    != recaptcha_tags
+    = f.submit (@newsletter_subscriber.new_record? ? 'Subscribe' : 'Submit'), style: 'margin-top: 1em;'
