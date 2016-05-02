@@ -25,3 +25,31 @@
   margin: 1em;
   padding: 2em;
 }
+
+.scroller {
+  div {
+    text-align: center;
+    font-size: 30px;
+  }
+}
+
+.slick-prev::before, .slick-next::before {
+    color: #000;
+  }
+
+.slick-next {
+    right: -5px;
+  }
+
+.slick-prev {
+    left: -5px;
+    z-index:500;
+  }
+
+.slick-slide img {
+    display: inline-block;
+  }
+
+.home-page-slideshow{margin: auto 10%;}
+
+p.caption{margin:0.5em auto 0.5em auto;}
