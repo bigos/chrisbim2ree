@@ -1,6 +1,6 @@
 %div{id: 'slideshow-wrapper'}
   %div{style: " margin auto 25%;"}
-    %div{ :class => 'home-page-slideshow scroller', id: 'image_container', :data => {:slidecount => @slides.count}}
+    %div{ :class => 'home-page-slideshow scroller', :data => {:slidecount => @slides.count}}
       - position = 1
       - @slides.each do |slide|
         %div{:id=>"slide_#{position}"}
