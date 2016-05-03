@@ -6,7 +6,7 @@
         %div{:id=>"slide_#{position}"}
           - position += 1
           = image_tag slide.photo.url
-          %p.caption
+          %p.caption.align-center
             = slide.caption
 
 %div.horizontal_separator{:style=>"clear:both;"}

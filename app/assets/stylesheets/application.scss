@@ -54,5 +54,11 @@
 
 .home-page-slideshow{margin: auto 10%;}
 
-p.caption{margin:0.5em auto 0.5em auto;
+p.caption{
           font-size: 16px;}
+
+a.teaser{
+  p{
+    img{display:none;}
+  }
+}

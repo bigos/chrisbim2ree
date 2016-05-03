@@ -1,5 +1,5 @@
-%div
-  %div
+.row
+  %div{class: 'small-4 columns'}
     %h3 Mailing List
     %p
       If you would like to join our mailing list
@@ -9,31 +9,31 @@
       please click subscribe button:
       %br
       %br
-      = button_to 'Subscribe',  new_newsletter_subscriber_path, method: 'get'
+      = button_to 'Subscribe',  new_newsletter_subscriber_path, method: 'get', class: 'button'
 
 
-  %div
-    %div{class: 'row'}
-      %h3 Follow Me On:
-      %div
-        = link_to "http://www.flickr.com/photos/56587968@N08/", :class => 'footer_social', :target => '_blank' do
-          %div
-            Flickr
-          = image_tag 'flickr.png'
-      %div
-        = link_to "https://www.facebook.com/chris.beard.14811", :class => 'footer_social', :target => '_blank' do
-          %div
-            Facebook
-          = image_tag 'facebook.png'
-      %div
-        = link_to "https://twitter.com/CB1mages", :class => 'footer_social', :target => '_blank' do
-          %div
-            Twitter
-          = image_tag 'twitter.png'
 
-  %div
+  %div{class: 'small-4 columns'}
+    %h3 Follow Me On:
+    %div
+      = link_to "http://www.flickr.com/photos/56587968@N08/", :class => 'footer_social', :target => '_blank' do
+        %div
+          Flickr
+        = image_tag 'flickr.png'
+    %div
+      = link_to "https://www.facebook.com/chris.beard.14811", :class => 'footer_social', :target => '_blank' do
+        %div
+          Facebook
+        = image_tag 'facebook.png'
+    %div
+      = link_to "https://twitter.com/CB1mages", :class => 'footer_social', :target => '_blank' do
+        %div
+          Twitter
+        = image_tag 'twitter.png'
+
+  %div{class: 'small-4 columns'}
     %h3 Latest Blog
-    %ul
+    %ul{style: 'height: 250px; overflow-y: scroll;'}
       - posts = Post.where(:published => true).order("created_at DESC").limit( 3)
       - posts.each do |post|
         %li
