@@ -93,4 +93,8 @@ group :development do
   gem 'capistrano3-puma'
 end
 
+group :assets do
+  gem 'modernizr-rails'
+end
+
 gem 'puma'
