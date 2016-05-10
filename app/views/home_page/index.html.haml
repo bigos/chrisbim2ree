@@ -14,18 +14,18 @@
   != editable_content("news")
 
 %div.horizontal_separator{:style=>"clear:both; margin-bottom: 11px; margin-top: 32px;"}
-.row
-  %div{class: 'small-4 columns'}
+%div
+  %div
     #grid_wrapper
       %h3 Latest Images
       #flickr-div
 
 
-  %div{class: 'small-4 columns'}
+  %div
     %h3 Featured Image
     != editable_content("featured_image")
 
-  %div{class: 'small-4 columns'}
+  %div
     %h3 Twitter Feed
     %div
       = render :partial => 'layouts/twitter_widget'

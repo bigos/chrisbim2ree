@@ -69,11 +69,8 @@
         %p
           current session:
           = current_user_session.inspect
-        - if current_user
-          = link_to 'Logout', logout_path
-        - else
-          = link_to 'Login', login_path
         %p= params.inspect
+
         %p
           shopping cart:
           = @shopping_cart.inspect

@@ -1,5 +1,5 @@
-.row
-  %div{class: 'small-4 columns'}
+%div
+  %div
     %h3 Mailing List
     %p
       If you would like to join our mailing list
@@ -13,7 +13,7 @@
 
 
 
-  %div{class: 'small-4 columns'}
+  %div
     %h3 Follow Me On:
     %div
       = link_to "http://www.flickr.com/photos/56587968@N08/", :class => 'footer_social', :target => '_blank' do
@@ -31,7 +31,7 @@
           Twitter
         = image_tag 'twitter.png'
 
-  %div{class: 'small-4 columns'}
+  %div
     %h3 Latest Blog
     %ul{style: 'height: 250px; overflow-y: scroll;'}
       - posts = Post.where(:published => true).order("created_at DESC").limit( 3)
