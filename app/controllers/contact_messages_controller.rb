@@ -17,7 +17,9 @@ class ContactMessagesController < InheritedResources::Base
       respond_to do |format|
         if @contact_message.save
           @contact_message.deliver_contact_message!
+          logger.info "contact message was sent out"
           format.html { redirect_to @contact_message, :notice => 'Contact message was successfully created.' }
+          logger.info "redirected"
           format.json { render :json => @contact_message, :status => :created, :location => @contact_message }
         else
           format.html { render :action => "new" }
