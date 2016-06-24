@@ -16,9 +16,9 @@ class ContactMessagesController < InheritedResources::Base
     if verify_recaptcha(:model => @contact_message, :message => "Oh! It's error with reCAPTCHA!")
       respond_to do |format|
         if @contact_message.save
-          @contact_message.deliver_contact_message!
           logger.info "contact message was sent out"
           format.html { redirect_to @contact_message, :notice => 'Contact message was successfully created.' }
+          @contact_message.deliver_contact_message!
           logger.info "redirected"
           format.json { render :json => @contact_message, :status => :created, :location => @contact_message }
         else
