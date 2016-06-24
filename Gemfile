@@ -48,7 +48,7 @@ gem "ckeditor"
 gem 'rails3-jquery-autocomplete'
 
 gem 'jquery_datepicker'
-gem "jquery-fileupload-rails"
+gem "jquery-fileupload-rails", '0.4.0'
 
 gem "recaptcha", ">= 0.3.7", :require => "recaptcha/rails"
 
