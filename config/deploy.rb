@@ -9,8 +9,8 @@ set :repo_url, "git@github.com:bigos/chrisbim2ree.git"
 
 # change the IP to production server
 
-# server '192.168.0.8', roles: [:web, :app, :db], primary: true
-server 'chrisbeard-images.com', roles: [:web, :app, :db], primary: true
+ server '192.168.0.8', roles: [:web, :app, :db], primary: true
+# server 'chrisbeard-images.com', roles: [:web, :app, :db], primary: true
 
 set :user, "#{secrets['deployment']['user'] }"
 set :puma_threads,    [4, 16]
