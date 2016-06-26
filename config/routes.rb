@@ -1,6 +1,9 @@
 Chrisbim2ree::Application.routes.draw do
 
   resources :pdfs
+
+
+  resources :pdfs
   match "/unsubscribe/:unsubscribe_token" => "newsletter_unsubscribe#unsubscribe"
 
   get "newsletter_unsubscribe/unsubscribe"

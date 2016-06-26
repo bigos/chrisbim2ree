@@ -1,0 +1,21 @@
+- if @pdfs.length > 0
+
+  %h1 Listing pdfs
+
+  %table
+    %tr
+      %th Title
+      %th Url
+      %th
+      %th
+      %th
+
+    - @pdfs.each do |pdf|
+      %tr
+        %td= pdf.title
+        %td{style: 'color: red;'}= pdf.pdf_attachment.url
+        %td= link_to 'Show', pdf.pdf_attachment.url
+        %td= link_to 'Destroy', pdf, :method => :delete, :data => { :confirm => 'Are you sure?' }
+  %br
+
+= link_to 'New Pdf', new_pdf_path

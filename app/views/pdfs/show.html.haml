@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @pdf.title
+%p
+  %b Pdf attachment:
+  = @pdf.pdf_attachment
+
+= link_to 'Edit', edit_pdf_path(@pdf)
+\|
+= link_to 'Back', pdfs_path
