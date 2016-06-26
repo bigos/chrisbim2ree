@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20160626214209) do
+ActiveRecord::Schema.define(:version => 20160428161542) do
 
   create_table "cart_items", :force => true do |t|
     t.integer  "shopping_cart_id"
@@ -76,16 +76,6 @@ ActiveRecord::Schema.define(:version => 20160626214209) do
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "pdfs", :force => true do |t|
-    t.string   "title"
-    t.string   "attachment_file_name"
-    t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
-    t.datetime "attachment_updated_at"
-    t.datetime "created_at",              :null => false
-    t.datetime "updated_at",              :null => false
   end
 
   create_table "photos", :force => true do |t|
