@@ -6,6 +6,8 @@ class Pdf < ActiveRecord::Base
 
   before_save :set_title
 
+  validates_attachment_presence :pdf_attachment
+
   def set_title
     self.title = self.pdf_attachment_file_name
   end
